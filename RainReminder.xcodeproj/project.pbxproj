@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB15652A0B5FF123038AF9BE /* Pods_RainReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */; };
+		C49579601CB507CB0051D7C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495795F1CB507CB0051D7C8 /* AppDelegate.swift */; };
+		C49579621CB507CC0051D7C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579611CB507CC0051D7C8 /* ViewController.swift */; };
+		C49579651CB507CC0051D7C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49579631CB507CC0051D7C8 /* Main.storyboard */; };
+		C49579671CB507CC0051D7C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49579661CB507CC0051D7C8 /* Assets.xcassets */; };
+		C495796A1CB507CC0051D7C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49579681CB507CC0051D7C8 /* LaunchScreen.storyboard */; };
+		C49579741CB50B980051D7C8 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579731CB50B980051D7C8 /* HudView.swift */; };
+		C49579761CB50BC00051D7C8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579751CB50BC00051D7C8 /* Functions.swift */; };
+		C49579781CB51B020051D7C8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579771CB51B010051D7C8 /* SwiftyJSON.swift */; };
+		C497902E1CB6474C00EDF314 /* GeoInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497902D1CB6474C00EDF314 /* GeoInfoModel.swift */; };
+		C49790311CB65A8D00EDF314 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */; };
+		C49790371CB6A91700EDF314 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790361CB6A91700EDF314 /* ServerResult.swift */; };
+		C49790391CB6A93B00EDF314 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790381CB6A93B00EDF314 /* WeatherResult.swift */; };
+		C497903B1CB6A94700EDF314 /* DailyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497903A1CB6A94700EDF314 /* DailyResult.swift */; };
+		C49790411CB7487700EDF314 /* ParserXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790401CB7487700EDF314 /* ParserXML.swift */; };
+		C49790441CB748B400EDF314 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790421CB748B400EDF314 /* City.swift */; };
+		C49790451CB748B400EDF314 /* Citys.xml in Resources */ = {isa = PBXBuildFile; fileRef = C49790431CB748B400EDF314 /* Citys.xml */; };
+		C49790471CB7509900EDF314 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790461CB7509900EDF314 /* DataModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1852D5D2D5323C289BC4FCBC /* Pods-RainReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-RainReminder/Pods-RainReminder.release.xcconfig"; sourceTree = "<group>"; };
+		83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RainReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EDD3B849D8133BE06080AC4 /* Pods-RainReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RainReminder/Pods-RainReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		C495795C1CB507CB0051D7C8 /* RainReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C495795F1CB507CB0051D7C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C49579611CB507CC0051D7C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C49579641CB507CC0051D7C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C49579661CB507CC0051D7C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C49579691CB507CC0051D7C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C495796B1CB507CC0051D7C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C49579731CB50B980051D7C8 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		C49579751CB50BC00051D7C8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		C49579771CB51B010051D7C8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		C497902D1CB6474C00EDF314 /* GeoInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoInfoModel.swift; sourceTree = "<group>"; };
+		C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
+		C49790361CB6A91700EDF314 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
+		C49790381CB6A93B00EDF314 /* WeatherResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherResult.swift; sourceTree = "<group>"; };
+		C497903A1CB6A94700EDF314 /* DailyResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyResult.swift; sourceTree = "<group>"; };
+		C49790401CB7487700EDF314 /* ParserXML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserXML.swift; sourceTree = "<group>"; };
+		C49790421CB748B400EDF314 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		C49790431CB748B400EDF314 /* Citys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Citys.xml; sourceTree = "<group>"; };
+		C49790461CB7509900EDF314 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C49579591CB507CB0051D7C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB15652A0B5FF123038AF9BE /* Pods_RainReminder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A89A2FCE75742ED8A17B15C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EDD3B849D8133BE06080AC4 /* Pods-RainReminder.debug.xcconfig */,
+				1852D5D2D5323C289BC4FCBC /* Pods-RainReminder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		12FC7F4AC66240BA58825461 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C49579531CB507CB0051D7C8 = {
+			isa = PBXGroup;
+			children = (
+				C495795E1CB507CB0051D7C8 /* RainReminder */,
+				C495795D1CB507CB0051D7C8 /* Products */,
+				0A89A2FCE75742ED8A17B15C /* Pods */,
+				12FC7F4AC66240BA58825461 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C495795D1CB507CB0051D7C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C495795C1CB507CB0051D7C8 /* RainReminder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C495795E1CB507CB0051D7C8 /* RainReminder */ = {
+			isa = PBXGroup;
+			children = (
+				C49790331CB6A60D00EDF314 /* Services */,
+				C497902F1CB6475000EDF314 /* Model */,
+				C49579711CB50B3A0051D7C8 /* Tools */,
+				C49579611CB507CC0051D7C8 /* ViewController.swift */,
+				C49579631CB507CC0051D7C8 /* Main.storyboard */,
+				C49579721CB50B470051D7C8 /* Support Files */,
+			);
+			path = RainReminder;
+			sourceTree = "<group>";
+		};
+		C49579711CB50B3A0051D7C8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				C49579771CB51B010051D7C8 /* SwiftyJSON.swift */,
+				C49579731CB50B980051D7C8 /* HudView.swift */,
+				C49579751CB50BC00051D7C8 /* Functions.swift */,
+				C49790401CB7487700EDF314 /* ParserXML.swift */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		C49579721CB50B470051D7C8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C49790431CB748B400EDF314 /* Citys.xml */,
+				C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */,
+				C49579661CB507CC0051D7C8 /* Assets.xcassets */,
+				C495796B1CB507CC0051D7C8 /* Info.plist */,
+				C49579681CB507CC0051D7C8 /* LaunchScreen.storyboard */,
+				C495795F1CB507CB0051D7C8 /* AppDelegate.swift */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		C497902F1CB6475000EDF314 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C497902D1CB6474C00EDF314 /* GeoInfoModel.swift */,
+				C49790381CB6A93B00EDF314 /* WeatherResult.swift */,
+				C497903A1CB6A94700EDF314 /* DailyResult.swift */,
+				C49790421CB748B400EDF314 /* City.swift */,
+				C49790461CB7509900EDF314 /* DataModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C49790331CB6A60D00EDF314 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C49790361CB6A91700EDF314 /* ServerResult.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C495795B1CB507CB0051D7C8 /* RainReminder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C495796E1CB507CC0051D7C8 /* Build configuration list for PBXNativeTarget "RainReminder" */;
+			buildPhases = (
+				446C27A556E0402E781EF271 /* Check Pods Manifest.lock */,
+				C49579581CB507CB0051D7C8 /* Sources */,
+				C49579591CB507CB0051D7C8 /* Frameworks */,
+				C495795A1CB507CB0051D7C8 /* Resources */,
+				FDE1C0E0B4F8FFEC38982169 /* Embed Pods Frameworks */,
+				09DD3141BB8320B0079E5A74 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RainReminder;
+			productName = RainReminder;
+			productReference = C495795C1CB507CB0051D7C8 /* RainReminder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C49579541CB507CB0051D7C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = ChaosTong;
+				TargetAttributes = {
+					C495795B1CB507CB0051D7C8 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9Y74876TPS;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = C49579571CB507CB0051D7C8 /* Build configuration list for PBXProject "RainReminder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C49579531CB507CB0051D7C8;
+			productRefGroup = C495795D1CB507CB0051D7C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C495795B1CB507CB0051D7C8 /* RainReminder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C495795A1CB507CB0051D7C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C495796A1CB507CC0051D7C8 /* LaunchScreen.storyboard in Resources */,
+				C49579671CB507CC0051D7C8 /* Assets.xcassets in Resources */,
+				C49790451CB748B400EDF314 /* Citys.xml in Resources */,
+				C49790311CB65A8D00EDF314 /* weathericons-regular-webfont.ttf in Resources */,
+				C49579651CB507CC0051D7C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09DD3141BB8320B0079E5A74 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RainReminder/Pods-RainReminder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		446C27A556E0402E781EF271 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FDE1C0E0B4F8FFEC38982169 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RainReminder/Pods-RainReminder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C49579581CB507CB0051D7C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C49579621CB507CC0051D7C8 /* ViewController.swift in Sources */,
+				C497903B1CB6A94700EDF314 /* DailyResult.swift in Sources */,
+				C497902E1CB6474C00EDF314 /* GeoInfoModel.swift in Sources */,
+				C49579601CB507CB0051D7C8 /* AppDelegate.swift in Sources */,
+				C49579741CB50B980051D7C8 /* HudView.swift in Sources */,
+				C49790471CB7509900EDF314 /* DataModel.swift in Sources */,
+				C49579781CB51B020051D7C8 /* SwiftyJSON.swift in Sources */,
+				C49790391CB6A93B00EDF314 /* WeatherResult.swift in Sources */,
+				C49790441CB748B400EDF314 /* City.swift in Sources */,
+				C49790371CB6A91700EDF314 /* ServerResult.swift in Sources */,
+				C49790411CB7487700EDF314 /* ParserXML.swift in Sources */,
+				C49579761CB50BC00051D7C8 /* Functions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C49579631CB507CC0051D7C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C49579641CB507CC0051D7C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C49579681CB507CC0051D7C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C49579691CB507CC0051D7C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C495796C1CB507CC0051D7C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C495796D1CB507CC0051D7C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C495796F1CB507CC0051D7C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EDD3B849D8133BE06080AC4 /* Pods-RainReminder.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = RainReminder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		C49579701CB507CC0051D7C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1852D5D2D5323C289BC4FCBC /* Pods-RainReminder.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = RainReminder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C49579571CB507CB0051D7C8 /* Build configuration list for PBXProject "RainReminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C495796C1CB507CC0051D7C8 /* Debug */,
+				C495796D1CB507CC0051D7C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C495796E1CB507CC0051D7C8 /* Build configuration list for PBXNativeTarget "RainReminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C495796F1CB507CC0051D7C8 /* Debug */,
+				C49579701CB507CC0051D7C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C49579541CB507CB0051D7C8 /* Project object */;
+}
