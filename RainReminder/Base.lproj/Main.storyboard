@@ -8,6 +8,7 @@
             <string>DINNextLTPro-Light</string>
             <string>DINNextLTPro-Light</string>
             <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
         </mutableArray>
         <mutableArray key="weathericons-regular-webfont.ttf">
             <string>WeatherIcons-Regular</string>
@@ -178,21 +179,11 @@
                                                     </mask>
                                                 </variation>
                                             </progressView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jg-I8-yhl">
-                                                <rect key="frame" x="253" y="28" width="95" height="95"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="95" id="6ca-Ki-42S"/>
-                                                    <constraint firstAttribute="width" constant="95" id="Ad9-fC-n28"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="65"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S2-bM-KKQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="天气状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S2-bM-KKQ">
                                                 <rect key="frame" x="264" y="131" width="72" height="22"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="46F-32-bNx"/>
-                                                    <constraint firstAttribute="width" constant="72" id="d6t-d3-aqm"/>
+                                                    <constraint firstAttribute="width" constant="72" id="Eps-XC-LQd"/>
+                                                    <constraint firstAttribute="height" constant="22" id="pFZ-ff-mub"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.36862745099999999" green="0.35686274509999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -206,21 +197,19 @@
                                             <constraint firstItem="La3-S5-Tr8" firstAttribute="top" relation="lessThanOrEqual" secondItem="UqK-h8-VMe" secondAttribute="bottom" constant="100" id="4oB-Lx-3ij"/>
                                             <constraint firstItem="QsJ-Jx-uEJ" firstAttribute="top" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="123.5" id="7C5-6k-Vri"/>
                                             <constraint firstAttribute="bottom" secondItem="eoa-zG-zyX" secondAttribute="bottom" constant="20" id="7t4-vh-pgN"/>
-                                            <constraint firstItem="7S2-bM-KKQ" firstAttribute="top" secondItem="6Jg-I8-yhl" secondAttribute="bottom" constant="8" id="8Yb-Pm-1U8"/>
                                             <constraint firstItem="UqK-h8-VMe" firstAttribute="top" secondItem="QsJ-Jx-uEJ" secondAttribute="bottom" id="BQw-Zp-VmN"/>
                                             <constraint firstItem="UqK-h8-VMe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="20" id="EY9-UH-wSE"/>
                                             <constraint firstItem="La3-S5-Tr8" firstAttribute="top" relation="lessThanOrEqual" secondItem="UqK-h8-VMe" secondAttribute="bottom" priority="750" constant="105" id="LsY-Zd-rKV"/>
-                                            <constraint firstItem="7S2-bM-KKQ" firstAttribute="centerX" secondItem="0qO-nL-tMT" secondAttribute="centerX" id="QFw-LK-GuY"/>
                                             <constraint firstItem="eA9-DQ-Ukw" firstAttribute="centerX" secondItem="0qO-nL-tMT" secondAttribute="centerX" id="Yq0-Qj-AYe"/>
                                             <constraint firstAttribute="bottom" secondItem="La3-S5-Tr8" secondAttribute="bottom" constant="25" id="bcM-Us-JaB"/>
                                             <constraint firstItem="La3-S5-Tr8" firstAttribute="leading" secondItem="0qO-nL-tMT" secondAttribute="leading" constant="30" id="c77-gD-hn1"/>
-                                            <constraint firstItem="6Jg-I8-yhl" firstAttribute="centerX" secondItem="0qO-nL-tMT" secondAttribute="centerX" id="c8O-Sg-Bww"/>
                                             <constraint firstItem="UqK-h8-VMe" firstAttribute="centerX" secondItem="0qO-nL-tMT" secondAttribute="centerX" id="fwP-zB-sNY"/>
                                             <constraint firstAttribute="trailing" secondItem="eoa-zG-zyX" secondAttribute="trailing" constant="14" id="gAG-AM-4Bg"/>
-                                            <constraint firstItem="6Jg-I8-yhl" firstAttribute="top" secondItem="0qO-nL-tMT" secondAttribute="top" constant="28" id="mYQ-RM-L8z"/>
                                             <constraint firstAttribute="height" constant="457" id="neL-c9-N2V"/>
                                             <constraint firstItem="QsJ-Jx-uEJ" firstAttribute="top" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="92" id="r1E-c3-v9L"/>
                                             <constraint firstItem="eA9-DQ-Ukw" firstAttribute="top" secondItem="UqK-h8-VMe" secondAttribute="bottom" constant="10" id="scu-Uj-iY5"/>
+                                            <constraint firstItem="QsJ-Jx-uEJ" firstAttribute="top" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="112" id="spy-nG-59K"/>
+                                            <constraint firstItem="7S2-bM-KKQ" firstAttribute="centerX" secondItem="0qO-nL-tMT" secondAttribute="centerX" id="t4W-dx-HZo"/>
                                             <constraint firstItem="QsJ-Jx-uEJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="20" id="tsY-aX-dDU"/>
                                             <constraint firstItem="UqK-h8-VMe" firstAttribute="top" secondItem="QsJ-Jx-uEJ" secondAttribute="bottom" id="uSx-fd-rqd"/>
                                             <constraint firstItem="eA9-DQ-Ukw" firstAttribute="top" secondItem="UqK-h8-VMe" secondAttribute="bottom" constant="10" id="vir-F4-bAs"/>
@@ -236,11 +225,42 @@
                                             </mask>
                                         </variation>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uh7-pT-yrG">
+                                        <rect key="frame" x="195" y="22" width="210" height="95"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS2-5C-wNk">
+                                                <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="95" id="0Sh-0n-aYj"/>
+                                                    <constraint firstAttribute="height" constant="95" id="Vbo-qA-rvq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="48"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jg-I8-yhl">
+                                                <rect key="frame" x="115" y="0.0" width="95" height="95"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="95" id="6ca-Ki-42S"/>
+                                                    <constraint firstAttribute="width" constant="95" id="Ad9-fC-n28"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="65"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="95" id="SQG-Gf-3BA"/>
+                                            <constraint firstAttribute="width" constant="210" id="bpY-1h-YJU"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Uh7-pT-yrG" firstAttribute="centerX" secondItem="deU-SM-AxY" secondAttribute="centerX" id="9eo-PJ-q0Y"/>
                                     <constraint firstItem="0qO-nL-tMT" firstAttribute="leading" secondItem="deU-SM-AxY" secondAttribute="leading" id="AeG-kl-QHW"/>
                                     <constraint firstAttribute="bottom" secondItem="0qO-nL-tMT" secondAttribute="bottom" id="HpS-fY-ykH"/>
                                     <constraint firstItem="0qO-nL-tMT" firstAttribute="top" secondItem="deU-SM-AxY" secondAttribute="top" id="ecK-xR-loL"/>
+                                    <constraint firstItem="0qO-nL-tMT" firstAttribute="top" secondItem="Uh7-pT-yrG" secondAttribute="bottom" constant="-117" id="o6y-b2-XKh"/>
                                     <constraint firstItem="0qO-nL-tMT" firstAttribute="centerX" secondItem="deU-SM-AxY" secondAttribute="centerX" id="pTk-pr-8nh"/>
                                     <constraint firstAttribute="trailing" secondItem="0qO-nL-tMT" secondAttribute="trailing" id="wPC-MR-5XR"/>
                                 </constraints>
@@ -260,6 +280,7 @@
                     <connections>
                         <outlet property="TmpMax" destination="QsJ-Jx-uEJ" id="HzM-U2-Rgk"/>
                         <outlet property="TmpMin" destination="eA9-DQ-Ukw" id="maf-Sl-LR1"/>
+                        <outlet property="TmpNow" destination="bS2-5C-wNk" id="qKV-jm-t6B"/>
                         <outlet property="buttonOfCity" destination="lif-mi-Jms" id="Cwn-aW-mNV"/>
                         <outlet property="labelOfDate" destination="r5m-kX-9Vd" id="Iy3-th-AEq"/>
                         <outlet property="labelOfIcon" destination="6Jg-I8-yhl" id="MlE-lC-bkA"/>

@@ -21,6 +21,7 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
     @IBOutlet weak var TmpMin: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var rainPercentLabel: UILabel!
+    @IBOutlet weak var TmpNow: UILabel!
 
     @IBOutlet weak var mainView: UIView!
     
@@ -110,21 +111,30 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
                 let status = data["status"].stringValue
                 
                 if status == "ok" {
+                    let tmpsNow = data["now"]["tmp"].stringValue
+                    let nowCode = data["now"]["cond"]["code"].intValue
+                    let nowTxt = data["now"]["cond"]["txt"].stringValue
                     let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
                     let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
                     let pop = data["daily_forecast"][0]["pop"].stringValue
-                    let conds = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
+                    let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
+                    let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
+                    let txt_n = data["daily_forecast"][0]["cond"]["txt_n"].stringValue
+                    let code_n = data["daily_forecast"][0]["cond"]["code_n"].stringValue
+                    let weatherIcon = WeatherIcon(condition: nowCode, iconString: "day").iconText
+                    
                     
                     self.TmpMax.text = tmpsMax + "˚"
                     self.TmpMin.text = tmpsMin + "˚"
-                    self.labelOfState.text = conds
-                    
+                    self.TmpNow.text = tmpsNow + "˚"
+                    self.labelOfState.text = nowTxt
+                    self.labelOfIcon.text = weatherIcon
+                                        
                     if let FloatRain = Float(pop){
                         let value = FloatRain / 100
                         self.progress.setProgress(value, animated: true)
                     }
                     self.rainPercentLabel.text = pop + "%"
-                    print(conds)
                     self.mainView.reloadInputViews()
                     
                     hudView.hide(true)
@@ -163,12 +173,12 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
         
         if authStatus == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
-            return
+            
         }
         
         if authStatus == .Denied || authStatus == .Restricted {
             showLocationServicesDeniedAlert()
-            return
+            
         }
         
         if updatingLocation {

@@ -10,6 +10,8 @@
 		AB15652A0B5FF123038AF9BE /* Pods_RainReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */; };
 		C44BF21F1CBA3D990064376E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BF21E1CBA3D990064376E /* MBProgressHUD.m */; };
 		C44BF2221CBA3E4D0064376E /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BF2211CBA3E4D0064376E /* iToast.m */; };
+		C46DC2EE1CBA95C8007B39A8 /* DINNextLTPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */; };
+		C46DC2F01CBA96C9007B39A8 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC2EF1CBA96C9007B39A8 /* WeatherIcon.swift */; };
 		C49579601CB507CB0051D7C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495795F1CB507CB0051D7C8 /* AppDelegate.swift */; };
 		C49579621CB507CC0051D7C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579611CB507CC0051D7C8 /* ViewController.swift */; };
 		C49579651CB507CC0051D7C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49579631CB507CC0051D7C8 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		C44BF21E1CBA3D990064376E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C44BF2201CBA3E4D0064376E /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		C44BF2211CBA3E4D0064376E /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
+		C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Light.otf"; sourceTree = "<group>"; };
+		C46DC2EF1CBA96C9007B39A8 /* WeatherIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
 		C495795C1CB507CB0051D7C8 /* RainReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C495795F1CB507CB0051D7C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C49579611CB507CC0051D7C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		C49579721CB50B470051D7C8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */,
 				C49790431CB748B400EDF314 /* Citys.xml */,
 				C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */,
 				C49579661CB507CC0051D7C8 /* Assets.xcassets */,
@@ -148,6 +153,7 @@
 		C497902F1CB6475000EDF314 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C46DC2EF1CBA96C9007B39A8 /* WeatherIcon.swift */,
 				C497902D1CB6474C00EDF314 /* GeoInfoModel.swift */,
 				C49790381CB6A93B00EDF314 /* WeatherResult.swift */,
 				C497903A1CB6A94700EDF314 /* DailyResult.swift */,
@@ -216,6 +222,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = C49579531CB507CB0051D7C8;
 			productRefGroup = C495795D1CB507CB0051D7C8 /* Products */;
@@ -233,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C495796A1CB507CC0051D7C8 /* LaunchScreen.storyboard in Resources */,
+				C46DC2EE1CBA95C8007B39A8 /* DINNextLTPro-Light.otf in Resources */,
 				C49579671CB507CC0051D7C8 /* Assets.xcassets in Resources */,
 				C49790451CB748B400EDF314 /* Citys.xml in Resources */,
 				C49790311CB65A8D00EDF314 /* weathericons-regular-webfont.ttf in Resources */,
@@ -296,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44BF2221CBA3E4D0064376E /* iToast.m in Sources */,
+				C46DC2F01CBA96C9007B39A8 /* WeatherIcon.swift in Sources */,
 				C49579621CB507CC0051D7C8 /* ViewController.swift in Sources */,
 				C497903B1CB6A94700EDF314 /* DailyResult.swift in Sources */,
 				C497902E1CB6474C00EDF314 /* GeoInfoModel.swift in Sources */,
