@@ -60,199 +60,90 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
     var date = ""
     var convertedDate = ""
     
+    //MARK: - key sth.
     let BaseURL = "https://api.heweather.com/x3/weather"
     let key = "04f6c6c770d94aee8f738758a829d826"
     
+    //MARK: - life cycle
+    
     override func viewDidLoad() {
-        
-        let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-        print(DocumentsDirectory)
-        
         super.viewDidLoad()
+        initUI()
+        returnDir()
         
-        if !(appCloud().cityName.isEmpty) {
-            cityName = appCloud().cityName
-            buttonOfCity.setTitle("\(cityName)", forState: .Normal)
-            perforRequest()
-            print("之前存储过地理位置信息，更新label of city")
-        } else {
-            initLocation()
-            perforRequest()
-            print("之前没有存储过地理位置信息，获取地理位置信息")
+        if !cityName.isEmpty {
+            performNetWork()
         }
         
-        dateUpdate()
-        if !state.isEmpty {
-            
-            labelOfState.text = state
-            TmpMax.text = max
-            TmpMin.text = min
-            mainView.reloadInputViews()
-        }
-        
-        weatherResult.loadData()
-        if !(weatherResult.dayRain.isEmpty) {
-            if let FloatRain = Float(weatherResult.dayRain) {
-                let value = FloatRain / 100
-                progress.setProgress(value, animated: true)
-            }
-            rainPercentLabel.text = "\(weatherResult.dayRain)%"
-            mainView.reloadInputViews()
-        }
-        
-        labelOfIcon.text = "\u{f002}"
-        perforRequest()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
+//    override func prefersStatusBarHidden() -> Bool {
+//        // make the status bar hide
+//        return true
+//    }
+    
+    //MARK: - return the sandbox url
+    func returnDir() {
+        //Print the directory
+        let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        print(DocumentsDirectory)
     }
     
     //MARK: - request network data
-    func perforRequest(){
-        //载入天气数据
-        dataModel.loadData()
+    func performNetWork() {
         
-//        if !(dataModel.currentCity.isEmpty) {
-//            print("之前存储过天气信息")
-//            
-//            date = dataModel.dailyResults[0].dailyDate
-//            
-//            state = dataModel.dailyResults[0].dailyState
-//            max = dataModel.dailyResults[0].dailyTmpMax
-//            min = dataModel.dailyResults[0].dailyTmpMin
-//            mainView.reloadInputViews()
-//            
-//            let currentdate = NSDate()
-//            let dateFormatter = NSDateFormatter()
-//            dateFormatter.dateFormat = "YYYY-MM-dd"
-//            convertedDate = dateFormatter.stringFromDate(currentdate)
-//    
-//        }
-//        if date == convertedDate && cityName == geoInfo?.city {
-//            labelOfState.text = state
-//            TmpMax.text = max
-//            TmpMin.text = min
-//            mainView.reloadInputViews()
-//            print("同一天不更新数据")
-//        }
+        let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hudView.mode = MBProgressHUDModeIndeterminate
+        hudView.labelText = "Loading"
         
-            
-            let params:[String: AnyObject] = ["city": self.city,"key": self.key]
-            
-            Alamofire.request(.GET, self.BaseURL, parameters: params).responseJSON {
-                response in
-                switch response.result {
-                case .Success(let dat):
-                    let json = JSON(dat)
-                    let data = json["HeWeather data service 3.0"][0]
+        let params:[String: AnyObject] = ["city": cityName,"key": key]
+        Alamofire.request(.GET, BaseURL, parameters: params).responseJSON {
+            response in
+            switch response.result {
+            case .Success(let dat):
+                let json = JSON(dat)
+                let data = json["HeWeather data service 3.0"][0]
+                let status = data["status"].stringValue
+                
+                if status == "ok" {
+                    let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
+                    let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
+                    let pop = data["daily_forecast"][0]["pop"].stringValue
+                    let conds = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
                     
-                    let status = data["status"].stringValue
-                    let city = data["basic"]["city"].stringValue
+                    self.TmpMax.text = tmpsMax + "˚"
+                    self.TmpMin.text = tmpsMin + "˚"
+                    self.labelOfState.text = conds
                     
-                        
-                        if let ServiceState = data["status"].string{
-                            self.weatherResult.ServiceStatus = ServiceState
-                        }
-                        
-                        if let jsonCity = data["basic"]["city"].string{
-                            self.weatherResult.city = jsonCity
-                        }
-                        if let state = data["now"]["cond"]["txt"].string{
-                            self.weatherResult.state = state
-                        }
-                        if let stateCode = data["now"]["cond"]["code"].string{
-                            self.weatherResult.stateCode = Int(stateCode)!
-                        }
-                        
-                        let dailyArrays = data["daily_forecast"]
-                        let dailyDayTmp = dailyArrays[0]["tmp"]
-                        if let pop = dailyArrays[0]["pop"].string{
-                            self.weatherResult.dayRain = pop
-                        }
-                        if let dayTemMax = dailyDayTmp["max"].string{
-                            self.weatherResult.dayTemMax = dayTemMax + "˚"
-                            self.TmpMax.text = dayTemMax + "˚"
-                        }
-                        if let dayTmpMin = dailyDayTmp["min"].string{
-                            self.weatherResult.dayTmpMin = dayTmpMin + "˚"
-                            self.TmpMin.text = dayTmpMin + "˚"
-                        }
-                        
-                        if !(self.weatherResult.dayRain.isEmpty) {
-                            if let FloatRain = Float(self.weatherResult.dayRain) {
-                                let value = FloatRain / 100
-                                self.progress.setProgress(value, animated: true)
-                            }
-                            self.rainPercentLabel.text = "\(self.weatherResult.dayRain)%"
-                            self.mainView.reloadInputViews()
-                        }
-                        
-                        for (_,subJson):(String, JSON) in data["daily_forecast"]{
-                            let dailyResult = DailyResult()
-                            
-                            if let dates = subJson["date"].string{
-                                dailyResult.dailyDate = dates
-                            }
-                            if let pop = subJson["pop"].string{
-                                dailyResult.dailyPop = Int(pop)!
-                            }
-                            if let tmpsMax = subJson["tmp"]["max"].string{
-                                dailyResult.dailyTmpMax = tmpsMax + "˚"
-                            }
-                            if let tmpsMin = subJson["tmp"]["min"].string{
-                                dailyResult.dailyTmpMin = tmpsMin + "˚"
-                            }
-                            if let conds = subJson["cond"]["txt_d"].string{
-                                dailyResult.dailyState = conds
-                            }
-                            if let stateCode = subJson["cond"]["code_d"].string{
-                                dailyResult.dailyStateCode = Int(stateCode)!
-                            }
-                            self.weatherResult.dailyResults.append(dailyResult)
-                        if status == "ok" {
-                            self.updateUI()
-                            print("already")
-                        }
-                        
-                        self.buttonOfCity.setTitle("\(self.weatherResult.city)", forState: .Normal)
-                        
-                        let dataModel = DataModel()
-                        
-                        dataModel.dailyResults = self.weatherResult.dailyResults
-                        dataModel.currentCity = city
-                        
-                        self.state = dataModel.dailyResults[0].dailyState
-                        self.max = dataModel.dailyResults[0].dailyTmpMax
-                        self.min = dataModel.dailyResults[0].dailyTmpMin
-                        self.hum = Float(self.weatherResult.dayRain)!
-                        self.city = dataModel.currentCity
-                        
-                        dataModel.saveData()
-                        self.weatherResult.saveData()
-                        self.updateUI()
-                        self.mainView.reloadInputViews()
+                    if let FloatRain = Float(pop){
+                        let value = FloatRain / 100
+                        self.progress.setProgress(value, animated: true)
                     }
-                    self.updateUI()
+                    self.rainPercentLabel.text = pop + "%"
+                    print(conds)
+                    self.mainView.reloadInputViews()
                     
-                case .Failure(let error):
-                    print(error)
+                    hudView.hide(true)
+                    iToast.makeText("更新成功").show()
+                } else {
+                    hudView.hide(true)
+                    iToast.makeText("获取失败").show()
                 }
+                
+            case .Failure(let error):
+                hudView.hide(true)
+                iToast.makeText("获取失败").show()
+                print("*** network error is \(error)")
             }
-            self.updateUI()
-            print("更新天气信息")
-        
-        
-        
+        }
     }
     
     
-    //MARK: - make city name 规范
+    //MARK: - make city name 规范 '上海市' to '上海'
     func rangeOfCities(placemark: String) -> String{
         if !placemark.isEmpty {
             parserXML = ParserXML()
@@ -291,30 +182,19 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
         }
     }
     
-    func updateUI() {
+    func initUI() {
         
-        labelOfIcon.text = "\u{f002}"
-        
-        if !state.isEmpty {
-            
-            labelOfState.text = state
-            TmpMax.text = max
-            TmpMin.text = min
-            buttonOfCity.setTitle("\(city)", forState: .Normal)
-            //print("hum is \(hum)")
-            
-            if let FloatRain = Float(weatherResult.dayRain) {
-                let value = FloatRain / 100
-                progress.setProgress(value, animated: true)
-            }
-            rainPercentLabel.text = "\(weatherResult.dayRain)%"
-            mainView.reloadInputViews()
+        cityName = appCloud().cityName
+        dateUpdate()
+        if !cityName.isEmpty {
+            buttonOfCity.setTitle(cityName, forState: .Normal)
         } else {
-            
+            initLocation()
+            buttonOfCity.setTitle(cityName, forState: .Normal)
         }
-        
     }
     
+    //MARK: - update the week day
     func dateUpdate() {
         let currentdate = NSDate()
         let dateFormatter = NSDateFormatter()
@@ -327,8 +207,9 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
     //MARK: - location button func
     @IBAction func locationButton(sender: UIButton) {
         initLocation()
-        perforRequest()
-        updateUI()
+//        if !cityName.isEmpty {
+//            performNetWork()
+//        }
     }
     
     
@@ -350,6 +231,7 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
         alert.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.Default,handler: nil))
         presentViewController(alert, animated: true, completion: nil)
     }
+    
     //MARK: CLLocationManager Method
     func startLocationManager() {
         if CLLocationManager.locationServicesEnabled() {
@@ -368,16 +250,13 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
             }
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
-            
-            if !city.isEmpty {
-                buttonOfCity.setTitle("\(city)", forState: .Normal)
-                print("获取地理位置信息，更新label")
-            } else {
-                print("没有获取到地理位置信息，无法更新label")
+            updatingLocation = false
+            print("*** stopLocationManager")
+            if ((geoInfo?.city.isEmpty) != nil) {
+                cityName = geoInfo!.city
+                initUI()
             }
             
-            updatingLocation = false
-            print("i stopped")
         }
     }
     
@@ -391,6 +270,7 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let newLocation = locations.last!
         print("didUpdateLocations\(newLocation)")
         
@@ -439,7 +319,10 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
                         if self.placemark?.ISOcountryCode != nil {self.country_code = (self.placemark?.ISOcountryCode)!}
                         if self.placemark?.administrativeArea != nil {self.province = (self.placemark?.administrativeArea)!}
                         if self.placemark?.locality != nil {
-                            self.city = self.rangeOfCities(self.placemark!.locality!)}
+                            self.city = self.rangeOfCities(self.placemark!.locality!)
+                            self.appCloud().cityName = self.city
+                            self.cityName = self.city
+                        }
                         if self.placemark?.subLocality != nil {self.district = (self.placemark?.subLocality)!}
                         if self.placemark?.thoroughfare != nil {self.street = (self.placemark?.thoroughfare)!}
                         if self.placemark?.name != nil {self.name = (self.placemark?.name)!}
@@ -449,6 +332,14 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
                         
                         geoInfo = GeoinfoModel(country: self.country, country_code: self.country_code, province: self.province, city: self.city, district: self.district, street: self.street, name: self.name)
                         GeoinfoModel.encode(geoInfo!)
+                        
+                        if !self.cityName.isEmpty {
+                            self.performNetWork()
+                        }
+                        
+                        self.buttonOfCity.setTitle(self.cityName, forState: .Normal)
+                        
+                        print("*** the only thing i need is \(geoInfo?.city)")
                         //print("my country is \(self.country),the province maybe is \(self.province),the district is \(self.district), the street is \(self.street),the name is \(self.name)")
                     } else {
                         self.placemark = nil
