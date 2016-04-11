@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Alamofire
 
-class ViewController: UIViewController ,CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegateFlowLayout,CityListViewControllerDelegate {
 
     //MARK: - IBOutlets
     @IBOutlet weak var buttonOfCity: UIButton!
@@ -23,7 +23,9 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
     @IBOutlet weak var rainPercentLabel: UILabel!
     @IBOutlet weak var TmpNow: UILabel!
 
+    @IBOutlet weak var collectionView: WeekWeatherCollectionView!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     //MARK: - Properties
     let locationManager = CLLocationManager()
@@ -82,6 +84,10 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        //performNetWork()
+    }
+    
 //    override func prefersStatusBarHidden() -> Bool {
 //        // make the status bar hide
 //        return true
@@ -117,13 +123,63 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
                     let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
                     let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
                     let pop = data["daily_forecast"][0]["pop"].stringValue
-                    let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
-                    let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
-                    let txt_n = data["daily_forecast"][0]["cond"]["txt_n"].stringValue
-                    let code_n = data["daily_forecast"][0]["cond"]["code_n"].stringValue
+                    //let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
+                    //let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
+                    //let txt_n = data["daily_forecast"][0]["cond"]["txt_n"].stringValue
+                    //let code_n = data["daily_forecast"][0]["cond"]["code_n"].stringValue
+                    
+                    if let ServiceState = data["status"].string{
+                        self.weatherResult.ServiceStatus = ServiceState
+                    }
+                    
+                    if let jsonCity = data["basic"]["city"].string{
+                        self.weatherResult.city = jsonCity
+                    }
+                    if let state = data["now"]["cond"]["txt"].string{
+                        self.weatherResult.state = state
+                    }
+                    if let stateCode = data["now"]["cond"]["code"].string{
+                        self.weatherResult.stateCode = Int(stateCode)!
+                    }
+                    
+                    let dailyArrays = data["daily_forecast"]
+                    let dailyDayTmp = dailyArrays[0]["tmp"]
+                    if let pop = dailyArrays[0]["pop"].string{
+                        self.weatherResult.dayRain = pop
+                    }
+                    if let dayTemMax = dailyDayTmp["max"].string{
+                        self.weatherResult.dayTemMax = dayTemMax + "˚"
+                    }
+                    if let dayTmpMin = dailyDayTmp["min"].string{
+                        self.weatherResult.dayTmpMin = dayTmpMin + "˚"
+                    }
+                    
+                    for (_,subJson):(String, JSON) in data["daily_forecast"]{
+                        let dailyResult = DailyResult()
+                        
+                        if let dates = subJson["date"].string{
+                            dailyResult.dailyDate = dates
+                        }
+                        if let pop = subJson["pop"].string{
+                            dailyResult.dailyPop = Int(pop)!
+                        }
+                        if let tmpsMax = subJson["tmp"]["max"].string{
+                            dailyResult.dailyTmpMax = tmpsMax + "˚"
+                        }
+                        if let tmpsMin = subJson["tmp"]["min"].string{
+                            dailyResult.dailyTmpMin = tmpsMin + "˚"
+                        }
+                        if let conds = subJson["cond"]["txt_d"].string{
+                            dailyResult.dailyState = conds
+                        }
+                        if let stateCode = subJson["cond"]["code_d"].string{
+                            dailyResult.dailyStateCode = Int(stateCode)!
+                        }
+                        self.weatherResult.dailyResults.append(dailyResult)
+                        self.collectionView .reloadData()
+                    }
+                    
                     let weatherIcon = WeatherIcon(condition: nowCode, iconString: "day").iconText
-                    
-                    
                     self.TmpMax.text = tmpsMax + "˚"
                     self.TmpMin.text = tmpsMin + "˚"
                     self.TmpNow.text = tmpsNow + "˚"
@@ -136,6 +192,8 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
                     }
                     self.rainPercentLabel.text = pop + "%"
                     self.mainView.reloadInputViews()
+                    
+                    
                     
                     hudView.hide(true)
                     iToast.makeText("更新成功").show()
@@ -217,6 +275,7 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
     //MARK: - location button func
     @IBAction func locationButton(sender: UIButton) {
         initLocation()
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
 //        if !cityName.isEmpty {
 //            performNetWork()
 //        }
@@ -369,9 +428,78 @@ class ViewController: UIViewController ,CLLocationManagerDelegate {
         }
     }
     
-    //获取总代理
+    //MARK: - 获取总代理
     func appCloud() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
+    
+    //MARK: -
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "CityList"{
+            let controller = segue.destinationViewController as! CityListViewController
+            controller.delegate = self
+            controller.cities = dataModel.cities
+        }
+    }
+    
+    func cityListViewControolerDidSelectCity(controller: CityListViewController, didSelectCity city: City) {
+        
+        //减少网络请求次数,相同城市只有动画效果不重新加载网络请求
+        if cityName == city.cityCN{
+            
+            let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            hudView.mode = MBProgressHUDModeIndeterminate
+            hudView.labelText = "Loading"
+            sleep(1)
+            hudView.hide(true)
+            iToast.makeText("加载成功").show()
+            buttonOfCity.setTitle(cityName, forState: .Normal)
+            
+        }else{
+            cityName = city.cityCN
+            performNetWork()
+            buttonOfCity.setTitle(cityName, forState: .Normal)
+        }
+        dataModel.appendCity(city)
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func cityListViewControllerDeleteCity(controller: CityListViewController, currentCities cities: [City]){
+        dataModel.cities = cities
+    }
+    
+    func cityListViewControllerCancel(controller: CityListViewController) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        self.performSelector("performNetWork", withObject: nil, afterDelay: 0.3)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
+extension ViewController: UIScrollViewDelegate{
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offSety = scrollView.contentOffset.y
+        if decelerate{
+            if offSety <= -100{
+                performSegueWithIdentifier("CityList", sender: scrollView)
+            }
+        }
+    }
+}
+
+extension ViewController: UICollectionViewDataSource{
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return weatherResult.dailyResults.count
+    
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WeekWeatherCell", forIndexPath: indexPath) as! WeekWeatherCell
+        
+        let dailyResult = weatherResult.dailyResults[indexPath.item]
+        
+        cell.configureForDailyResult(dailyResult)
+        
+        return cell
+    }
+}
