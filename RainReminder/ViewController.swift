@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 import Alamofire
+import Social
+import UIKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegateFlowLayout,CityListViewControllerDelegate {
 
@@ -17,12 +19,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     @IBOutlet weak var labelOfDate: UILabel!
     @IBOutlet weak var labelOfIcon: UILabel!
     @IBOutlet weak var labelOfState: UILabel!
+    @IBOutlet weak var butttonOfshare: UIButton!
     @IBOutlet weak var TmpMax: UILabel!
     @IBOutlet weak var TmpMin: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var rainPercentLabel: UILabel!
     @IBOutlet weak var TmpNow: UILabel!
 
+    @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var collectionView: WeekWeatherCollectionView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -41,11 +46,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     var dateString: String!
     var parserXML:ParserXML!
     var dataModel: DataModel!
+    var firstView: UIView!
     
     var weatherResult = WeatherResult()
     var serviceResult = ServerResult()
     
-    var serial:dispatch_queue_t = dispatch_queue_create("serialQueue1", DISPATCH_QUEUE_SERIAL)
+    //var serial:dispatch_queue_t = dispatch_queue_create("serialQueue1", DISPATCH_QUEUE_SERIAL)
     
     var country = ""
     var country_code = ""
@@ -62,6 +68,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     var hum: Float?
     var date = ""
     var convertedDate = ""
+    var suggestion = ""
+    var raintxt = ""
+    var pop = ""
     
     //MARK: - key sth.
     let BaseURL = "https://api.heweather.com/x3/weather"
@@ -73,11 +82,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         super.viewDidLoad()
         initUI()
         returnDir()
+        dataModel = appCloud().dataModel
+//        if !cityName.isEmpty {
+//            performNetWork()
+//        }
         
-        if !cityName.isEmpty {
-            performNetWork()
+        if appCloud().firstDisplay {
+            launchView()
+            appCloud().firstDisplay = false
         }
         
+        self.handleFirstTime()
+        
+        headerView.backgroundColor = UIColor.clearColor()
+        mainView.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.clearColor()
+        dateView.backgroundColor = UIColor.clearColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +108,76 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         //performNetWork()
     }
     
+    //MARK: - Launch View
+    
+    func launchView() {
+        //生成第二启动页背景
+        let launchView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        launchView.alpha = 0.99
+        
+        //得到第二启动页控制器并设置为子控制器
+        let launchViewController = storyboard?.instantiateViewControllerWithIdentifier("launchViewController")
+        self.addChildViewController(launchViewController!)
+        
+        //将第二启动页放到背景上
+        launchView.addSubview(launchViewController!.view)
+        
+        //展示第二启动页并隐藏NavbarTitleView
+        self.view.addSubview(launchView)
+        //        self.navigationController?.
+        //        self.tabBarController?.tabBar.
+        self.navigationController?.navigationBarHidden = true
+        self.tabBarController?.tabBar.hidden = true
+        UINavigationBar.appearance().barTintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        
+        UINavigationBar.appearance().tintColor = UIColor(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 0.6)
+        
+        
+        UIView.animateWithDuration(2.5, animations: { () -> Void in
+            launchView.alpha = 1
+            }) { (finished) -> Void in
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    launchView.alpha = 0
+                    self.navigationController?.navigationBarHidden = false
+                    self.tabBarController?.tabBar.hidden = false
+                })
+        }
+    }
+    
+    //MARK: - firstView
+    
+    //设置第一次启动引导
+    func handleFirstTime(){
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let firstTime = userDefaults.boolForKey("FirstTime")
+        if firstTime{
+            showViewWithFirstTime()
+            userDefaults.setBool(false, forKey: "FirstTime")
+            userDefaults.synchronize()
+        }else{
+            initLocation()
+        }
+    }
+    
+    func showViewWithFirstTime(){
+        firstView = FirstView()
+        firstView.frame = view.bounds
+        let button = UIButton()
+        button.bounds.size = CGSize(width: 100, height: 50)
+        button.center = view.center
+        button.setTitle("开始吧!", forState: .Normal)
+        button.backgroundColor = view.tintColor
+        firstView.addSubview(button)
+        button.addTarget(self, action: #selector(ViewController.touchBegin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        view.addSubview(firstView)
+    }
+    
+    func touchBegin(sender: UIButton){
+        firstView.removeFromSuperview()
+        handleFirstTime()
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+    }
 //    override func prefersStatusBarHidden() -> Bool {
 //        // make the status bar hide
 //        return true
@@ -112,6 +202,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             response in
             switch response.result {
             case .Success(let dat):
+                
+                self.weatherResult = WeatherResult()
+                
                 let json = JSON(dat)
                 let data = json["HeWeather data service 3.0"][0]
                 let status = data["status"].stringValue
@@ -123,6 +216,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                     let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
                     let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
                     let pop = data["daily_forecast"][0]["pop"].stringValue
+                    let suggest_brf = data["suggestion"]["comf"]["brf"].stringValue
+                    let suggest_txt = data["suggestion"]["comf"]["txt"].stringValue
+                    let raintxt = data["suggestion"]["cw"]["txt"].stringValue
+                    self.suggestion = suggest_brf + ",\n" + suggest_txt
+                    self.raintxt = raintxt
+                    self.pop = pop
                     //let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
                     //let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
                     //let txt_n = data["daily_forecast"][0]["cond"]["txt_n"].stringValue
@@ -193,7 +292,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                     self.rainPercentLabel.text = pop + "%"
                     self.mainView.reloadInputViews()
                     
-                    
+                    self.dataModel.dailyResults = self.weatherResult.dailyResults
+                    self.dataModel.saveData()
                     
                     hudView.hide(true)
                     iToast.makeText("更新成功").show()
@@ -280,7 +380,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
 //            performNetWork()
 //        }
     }
-    
+    //MARK: - share to Weibo
+    @IBAction func shareToWeibo(sender: UIButton) {
+        let vc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
+
+        if !cityName.isEmpty && (weatherResult.dailyResults.count > 0) {
+        
+        let pretext = "\(cityName),\(weatherResult.dailyResults[0].dailyDate) \(weatherResult.dailyResults[0].dailyState) \n"
+        var lasttext = ""
+        if raintxt.rangeOfString("雨") != nil {
+            lasttext = "\n今天下雨几率为 \(pop)% 记得带伞☂ #RainReminder#"
+        }
+        
+        if !suggestion.isEmpty {
+            vc.setInitialText(pretext + suggestion + lasttext)
+        } else {
+            vc.setInitialText("快来使用Rain Reminder吧#RainReminder#")
+        }
+        let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+        let windowImage = window.capture()
+        vc.addImage(windowImage)
+        vc.addURL(NSURL(string: "https://www.easyulife.com"))
+        presentViewController(vc, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "暂时无法分享", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(action)
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     
     //MARK: - show Alert
     func showLocationServicesDeniedAlert() {
@@ -308,7 +436,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
-            timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: Selector("didTimeOut"), userInfo: nil, repeats: false)
+            timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(ViewController.didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
@@ -391,6 +519,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                             self.city = self.rangeOfCities(self.placemark!.locality!)
                             self.appCloud().cityName = self.city
                             self.cityName = self.city
+                            self.dataModel.currentCity = self.cityName
+                            self.dataModel.saveData()
                         }
                         if self.placemark?.subLocality != nil {self.district = (self.placemark?.subLocality)!}
                         if self.placemark?.thoroughfare != nil {self.street = (self.placemark?.thoroughfare)!}
@@ -404,11 +534,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                         
                         if !self.cityName.isEmpty {
                             self.performNetWork()
+                            //print("*** in gps")
                         }
                         
                         self.buttonOfCity.setTitle(self.cityName, forState: .Normal)
                         
-                        print("*** the only thing i need is \(geoInfo?.city)")
+                        //print("*** the only thing i need is \(geoInfo?.city)")
                         //print("my country is \(self.country),the province maybe is \(self.province),the district is \(self.district), the street is \(self.street),the name is \(self.name)")
                     } else {
                         self.placemark = nil
@@ -421,7 +552,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             }
         } else if distance < 100.0 {
             let timeInterval = newLocation.timestamp.timeIntervalSinceDate(location!.timestamp)
-            if timeInterval > 10 {
+            if timeInterval > 6 {
                 print("*** Force done!")
                 stopLocationManager()
             }
@@ -458,6 +589,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         }else{
             cityName = city.cityCN
             performNetWork()
+            //print("*** return from citylist view")
             buttonOfCity.setTitle(cityName, forState: .Normal)
         }
         dataModel.appendCity(city)
@@ -471,7 +603,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     
     func cityListViewControllerCancel(controller: CityListViewController) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        self.performSelector("performNetWork", withObject: nil, afterDelay: 0.3)
+        //self.performSelector("performNetWork", withObject: nil, afterDelay: 0.3)
+        //print("*** in cityListViewController")
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
@@ -502,4 +635,18 @@ extension ViewController: UICollectionViewDataSource{
         
         return cell
     }
+}
+
+public extension UIWindow {
+    
+    func capture() -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, UIScreen.mainScreen().scale)
+        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
 }

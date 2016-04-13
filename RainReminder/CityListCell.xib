@@ -14,21 +14,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWK-4X-cSE">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWK-4X-cSE">
                         <rect key="frame" x="48" y="11" width="252" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="mCC-1d-DJd">
                         <rect key="frame" x="23" y="12" width="20" height="20"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Fcw-1J-I8K"/>
                             <constraint firstAttribute="width" constant="20" id="wcd-Tz-Dzx"/>
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.12549020350000001" green="0.12549020350000001" blue="0.16078431900000001" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="mCC-1d-DJd" secondAttribute="bottom" constant="2" id="08O-oM-5Zw"/>
                     <constraint firstItem="vWK-4X-cSE" firstAttribute="centerY" secondItem="7Mh-ye-mJl" secondAttribute="centerY" id="4zK-8O-3fe"/>
@@ -41,8 +42,8 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="lmS-Mv-Bhp"/>
                         <exclude reference="08O-oM-5Zw"/>
+                        <exclude reference="lmS-Mv-Bhp"/>
                         <exclude reference="CWz-5k-XPY"/>
                     </mask>
                 </variation>

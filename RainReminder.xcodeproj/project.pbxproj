@@ -10,6 +10,13 @@
 		AB15652A0B5FF123038AF9BE /* Pods_RainReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */; };
 		C44BF21F1CBA3D990064376E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BF21E1CBA3D990064376E /* MBProgressHUD.m */; };
 		C44BF2221CBA3E4D0064376E /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BF2211CBA3E4D0064376E /* iToast.m */; };
+		C45FF88E1CBBA85F00D43701 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF88D1CBBA85F00D43701 /* FirstView.swift */; };
+		C45FF8901CBBA89000D43701 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45FF88F1CBBA89000D43701 /* FirstView.xib */; };
+		C45FF8941CBCCB3000D43701 /* SupportTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF8931CBCCB3000D43701 /* SupportTableTableViewController.swift */; };
+		C45FF8961CBCD05D00D43701 /* InteractiveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF8951CBCD05D00D43701 /* InteractiveAnimation.swift */; };
+		C45FF8981CBCD80900D43701 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF8971CBCD80900D43701 /* TimePickerViewController.swift */; };
+		C45FF89A1CBCD8B100D43701 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF8991CBCD8B100D43701 /* DimmingPresentationController.swift */; };
+		C45FF89C1CBCD8DB00D43701 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF89B1CBCD8DB00D43701 /* GradientView.swift */; };
 		C46DC2EE1CBA95C8007B39A8 /* DINNextLTPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */; };
 		C46DC2F01CBA96C9007B39A8 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC2EF1CBA96C9007B39A8 /* WeatherIcon.swift */; };
 		C46DC2F41CBB3C38007B39A8 /* CityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */; };
@@ -18,6 +25,7 @@
 		C46DC2FE1CBB856F007B39A8 /* WeekWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC2FC1CBB856F007B39A8 /* WeekWeatherCell.swift */; };
 		C46DC2FF1CBB856F007B39A8 /* WeekWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46DC2FD1CBB856F007B39A8 /* WeekWeatherCell.xib */; };
 		C46DC3011CBB87E9007B39A8 /* WeekWeatherCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC3001CBB87E9007B39A8 /* WeekWeatherCollectionView.swift */; };
+		C46DC3031CBB9D58007B39A8 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC3021CBB9D58007B39A8 /* LaunchViewController.swift */; };
 		C49579601CB507CB0051D7C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495795F1CB507CB0051D7C8 /* AppDelegate.swift */; };
 		C49579621CB507CC0051D7C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579611CB507CC0051D7C8 /* ViewController.swift */; };
 		C49579651CB507CC0051D7C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49579631CB507CC0051D7C8 /* Main.storyboard */; };
@@ -45,6 +53,14 @@
 		C44BF21E1CBA3D990064376E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C44BF2201CBA3E4D0064376E /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		C44BF2211CBA3E4D0064376E /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
+		C45FF88D1CBBA85F00D43701 /* FirstView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		C45FF88F1CBBA89000D43701 /* FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
+		C45FF8921CBCAA1600D43701 /* chinese.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chinese.ttf; sourceTree = "<group>"; };
+		C45FF8931CBCCB3000D43701 /* SupportTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportTableTableViewController.swift; sourceTree = "<group>"; };
+		C45FF8951CBCD05D00D43701 /* InteractiveAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveAnimation.swift; sourceTree = "<group>"; };
+		C45FF8971CBCD80900D43701 /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
+		C45FF8991CBCD8B100D43701 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
+		C45FF89B1CBCD8DB00D43701 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Light.otf"; sourceTree = "<group>"; };
 		C46DC2EF1CBA96C9007B39A8 /* WeatherIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
 		C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListCell.swift; sourceTree = "<group>"; };
@@ -53,6 +69,7 @@
 		C46DC2FC1CBB856F007B39A8 /* WeekWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekWeatherCell.swift; sourceTree = "<group>"; };
 		C46DC2FD1CBB856F007B39A8 /* WeekWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeekWeatherCell.xib; sourceTree = "<group>"; };
 		C46DC3001CBB87E9007B39A8 /* WeekWeatherCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekWeatherCollectionView.swift; sourceTree = "<group>"; };
+		C46DC3021CBB9D58007B39A8 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		C495795C1CB507CB0051D7C8 /* RainReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C495795F1CB507CB0051D7C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C49579611CB507CC0051D7C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,12 +124,17 @@
 			children = (
 				C49579611CB507CC0051D7C8 /* ViewController.swift */,
 				C49579631CB507CC0051D7C8 /* Main.storyboard */,
+				C45FF88D1CBBA85F00D43701 /* FirstView.swift */,
+				C45FF88F1CBBA89000D43701 /* FirstView.xib */,
 				C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */,
 				C46DC2F31CBB3C38007B39A8 /* CityListCell.xib */,
 				C46DC2F61CBB3D39007B39A8 /* CityListViewController.swift */,
 				C46DC2FC1CBB856F007B39A8 /* WeekWeatherCell.swift */,
 				C46DC2FD1CBB856F007B39A8 /* WeekWeatherCell.xib */,
 				C46DC3001CBB87E9007B39A8 /* WeekWeatherCollectionView.swift */,
+				C46DC3021CBB9D58007B39A8 /* LaunchViewController.swift */,
+				C45FF8971CBCD80900D43701 /* TimePickerViewController.swift */,
+				C45FF8931CBCCB3000D43701 /* SupportTableTableViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -150,6 +172,9 @@
 		C49579711CB50B3A0051D7C8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C45FF89B1CBCD8DB00D43701 /* GradientView.swift */,
+				C45FF8991CBCD8B100D43701 /* DimmingPresentationController.swift */,
+				C45FF8951CBCD05D00D43701 /* InteractiveAnimation.swift */,
 				C44BF2201CBA3E4D0064376E /* iToast.h */,
 				C44BF2211CBA3E4D0064376E /* iToast.m */,
 				C44BF21D1CBA3D990064376E /* MBProgressHUD.h */,
@@ -165,6 +190,7 @@
 		C49579721CB50B470051D7C8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				C45FF8921CBCAA1600D43701 /* chinese.ttf */,
 				C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */,
 				C49790431CB748B400EDF314 /* Citys.xml */,
 				C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */,
@@ -269,6 +295,7 @@
 				C495796A1CB507CC0051D7C8 /* LaunchScreen.storyboard in Resources */,
 				C46DC2EE1CBA95C8007B39A8 /* DINNextLTPro-Light.otf in Resources */,
 				C49579671CB507CC0051D7C8 /* Assets.xcassets in Resources */,
+				C45FF8901CBBA89000D43701 /* FirstView.xib in Resources */,
 				C46DC2F51CBB3C38007B39A8 /* CityListCell.xib in Resources */,
 				C49790451CB748B400EDF314 /* Citys.xml in Resources */,
 				C49790311CB65A8D00EDF314 /* weathericons-regular-webfont.ttf in Resources */,
@@ -332,21 +359,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44BF2221CBA3E4D0064376E /* iToast.m in Sources */,
+				C45FF88E1CBBA85F00D43701 /* FirstView.swift in Sources */,
 				C46DC3011CBB87E9007B39A8 /* WeekWeatherCollectionView.swift in Sources */,
+				C45FF8961CBCD05D00D43701 /* InteractiveAnimation.swift in Sources */,
 				C46DC2F01CBA96C9007B39A8 /* WeatherIcon.swift in Sources */,
+				C45FF8981CBCD80900D43701 /* TimePickerViewController.swift in Sources */,
 				C49579621CB507CC0051D7C8 /* ViewController.swift in Sources */,
+				C45FF8941CBCCB3000D43701 /* SupportTableTableViewController.swift in Sources */,
 				C497903B1CB6A94700EDF314 /* DailyResult.swift in Sources */,
 				C46DC2FE1CBB856F007B39A8 /* WeekWeatherCell.swift in Sources */,
 				C497902E1CB6474C00EDF314 /* GeoInfoModel.swift in Sources */,
+				C45FF89A1CBCD8B100D43701 /* DimmingPresentationController.swift in Sources */,
 				C46DC2F41CBB3C38007B39A8 /* CityListCell.swift in Sources */,
 				C49579601CB507CB0051D7C8 /* AppDelegate.swift in Sources */,
 				C49790471CB7509900EDF314 /* DataModel.swift in Sources */,
 				C49579781CB51B020051D7C8 /* SwiftyJSON.swift in Sources */,
 				C49790391CB6A93B00EDF314 /* WeatherResult.swift in Sources */,
 				C44BF21F1CBA3D990064376E /* MBProgressHUD.m in Sources */,
+				C46DC3031CBB9D58007B39A8 /* LaunchViewController.swift in Sources */,
 				C46DC2F71CBB3D39007B39A8 /* CityListViewController.swift in Sources */,
 				C49790441CB748B400EDF314 /* City.swift in Sources */,
 				C49790371CB6A91700EDF314 /* ServerResult.swift in Sources */,
+				C45FF89C1CBCD8DB00D43701 /* GradientView.swift in Sources */,
 				C49790411CB7487700EDF314 /* ParserXML.swift in Sources */,
 				C49579761CB50BC00051D7C8 /* Functions.swift in Sources */,
 			);
@@ -391,7 +425,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -410,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -435,7 +469,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -448,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -461,14 +495,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "33f608ec-3ee9-42ee-89d8-145bb9b9ac02";
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -480,14 +514,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "33f608ec-3ee9-42ee-89d8-145bb9b9ac02";
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 			};
 			name = Release;

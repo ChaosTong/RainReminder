@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="DINNextLTPro-Light.otf">
@@ -43,19 +43,19 @@
                             <constraint firstAttribute="width" constant="90" id="gSC-hQ-z60"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iu-T8-haR">
                         <rect key="frame" x="101" y="168" width="41" height="17"/>
                         <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="17"/>
-                        <color key="textColor" red="0.38431372549999998" green="0.79607843140000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-70˚/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="822-zC-bsc">
                         <rect key="frame" x="36" y="144" width="39" height="17"/>
                         <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="17"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-14˚" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBD-G5-JQ4">
@@ -65,26 +65,27 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-Qn-ku5">
-                        <rect key="frame" x="50" y="52" width="50" height="50"/>
+                        <rect key="frame" x="43" y="52" width="64" height="64"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="58r-WJ-yGQ"/>
-                            <constraint firstAttribute="width" constant="50" id="Anq-mU-RZx"/>
+                            <constraint firstAttribute="height" constant="64" id="NMV-J8-HTC"/>
+                            <constraint firstAttribute="width" constant="64" id="Xwf-Hg-llU"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="40"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="0iu-T8-haR" firstAttribute="leading" secondItem="fad-9K-8RM" secondAttribute="trailing" id="2Sl-41-cg2"/>
-                <constraint firstItem="kAP-Qn-ku5" firstAttribute="centerX" secondItem="JCO-Ss-Sqd" secondAttribute="centerX" id="2dY-OX-bgL"/>
                 <constraint firstItem="hx0-sH-Y0S" firstAttribute="leading" secondItem="fad-9K-8RM" secondAttribute="leading" id="2vL-1A-iyi"/>
                 <constraint firstItem="mBD-G5-JQ4" firstAttribute="top" secondItem="822-zC-bsc" secondAttribute="top" id="5it-vG-0gz"/>
                 <constraint firstItem="mBD-G5-JQ4" firstAttribute="leading" secondItem="822-zC-bsc" secondAttribute="trailing" constant="4" id="Iio-69-wRS"/>
                 <constraint firstItem="0iu-T8-haR" firstAttribute="leading" secondItem="fad-9K-8RM" secondAttribute="trailing" id="JTC-4j-w4i"/>
+                <constraint firstItem="kAP-Qn-ku5" firstAttribute="top" secondItem="D9i-Uu-1CS" secondAttribute="bottom" constant="25" id="MeZ-Jp-c4Z"/>
                 <constraint firstAttribute="trailing" secondItem="0iu-T8-haR" secondAttribute="trailing" constant="8" id="NRs-eZ-QV0"/>
                 <constraint firstItem="D9i-Uu-1CS" firstAttribute="top" secondItem="JCO-Ss-Sqd" secondAttribute="top" constant="10" id="THo-n7-Vj9"/>
                 <constraint firstItem="fad-9K-8RM" firstAttribute="leading" secondItem="JCO-Ss-Sqd" secondAttribute="leading" constant="8" id="UF0-wG-D2V"/>
@@ -97,7 +98,7 @@
                 <constraint firstItem="0iu-T8-haR" firstAttribute="leading" secondItem="fad-9K-8RM" secondAttribute="trailing" constant="2" id="fxZ-bU-ZaC"/>
                 <constraint firstItem="fad-9K-8RM" firstAttribute="top" secondItem="hx0-sH-Y0S" secondAttribute="bottom" constant="8" id="gB9-p2-zTU"/>
                 <constraint firstItem="822-zC-bsc" firstAttribute="leading" secondItem="hx0-sH-Y0S" secondAttribute="trailing" constant="12" id="gVT-34-rSu"/>
-                <constraint firstItem="kAP-Qn-ku5" firstAttribute="top" secondItem="D9i-Uu-1CS" secondAttribute="bottom" constant="25" id="ht1-Qz-NvF"/>
+                <constraint firstItem="kAP-Qn-ku5" firstAttribute="centerX" secondItem="JCO-Ss-Sqd" secondAttribute="centerX" id="jAq-hh-2lA"/>
                 <constraint firstAttribute="bottom" secondItem="0iu-T8-haR" secondAttribute="bottom" constant="15" id="tbN-YV-bSg"/>
                 <constraint firstItem="822-zC-bsc" firstAttribute="centerY" secondItem="hx0-sH-Y0S" secondAttribute="centerY" id="yef-Bj-65k"/>
             </constraints>

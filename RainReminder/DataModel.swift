@@ -42,7 +42,7 @@ class DataModel{
                     
                     let localNotification = UILocalNotification()
                     localNotification.timeZone = NSTimeZone.defaultTimeZone()
-                    localNotification.soundName = "WaterSound.wav"
+                    //localNotification.soundName = "WaterSound.wav"
                     let alertBody = "\(dateString) \(dailyResult.dailyState) 今天下雨几率为 \(pop) 记得带伞☂"
                     localNotification.fireDate = notificationTime
                     localNotification.alertBody = alertBody
@@ -55,7 +55,7 @@ class DataModel{
             let localNotification = UILocalNotification()
             let dueTime = formatter.dateFromString(dataString + dueString)
             localNotification.timeZone = NSTimeZone.defaultTimeZone()
-            localNotification.soundName = "WaterSound.wav"
+            //localNotification.soundName = "WaterSound.wav"
             localNotification.fireDate = dueTime!.dateByAddingTimeInterval(30)
             localNotification.alertBody = "你已经一周没有打开过软件,提醒通知将取消"
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
@@ -121,6 +121,10 @@ class DataModel{
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.registerDefaults(["FirstTime":true])
         userDefaults.registerDefaults(["IsOldData":true])
+        userDefaults.registerDefaults(["Notify":false])
+        
+        userDefaults.setBool(false, forKey: "Notify")
+        userDefaults.synchronize()
         
         let isOldData = userDefaults.boolForKey("IsOldData")
         if isOldData{
