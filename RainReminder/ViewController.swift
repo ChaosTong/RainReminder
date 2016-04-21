@@ -578,13 +578,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         //减少网络请求次数,相同城市只有动画效果不重新加载网络请求
         if cityName == city.cityCN{
             
-            let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-            hudView.mode = MBProgressHUDModeIndeterminate
-            hudView.labelText = "Loading"
-            sleep(1)
-            hudView.hide(true)
-            iToast.makeText("加载成功").show()
+            cityName = city.cityCN
+            performNetWork()
             buttonOfCity.setTitle(cityName, forState: .Normal)
+            
+//            let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+//            hudView.mode = MBProgressHUDModeIndeterminate
+//            hudView.labelText = "Loading"
+//            sleep(1)
+//            hudView.hide(true)
+//            iToast.makeText("加载成功").show()
+//            buttonOfCity.setTitle(cityName, forState: .Normal)
             
         }else{
             cityName = city.cityCN

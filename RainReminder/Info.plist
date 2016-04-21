@@ -2,6 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>HuaTiShouYeSearchIcon</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>搜索</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.easyulife.RainReminder.search</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.easyulife.RainReminder.nowWeather</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>当前位置天气</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>天气信息</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>IconFollowUs</string>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -19,7 +40,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

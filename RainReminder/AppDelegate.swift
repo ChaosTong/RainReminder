@@ -30,7 +30,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 12))
         
-        return true
+        var isLaunchedFromQuickAction = false
+        
+        // Check if it's launched from Quick Action
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+            
+            isLaunchedFromQuickAction = true
+            // Handle the sortcutItem
+            handleQuickAction(shortcutItem)
+        } else {
+            self.window?.backgroundColor = UIColor.blackColor()
+        }
+        
+        // Return false if the app was launched from a shortcut, so performAction... will not be called.
+        return !isLaunchedFromQuickAction
+        
+        //return true
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -50,6 +65,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        
+        completionHandler(handleQuickAction(shortcutItem))
+        
+    }
+    
+    enum Shortcut: String {
+        case nowWeather = "nowWeather"
+        case search = "search"
+    }
+    
+    func handleQuickAction(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        
+        var quickActionHandled = false
+        let type = shortcutItem.type.componentsSeparatedByString(".").last!
+        if let shortcutType = Shortcut.init(rawValue: type) {
+            switch shortcutType {
+            case .nowWeather:
+                self.window?.backgroundColor = UIColor(red: 151.0/255.0, green: 187.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+                quickActionHandled = true
+            case .search:
+                
+                quickActionHandled = true
+            }
+        }
+        
+        return quickActionHandled
+    }
+    
     func applicationWillTerminate(application: UIApplication) {
         saveData()
     }
