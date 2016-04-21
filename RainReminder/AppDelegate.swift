@@ -80,6 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var quickActionHandled = false
         let type = shortcutItem.type.componentsSeparatedByString(".").last!
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var vc = UIViewController()
+        
         if let shortcutType = Shortcut.init(rawValue: type) {
             switch shortcutType {
             case .nowWeather:
@@ -87,10 +90,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 quickActionHandled = true
             case .search:
                 
+                vc = storyboard.instantiateViewControllerWithIdentifier("cityListViewController") as! CityListViewController
                 quickActionHandled = true
             }
         }
-        
+        window!.rootViewController?.presentViewController(vc, animated: true, completion: nil)
         return quickActionHandled
     }
     

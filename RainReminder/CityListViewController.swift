@@ -69,6 +69,11 @@ class CityListViewController: UIViewController {
     }
 }
 
+//MARK: - 获取总代理
+func appCloud() -> AppDelegate {
+    return UIApplication.sharedApplication().delegate as! AppDelegate
+}
+
 extension CityListViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -135,8 +140,10 @@ extension CityListViewController : UITableViewDelegate{
         let offSetY = scrollView.contentOffset.y
         
         if decelerate && offSetY < -110{
+            
             headerView.hidden = true
             delegate?.cityListViewControllerCancel(self)
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     

@@ -886,7 +886,7 @@
         <!--City List View Controller-->
         <scene sceneID="CBQ-zO-Ry4">
             <objects>
-                <viewController id="h7f-Nf-qBQ" customClass="CityListViewController" customModule="RainReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cityListViewController" id="h7f-Nf-qBQ" customClass="CityListViewController" customModule="RainReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Srm-ON-oQd"/>
                         <viewControllerLayoutGuide type="bottom" id="Jfq-Qx-Dzx"/>
@@ -920,7 +920,7 @@
                                     <searchBar contentMode="redraw" placeholder="输入城市中文名(下拉可关闭视图)" translatesAutoresizingMaskIntoConstraints="NO" id="HgX-ms-VTf">
                                         <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.1294117719" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="barTintColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="h7f-Nf-qBQ" id="c3B-gc-Y8r"/>
