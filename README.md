@@ -2,11 +2,10 @@
 
 # RainReminder
 
-===
-
 简洁的天气预报软件。
  
-WebSite: [http:/www.easyulife.com](http:/www.easyulife.com)
+WebSite: [http:/www.easyulife.com](http:/www.easyulife.com)  
+####AppStore: [已上架AppStore](https://itunes.apple.com/us/app/rainreminder/id1102738128?l=zh&ls=1&mt=8)
 
 
 # RainReminder: Project Introctory Guide
