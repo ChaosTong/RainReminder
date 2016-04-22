@@ -169,19 +169,19 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
         case (1,0):
             loadingAnimation(loadingImageView)
             
-            self.hiddenLoadingImageView(self.loadingImageView)
-            self.showAlert("加载商店页面出现错误,请稍后重试")
+            //self.hiddenLoadingImageView(self.loadingImageView)
+            //self.showAlert("加载商店页面出现错误,请稍后重试")
             
             let storeViewController = SKStoreProductViewController()
             storeViewController.delegate = self
             storeViewController.loadProductWithParameters([SKStoreProductParameterITunesItemIdentifier : 1102738128], completionBlock: { (result, error) -> Void in
                 if result{
-//                    self.presentViewController(storeViewController, animated: true, completion: { () -> Void in
-//                        self.hiddenLoadingImageView(self.loadingImageView)
-//                        
-//                    })
-                    self.hiddenLoadingImageView(self.loadingImageView)
-                    self.showAlert("加载商店页面出现错误,请稍后重试")
+                    self.presentViewController(storeViewController, animated: true, completion: { () -> Void in
+                        self.hiddenLoadingImageView(self.loadingImageView)
+                        
+                    })
+                    //self.hiddenLoadingImageView(self.loadingImageView)
+                    //self.showAlert("加载商店页面出现错误,请稍后重试")
                 }else{
                     self.hiddenLoadingImageView(self.loadingImageView)
                     self.showAlert("加载商店页面出现错误,请稍后重试")
@@ -210,8 +210,15 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
                 self.presentViewController(loginedViewController, animated: true) { () -> Void in
                     
                 }
-                
             }
+        case (2,4):
+            let request = WBAuthorizeRequest()
+            request.redirectURI = "https://api.weibo.com/oauth2/default.html"
+            request.scope = "all"
+            request.userInfo = [
+                "SSO_From": "ViewController"
+            ]
+            WeiboSDK.sendRequest(request)
         default:
             return
         }

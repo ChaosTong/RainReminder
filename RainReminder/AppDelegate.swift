@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
 
     var window: UIWindow?
     var dataModel = DataModel()
@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 12))
         
         var isLaunchedFromQuickAction = false
+        
+        //add WeiboSDK info
+        WeiboSDK.enableDebugMode(true)
+        WeiboSDK.registerApp("599717178")
         
         // Check if it's launched from Quick Action
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
@@ -70,6 +74,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(handleQuickAction(shortcutItem))
         
     }
+    
+    //MARK: - Weibo
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return WeiboSDK.handleOpenURL(url, delegate: self)
+    }
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        return WeiboSDK.handleOpenURL(url, delegate: self)
+    }
+    
+    func didReceiveWeiboRequest(request: WBBaseRequest!) {
+    }
+    
+    func didReceiveWeiboResponse(response: WBBaseResponse!) {
+        if let authorizeResponse = response as? WBAuthorizeResponse {
+            if authorizeResponse.statusCode == WeiboSDKResponseStatusCode.Success {
+                print(authorizeResponse.userInfo)
+            }
+        }
+    }
+    
     
     enum Shortcut: String {
         case nowWeather = "nowWeather"

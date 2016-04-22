@@ -424,7 +424,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="PgK-7b-ARc">
-                            <rect key="frame" x="0.0" y="504" width="600" height="180"/>
+                            <rect key="frame" x="0.0" y="550" width="600" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2016 ChaosTong  保留所有权利" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTY-3V-kVr">
@@ -759,6 +759,27 @@
                                             <constraints>
                                                 <constraint firstItem="gAo-FL-xdt" firstAttribute="leading" secondItem="jGU-0v-MYS" secondAttribute="leading" constant="15" id="X4i-6i-Oh8"/>
                                                 <constraint firstItem="gAo-FL-xdt" firstAttribute="centerY" secondItem="jGU-0v-MYS" secondAttribute="centerY" id="twY-o1-CSF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="46" id="1dy-8M-cWL">
+                                        <rect key="frame" x="0.0" y="486" width="600" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1dy-8M-cWL" id="c5d-Ri-4VC">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享至微博" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyC-tW-4Je">
+                                                    <rect key="frame" x="15" y="13" width="80" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kyC-tW-4Je" firstAttribute="leading" secondItem="c5d-Ri-4VC" secondAttribute="leading" constant="15" id="rbg-cz-nrv"/>
+                                                <constraint firstItem="kyC-tW-4Je" firstAttribute="centerY" secondItem="c5d-Ri-4VC" secondAttribute="centerY" id="wsF-s1-VfT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

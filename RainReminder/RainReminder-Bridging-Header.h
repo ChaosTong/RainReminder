@@ -4,3 +4,4 @@
 
 #import "MBProgressHUD.h"
 #import "iToast.h"
+#import "WeiboSDK.h"

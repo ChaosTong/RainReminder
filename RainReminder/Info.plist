@@ -2,27 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>HuaTiShouYeSearchIcon</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>搜索</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.easyulife.RainReminder.search</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.easyulife.RainReminder.nowWeather</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>当前位置天气</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>天气信息</string>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>IconFollowUs</string>
-		</dict>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -36,13 +15,35 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.weibo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb599717178</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.2</string>
+	<string>1.1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <!-- 新浪微博 URL Scheme 白名单-->
+        <string>sinaweibohd</string>
+        <string>sinaweibo</string>
+        <string>sinaweibosso</string>
+        <string>weibosdk</string>
+        <string>weibosdk2.5</string>
+    </array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -55,6 +56,27 @@
 		<string>chinese.ttf</string>
 		<string>weathericons-regular-webfont.ttf</string>
 		<string>DINNextLTPro-Light.otf</string>
+	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>HuaTiShouYeSearchIcon</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>搜索</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.easyulife.RainReminder.search</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>IconFollowUs</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>天气信息</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>当前位置天气</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.easyulife.RainReminder.nowWeather</string>
+		</dict>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
