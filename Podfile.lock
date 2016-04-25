@@ -1,17 +1,20 @@
 PODS:
   - Alamofire (3.2.1)
+  - FloatingActionSheetController (1.1.0)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
   - Alamofire (~> 3.2.0)
+  - FloatingActionSheetController
   - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  FloatingActionSheetController: 229e0cfe96d691b97c91900f9b6d54ece6bf93bd
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-PODFILE CHECKSUM: c26d27920c62986706e1ae5b93dea44c5710edbb
+PODFILE CHECKSUM: 14d09605b6e1217ed605641583efbe995c9e3ea7
 
 COCOAPODS: 1.0.0.beta.3

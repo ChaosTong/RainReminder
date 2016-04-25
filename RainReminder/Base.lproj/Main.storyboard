@@ -776,8 +776,13 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShareSheetSinaWeibo" translatesAutoresizingMaskIntoConstraints="NO" id="2x8-Fm-3KD">
+                                                    <rect key="frame" x="558" y="10" width="26" height="26"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2x8-Fm-3KD" secondAttribute="trailing" constant="8" id="Cql-di-fLH"/>
+                                                <constraint firstItem="2x8-Fm-3KD" firstAttribute="centerY" secondItem="c5d-Ri-4VC" secondAttribute="centerY" id="hxa-lZ-dMI"/>
                                                 <constraint firstItem="kyC-tW-4Je" firstAttribute="leading" secondItem="c5d-Ri-4VC" secondAttribute="leading" constant="15" id="rbg-cz-nrv"/>
                                                 <constraint firstItem="kyC-tW-4Je" firstAttribute="centerY" secondItem="c5d-Ri-4VC" secondAttribute="centerY" id="wsF-s1-VfT"/>
                                             </constraints>
@@ -986,6 +991,7 @@
         <image name="LaunchImage-700" width="320" height="480"/>
         <image name="Loading" width="30" height="30"/>
         <image name="Location" width="30" height="30"/>
+        <image name="ShareSheetSinaWeibo" width="26" height="26"/>
         <image name="icon" width="120" height="120"/>
         <image name="shareBtn_topic_blank" width="20" height="19"/>
     </resources>

@@ -3,5 +3,6 @@ use_frameworks!
 target “RainReminder” do
 pod ‘Alamofire’, '~> 3.2.0’
 pod 'SDWebImage'
+pod "FloatingActionSheetController"
 end
 

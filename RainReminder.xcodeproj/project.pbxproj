@@ -17,6 +17,8 @@
 		C45FF8981CBCD80900D43701 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF8971CBCD80900D43701 /* TimePickerViewController.swift */; };
 		C45FF89A1CBCD8B100D43701 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF8991CBCD8B100D43701 /* DimmingPresentationController.swift */; };
 		C45FF89C1CBCD8DB00D43701 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF89B1CBCD8DB00D43701 /* GradientView.swift */; };
+		C46101361CCDE994003E549F /* WeiboAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46101351CCDE994003E549F /* WeiboAlert.swift */; };
+		C46101381CCDE9E5003E549F /* WeiboAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46101371CCDE9E5003E549F /* WeiboAlert.xib */; };
 		C46DC2EE1CBA95C8007B39A8 /* DINNextLTPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */; };
 		C46DC2F01CBA96C9007B39A8 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC2EF1CBA96C9007B39A8 /* WeatherIcon.swift */; };
 		C46DC2F41CBB3C38007B39A8 /* CityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */; };
@@ -74,6 +76,8 @@
 		C45FF8971CBCD80900D43701 /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		C45FF8991CBCD8B100D43701 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		C45FF89B1CBCD8DB00D43701 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		C46101351CCDE994003E549F /* WeiboAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboAlert.swift; sourceTree = "<group>"; };
+		C46101371CCDE9E5003E549F /* WeiboAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiboAlert.xib; sourceTree = "<group>"; };
 		C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Light.otf"; sourceTree = "<group>"; };
 		C46DC2EF1CBA96C9007B39A8 /* WeatherIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
 		C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListCell.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				C49579631CB507CC0051D7C8 /* Main.storyboard */,
 				C45FF88D1CBBA85F00D43701 /* FirstView.swift */,
 				C45FF88F1CBBA89000D43701 /* FirstView.xib */,
+				C46101351CCDE994003E549F /* WeiboAlert.swift */,
+				C46101371CCDE9E5003E549F /* WeiboAlert.xib */,
 				C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */,
 				C46DC2F31CBB3C38007B39A8 /* CityListCell.xib */,
 				C46DC2F61CBB3D39007B39A8 /* CityListViewController.swift */,
@@ -382,6 +388,7 @@
 				C4F991921CC9D55D00C8CD32 /* WeiboSDK.bundle in Resources */,
 				C49790311CB65A8D00EDF314 /* weathericons-regular-webfont.ttf in Resources */,
 				C49579651CB507CC0051D7C8 /* Main.storyboard in Resources */,
+				C46101381CCDE9E5003E549F /* WeiboAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +472,7 @@
 				C45FF89C1CBCD8DB00D43701 /* GradientView.swift in Sources */,
 				C49790411CB7487700EDF314 /* ParserXML.swift in Sources */,
 				C49579761CB50BC00051D7C8 /* Functions.swift in Sources */,
+				C46101361CCDE994003E549F /* WeiboAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,8 +585,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -596,7 +604,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33f608ec-3ee9-42ee-89d8-145bb9b9ac02";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -608,8 +616,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -619,7 +627,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33f608ec-3ee9-42ee-89d8-145bb9b9ac02";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 			};
 			name = Release;

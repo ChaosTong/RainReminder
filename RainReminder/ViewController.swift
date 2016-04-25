@@ -11,6 +11,7 @@ import CoreLocation
 import Alamofire
 import Social
 import UIKit
+import FloatingActionSheetController
 
 class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegateFlowLayout,CityListViewControllerDelegate {
 
@@ -47,6 +48,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     var parserXML:ParserXML!
     var dataModel: DataModel!
     var firstView: UIView!
+    var weiboAlertView: UIView!
+    var tap = UITapGestureRecognizer()
+    var textView = UITextView()
+    var windowImage = UIImage()
     
     var weatherResult = WeatherResult()
     var serviceResult = ServerResult()
@@ -98,8 +103,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         mainView.backgroundColor = UIColor.clearColor()
         self.view.backgroundColor = UIColor.clearColor()
         dateView.backgroundColor = UIColor.clearColor()
+        
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+
     }
 
+//    func keyboardWillShow(notification: NSNotification) {
+//        
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+//            self.weiboAlertView.frame.origin.y -= keyboardSize.height / 4
+//        }
+//        
+//    }
+//    
+//    func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+//            self.weiboAlertView.frame.origin.y += keyboardSize.height
+//        }
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -382,32 +405,126 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     }
     //MARK: - share to Weibo
     @IBAction func shareToWeibo(sender: UIButton) {
-        let vc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
-
-        if !cityName.isEmpty && (weatherResult.dailyResults.count > 0) {
+        let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+        windowImage = window.capture()
         
-        let pretext = "\(cityName),\(weatherResult.dailyResults[0].dailyDate) \(weatherResult.dailyResults[0].dailyState) \n"
+        let action1 = FloatingAction(title: "分享到新浪微博") { action in
+            if WeiboSDK.isWeiboAppInstalled() {
+                self.showViewWithAlert()
+            } else {
+                let vc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
+        
+                if !self.cityName.isEmpty && (self.weatherResult.dailyResults.count > 0) {
+        
+                let pretext = "\(self.cityName),\(self.weatherResult.dailyResults[0].dailyDate) \(self.weatherResult.dailyResults[0].dailyState) \n"
+                var lasttext = ""
+                if self.raintxt.rangeOfString("雨") != nil {
+                    lasttext = "\n今天下雨几率为 \(self.pop)% 记得带伞☂"
+                }
+        
+                if !self.suggestion.isEmpty {
+                    vc.setInitialText(pretext + self.suggestion + lasttext)
+                } else {
+                    vc.setInitialText("快来使用Rain Reminder吧#RainReminder#")
+                }
+                let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+                self.windowImage = window.capture()
+                vc.addImage(self.windowImage)
+                vc.addURL(NSURL(string: "https://www.easyulife.com"))
+                self.presentViewController(vc, animated: true, completion: nil)
+                } else {
+                    let alert = UIAlertController(title: "暂时无法分享", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+                    let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.Cancel, handler: nil)
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        // share action sheet
+        let action2 = FloatingAction(title: "取消", handleImmediately: true) { action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        let group1 = FloatingActionGroup(action: action1, action2)
+        FloatingActionSheetController(actionGroup: group1).present(self)
+        
+    }
+    
+    func showViewWithAlert(){
+        weiboAlertView = WeiboAlert()
+        weiboAlertView.frame = view.bounds
+        
+        let button = UIButton()
+        
+        let label = UILabel()
+        
+        button.frame = CGRectMake(232, 385, 87, 29)
+        button.setBackgroundImage(UIImage(named: "ButtonShareSubmit"), forState: .Normal)
+        weiboAlertView.addSubview(button)
+        button.addTarget(self, action: #selector(ViewController.submit(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        textView.frame = CGRectMake(54,281,265,94)
+        textView.backgroundColor = UIColor.blackColor()
+        textView.textColor = UIColor.whiteColor()
+        textView.text = "\(cityName) @ \(weatherResult.dailyResults[0].dailyDate) - "
+        weiboAlertView.addSubview(textView)
+        textView.becomeFirstResponder()
+        //make the keyboard won't cover the view
+        self.weiboAlertView.frame.origin.y -= 40
+        
+        let count = textView.text.characters.count
+        
+        label.frame = CGRectMake(297, 345, 50, 50)
+        label.textColor = UIColor.darkGrayColor()
+        label.text = "\(150 - count)"
+        label.font = label.font.fontWithSize(12)
+        weiboAlertView.addSubview(label)
+        
+        weiboAlertView.addGestureRecognizer(tap)
+        tap.addTarget(self, action: #selector(ViewController.WeibotouchBegin(_:)))
+        
+        view.addSubview(weiboAlertView)
+    }
+    
+    func submit(sender: UIButton){
+        
+        shareSinaWeibo(textView.text)
+        weiboAlertView.removeFromSuperview()
+    }
+    
+    func WeibotouchBegin(sender: UIButton){
+        weiboAlertView.removeFromSuperview()
+    }
+    
+    // 发送分享请求
+    func shareSinaWeibo(text: String) {
+        let pretext = "\(text)\(weatherResult.dailyResults[0].dailyState) \n"
         var lasttext = ""
         if raintxt.rangeOfString("雨") != nil {
-            lasttext = "\n今天下雨几率为 \(pop)% 记得带伞☂ #RainReminder#"
+            lasttext = "\n今天下雨几率为 \(pop)% 记得带伞☂"
         }
+
         
-        if !suggestion.isEmpty {
-            vc.setInitialText(pretext + suggestion + lasttext)
-        } else {
-            vc.setInitialText("快来使用Rain Reminder吧#RainReminder#")
-        }
-        let window: UIWindow! = UIApplication.sharedApplication().keyWindow
-        let windowImage = window.capture()
-        vc.addImage(windowImage)
-        vc.addURL(NSURL(string: "https://www.easyulife.com"))
-        presentViewController(vc, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "暂时无法分享", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-            let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.Cancel, handler: nil)
-            alert.addAction(action)
-            presentViewController(alert, animated: true, completion: nil)
-        }
+        lasttext = pretext + suggestion + lasttext + "\n 快来使用Rain Reminder吧#RainReminder#"
+       
+        
+        let request = WBSendMessageToWeiboRequest()
+        request.message = messageToShare(lasttext, image: windowImage)
+        WeiboSDK.sendRequest(request)
+    }
+    
+    // 分享内容
+    func messageToShare(text: String, image: UIImage) -> WBMessageObject {
+        
+        // 文字内容
+        let message = WBMessageObject.message() as! WBMessageObject
+        message.text = text
+        
+        // 图片内容
+        let imageObject = WBImageObject()
+        imageObject.imageData = UIImagePNGRepresentation(image)
+        message.imageObject = imageObject
+        return message
     }
     
     //MARK: - show Alert
@@ -506,7 +623,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                 geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
                     placemarks, error in
                     
-                   // print("*** Found placemarks: \(placemarks), error: \(error)")
+                    print("*** Found placemarks: \(placemarks), error: \(error)")
                     
                     self.lastGeocodingError = error
                     if error == nil, let p = placemarks where !p.isEmpty {

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FloatingActionSheetController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RainReminder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>27F2078AC0540AD7C95F7BCF67C356EE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>81B26D29F690005F83FCC4BCFC7AB8A2</key>
+		<key>9962B533D7ED16957E77596DAEEF0DBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7E3A7BBAAFFEE08E0AC1FAADCF835E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F31746EA23AB4FF151EAF4FB542088EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

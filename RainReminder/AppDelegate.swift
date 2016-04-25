@@ -90,6 +90,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
     func didReceiveWeiboResponse(response: WBBaseResponse!) {
         if let authorizeResponse = response as? WBAuthorizeResponse {
             if authorizeResponse.statusCode == WeiboSDKResponseStatusCode.Success {
+                
+                //let authorizeResponse : WBAuthorizeResponse = response as! WBAuthorizeResponse
+                let userID = authorizeResponse.userID
+                let accessToken = authorizeResponse.accessToken
+                
+                print("userID:\(userID)\naccessToken:\(accessToken)")
+                
                 print(authorizeResponse.userInfo)
             }
         }
@@ -112,6 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
             switch shortcutType {
             case .nowWeather:
                 self.window?.backgroundColor = UIColor(red: 151.0/255.0, green: 187.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+                vc = storyboard.instantiateViewControllerWithIdentifier("viewController") as! ViewController
                 quickActionHandled = true
             case .search:
                 
