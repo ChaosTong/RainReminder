@@ -475,7 +475,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         let count = textView.text.characters.count
         
         label.frame = CGRectMake(297, 345, 50, 50)
-        label.textColor = UIColor.darkGrayColor()
+        label.textColor = UIColor.blackColor()
         label.text = "\(150 - count)"
         label.font = label.font.fontWithSize(12)
         weiboAlertView.addSubview(label)
@@ -505,7 +505,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         }
 
         
-        lasttext = pretext + suggestion + lasttext + "\n 快来使用Rain Reminder吧#RainReminder#"
+        lasttext = pretext + suggestion + lasttext + "\n 快来使用Rain Reminder吧 http://app.weibo.com/t/feed/XELSG #RainReminder#"
        
         
         let request = WBSendMessageToWeiboRequest()

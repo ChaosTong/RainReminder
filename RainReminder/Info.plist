@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -32,18 +32,17 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.1.0</string>
+	<string>1.1.6</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>sinaweibohd</string>
+		<string>sinaweibo</string>
+		<string>sinaweibosso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <!-- 新浪微博 URL Scheme 白名单-->
-        <string>sinaweibohd</string>
-        <string>sinaweibo</string>
-        <string>sinaweibosso</string>
-        <string>weibosdk</string>
-        <string>weibosdk2.5</string>
-    </array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

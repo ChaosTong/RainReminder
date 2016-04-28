@@ -35,7 +35,9 @@ class LaunchViewController: UIViewController {
                     self.launchTextLabel.text = text
                     NSUserDefaults.standardUserDefaults().setObject(text, forKey: self.launchTextKey)
                     
-                    let launchImageURL = json["img"].stringValue
+                    let imagestring = "https://pic2.zhimg.com/102781f8a7a5a997db57b0e426953e74.jpg"
+                    //let launchImageURL = json["img"].stringValue
+                    let launchImageURL = imagestring
                     Alamofire.request(.GET, launchImageURL).responseData { response in
                         if let data = response.data {
                             NSUserDefaults.standardUserDefaults().setObject(data, forKey: self.launchImgKey)
