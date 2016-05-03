@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
             print("之前没有存储过地理位置信息")
         }
         
-        let controller = self.window?.rootViewController as! ViewController
+        let controller = self.window?.rootViewController as! HomeController
         controller.dataModel = dataModel
         
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 12))
@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
             switch shortcutType {
             case .nowWeather:
                 self.window?.backgroundColor = UIColor(red: 151.0/255.0, green: 187.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-                vc = storyboard.instantiateViewControllerWithIdentifier("viewController") as! ViewController
+                vc = storyboard.instantiateViewControllerWithIdentifier("viewController") as! HomeController
                 quickActionHandled = true
             case .search:
                 

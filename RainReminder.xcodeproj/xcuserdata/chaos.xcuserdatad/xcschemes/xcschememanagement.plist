@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>RRToday.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>RainReminder.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C44BA0841CD871A6009FA914</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C495795B1CB507CB0051D7C8</key>
 		<dict>
 			<key>primary</key>

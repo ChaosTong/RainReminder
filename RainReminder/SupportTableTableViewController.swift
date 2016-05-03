@@ -206,7 +206,7 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
                 userDefaults.setBool(true, forKey: "FirstTime")
                 userDefaults.synchronize()
                 
-                let loginedViewController = self.storyboard?.instantiateViewControllerWithIdentifier("viewController") as! ViewController
+                let loginedViewController = self.storyboard?.instantiateViewControllerWithIdentifier("viewController") as! HomeController
                 self.presentViewController(loginedViewController, animated: true) { () -> Void in
                     
                 }

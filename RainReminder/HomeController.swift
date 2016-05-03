@@ -13,7 +13,7 @@ import Social
 import UIKit
 import FloatingActionSheetController
 
-class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegateFlowLayout,CityListViewControllerDelegate {
+class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegateFlowLayout,CityListViewControllerDelegate {
 
     //MARK: - IBOutlets
     @IBOutlet weak var buttonOfCity: UIButton!
@@ -106,39 +106,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        testnetwork()
 
     }
-
-//    func keyboardWillShow(notification: NSNotification) {
-//        
-//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-//            self.weiboAlertView.frame.origin.y -= keyboardSize.height / 4
-//        }
-//        
-//    }
-//    
-//    func keyboardWillHide(notification: NSNotification) {
-//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-//            self.weiboAlertView.frame.origin.y += keyboardSize.height
-//        }
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func testnetwork() {
-        Alamofire.request(RRouter.FetchWeather(city: "景德镇", key: RRouter.key)).responseJSON { response in
-            guard response.result.error == nil, let data = response.result.value else {
-                print(response.result)
-                
-                return
-            }
-            let json = JSON(data)
-            print("*** json \(json)")
-        }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -205,7 +177,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         button.setTitle("开始吧!", forState: .Normal)
         button.backgroundColor = view.tintColor
         firstView.addSubview(button)
-        button.addTarget(self, action: #selector(ViewController.touchBegin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(HomeController.touchBegin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         view.addSubview(firstView)
     }
@@ -259,10 +231,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                 self.suggestion = suggest_brf + ",\n" + suggest_txt
                 self.raintxt = raintxt
                 self.pop = pop
-                //let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
-                //let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
-                    //let txt_n = data["daily_forecast"][0]["cond"]["txt_n"].stringValue
-                    //let code_n = data["daily_forecast"][0]["cond"]["code_n"].stringValue
                     
                     if let ServiceState = data["status"].string{
                         self.weatherResult.ServiceStatus = ServiceState
@@ -589,7 +557,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         button.frame = CGRectMake(232, 385, 87, 29)
         button.setBackgroundImage(UIImage(named: "ButtonShareSubmit"), forState: .Normal)
         weiboAlertView.addSubview(button)
-        button.addTarget(self, action: #selector(ViewController.submit(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(HomeController.submit(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         textView.frame = CGRectMake(54,281,265,94)
         textView.backgroundColor = UIColor.blackColor()
@@ -609,7 +577,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         weiboAlertView.addSubview(label)
         
         weiboAlertView.addGestureRecognizer(tap)
-        tap.addTarget(self, action: #selector(ViewController.WeibotouchBegin(_:)))
+        tap.addTarget(self, action: #selector(HomeController.WeibotouchBegin(_:)))
         
         view.addSubview(weiboAlertView)
     }
@@ -681,7 +649,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
-            timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(ViewController.didTimeOut), userInfo: nil, repeats: false)
+            timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(HomeController.didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
@@ -858,7 +826,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     }
 }
 
-extension ViewController: UIScrollViewDelegate{
+extension HomeController: UIScrollViewDelegate{
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSety = scrollView.contentOffset.y
         if decelerate{
@@ -869,7 +837,7 @@ extension ViewController: UIScrollViewDelegate{
     }
 }
 
-extension ViewController: UICollectionViewDataSource{
+extension HomeController: UICollectionViewDataSource{
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherResult.dailyResults.count
     
