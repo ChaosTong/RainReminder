@@ -10,6 +10,7 @@
 		AB15652A0B5FF123038AF9BE /* Pods_RainReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */; };
 		C41565A71CCF2FC100CBE6B9 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C415659A1CCF2FC100CBE6B9 /* libWeiboSDK.a */; };
 		C41565A81CCF2FC100CBE6B9 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C41565A41CCF2FC100CBE6B9 /* WeiboSDK.bundle */; };
+		C44BA0801CD8508B009FA914 /* RRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BA07F1CD8508B009FA914 /* RRouter.swift */; };
 		C44BF21F1CBA3D990064376E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BF21E1CBA3D990064376E /* MBProgressHUD.m */; };
 		C44BF2221CBA3E4D0064376E /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BF2211CBA3E4D0064376E /* iToast.m */; };
 		C45FF88E1CBBA85F00D43701 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FF88D1CBBA85F00D43701 /* FirstView.swift */; };
@@ -76,6 +77,7 @@
 		C41565A41CCF2FC100CBE6B9 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		C41565A51CCF2FC100CBE6B9 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		C41565A61CCF2FC100CBE6B9 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		C44BA07F1CD8508B009FA914 /* RRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRouter.swift; sourceTree = "<group>"; };
 		C44BF21C1CBA3D980064376E /* RainReminder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RainReminder-Bridging-Header.h"; sourceTree = "<group>"; };
 		C44BF21D1CBA3D990064376E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C44BF21E1CBA3D990064376E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -203,6 +205,44 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		C44BA07B1CD8500D009FA914 /* iToast */ = {
+			isa = PBXGroup;
+			children = (
+				C44BF2201CBA3E4D0064376E /* iToast.h */,
+				C44BF2211CBA3E4D0064376E /* iToast.m */,
+			);
+			name = iToast;
+			sourceTree = "<group>";
+		};
+		C44BA07C1CD85018009FA914 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C44BF21D1CBA3D990064376E /* MBProgressHUD.h */,
+				C44BF21E1CBA3D990064376E /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		C44BA07D1CD85033009FA914 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */,
+				C45FF8921CBCAA1600D43701 /* chinese.ttf */,
+				C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
+		C44BA07E1CD85045009FA914 /* animate */ = {
+			isa = PBXGroup;
+			children = (
+				C45FF89B1CBCD8DB00D43701 /* GradientView.swift */,
+				C45FF8991CBCD8B100D43701 /* DimmingPresentationController.swift */,
+				C45FF8951CBCD05D00D43701 /* InteractiveAnimation.swift */,
+			);
+			name = animate;
+			sourceTree = "<group>";
+		};
 		C46DC2F11CBB3BC8007B39A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,13 +299,9 @@
 			isa = PBXGroup;
 			children = (
 				C41565991CCF2FC100CBE6B9 /* libWeiboSDK */,
-				C45FF89B1CBCD8DB00D43701 /* GradientView.swift */,
-				C45FF8991CBCD8B100D43701 /* DimmingPresentationController.swift */,
-				C45FF8951CBCD05D00D43701 /* InteractiveAnimation.swift */,
-				C44BF2201CBA3E4D0064376E /* iToast.h */,
-				C44BF2211CBA3E4D0064376E /* iToast.m */,
-				C44BF21D1CBA3D990064376E /* MBProgressHUD.h */,
-				C44BF21E1CBA3D990064376E /* MBProgressHUD.m */,
+				C44BA07E1CD85045009FA914 /* animate */,
+				C44BA07B1CD8500D009FA914 /* iToast */,
+				C44BA07C1CD85018009FA914 /* MBProgressHUD */,
 				C49579771CB51B010051D7C8 /* SwiftyJSON.swift */,
 				C49579751CB50BC00051D7C8 /* Functions.swift */,
 				C49790401CB7487700EDF314 /* ParserXML.swift */,
@@ -277,10 +313,8 @@
 		C49579721CB50B470051D7C8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C45FF8921CBCAA1600D43701 /* chinese.ttf */,
-				C46DC2ED1CBA95C8007B39A8 /* DINNextLTPro-Light.otf */,
+				C44BA07D1CD85033009FA914 /* fonts */,
 				C49790431CB748B400EDF314 /* Citys.xml */,
-				C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */,
 				C49579661CB507CC0051D7C8 /* Assets.xcassets */,
 				C495796B1CB507CC0051D7C8 /* Info.plist */,
 				C49579681CB507CC0051D7C8 /* LaunchScreen.storyboard */,
@@ -306,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				C49790361CB6A91700EDF314 /* ServerResult.swift */,
+				C44BA07F1CD8508B009FA914 /* RRouter.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -469,6 +504,7 @@
 				C46DC2F71CBB3D39007B39A8 /* CityListViewController.swift in Sources */,
 				C49790441CB748B400EDF314 /* City.swift in Sources */,
 				C49790371CB6A91700EDF314 /* ServerResult.swift in Sources */,
+				C44BA0801CD8508B009FA914 /* RRouter.swift in Sources */,
 				C45FF89C1CBCD8DB00D43701 /* GradientView.swift in Sources */,
 				C49790411CB7487700EDF314 /* ParserXML.swift in Sources */,
 				C49579761CB50BC00051D7C8 /* Functions.swift in Sources */,

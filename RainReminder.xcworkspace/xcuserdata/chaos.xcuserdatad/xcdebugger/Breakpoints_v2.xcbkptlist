@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RainReminder/ViewController.swift"
-            timestampString = "483268057.503134"
+            timestampString = "483943420.411765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "showViewWithFirstTime()"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RainReminder/ViewController.swift"
-            timestampString = "483268574.365155"
+            timestampString = "483944849.812598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "581"
+            endingLineNumber = "581"
             landmarkName = "showViewWithAlert()"
             landmarkType = "5">
          </BreakpointContent>

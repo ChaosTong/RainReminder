@@ -106,6 +106,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        testnetwork()
 
     }
 
@@ -125,6 +126,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func testnetwork() {
+        Alamofire.request(RRouter.FetchWeather(city: "景德镇", key: RRouter.key)).responseJSON { response in
+            guard response.result.error == nil, let data = response.result.value else {
+                print(response.result)
+                
+                return
+            }
+            let json = JSON(data)
+            print("*** json \(json)")
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -220,33 +234,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         hudView.mode = MBProgressHUDModeIndeterminate
         hudView.labelText = "Loading"
         
-        let params:[String: AnyObject] = ["city": cityName,"key": key]
-        Alamofire.request(.GET, BaseURL, parameters: params).responseJSON {
-            response in
-            switch response.result {
-            case .Success(let dat):
+        Alamofire.request(RRouter.FetchWeather(city: cityName, key: RRouter.key)).responseJSON { response in
+            guard response.result.error == nil, let dat = response.result.value else {
+                print(response.result)
                 
-                self.weatherResult = WeatherResult()
-                
-                let json = JSON(dat)
-                let data = json["HeWeather data service 3.0"][0]
-                let status = data["status"].stringValue
-                
-                if status == "ok" {
-                    let tmpsNow = data["now"]["tmp"].stringValue
-                    let nowCode = data["now"]["cond"]["code"].intValue
-                    let nowTxt = data["now"]["cond"]["txt"].stringValue
-                    let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
-                    let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
-                    let pop = data["daily_forecast"][0]["pop"].stringValue
-                    let suggest_brf = data["suggestion"]["comf"]["brf"].stringValue
-                    let suggest_txt = data["suggestion"]["comf"]["txt"].stringValue
-                    let raintxt = data["suggestion"]["cw"]["txt"].stringValue
-                    self.suggestion = suggest_brf + ",\n" + suggest_txt
-                    self.raintxt = raintxt
-                    self.pop = pop
-                    //let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
-                    //let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
+                return
+            }
+            self.weatherResult = WeatherResult()
+            
+            let json = JSON(dat)
+            let data = json["HeWeather data service 3.0"][0]
+            let status = data["status"].stringValue
+            
+            if status == "ok" {
+                let tmpsNow = data["now"]["tmp"].stringValue
+                let nowCode = data["now"]["cond"]["code"].intValue
+                let nowTxt = data["now"]["cond"]["txt"].stringValue
+                let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
+                let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
+                let pop = data["daily_forecast"][0]["pop"].stringValue
+                let suggest_brf = data["suggestion"]["comf"]["brf"].stringValue
+                let suggest_txt = data["suggestion"]["comf"]["txt"].stringValue
+                let raintxt = data["suggestion"]["cw"]["txt"].stringValue
+                self.suggestion = suggest_brf + ",\n" + suggest_txt
+                self.raintxt = raintxt
+                self.pop = pop
+                //let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
+                //let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
                     //let txt_n = data["daily_forecast"][0]["cond"]["txt_n"].stringValue
                     //let code_n = data["daily_forecast"][0]["cond"]["code_n"].stringValue
                     
@@ -324,14 +338,128 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                     hudView.hide(true)
                     iToast.makeText("获取失败").show()
                 }
-                
-            case .Failure(let error):
-                hudView.hide(true)
-                iToast.makeText("获取失败").show()
-                print("*** network error is \(error)")
-            }
         }
     }
+    
+    
+//    func performNetWork() {
+//        
+//        let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+//        hudView.mode = MBProgressHUDModeIndeterminate
+//        hudView.labelText = "Loading"
+//        
+//        let params:[String: AnyObject] = ["city": cityName,"key": key]
+//        Alamofire.request(.GET, BaseURL, parameters: params).responseJSON {
+//            response in
+//            switch response.result {
+//            case .Success(let dat):
+//                
+//                self.weatherResult = WeatherResult()
+//                
+//                let json = JSON(dat)
+//                let data = json["HeWeather data service 3.0"][0]
+//                let status = data["status"].stringValue
+//                
+//                if status == "ok" {
+//                    let tmpsNow = data["now"]["tmp"].stringValue
+//                    let nowCode = data["now"]["cond"]["code"].intValue
+//                    let nowTxt = data["now"]["cond"]["txt"].stringValue
+//                    let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
+//                    let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
+//                    let pop = data["daily_forecast"][0]["pop"].stringValue
+//                    let suggest_brf = data["suggestion"]["comf"]["brf"].stringValue
+//                    let suggest_txt = data["suggestion"]["comf"]["txt"].stringValue
+//                    let raintxt = data["suggestion"]["cw"]["txt"].stringValue
+//                    self.suggestion = suggest_brf + ",\n" + suggest_txt
+//                    self.raintxt = raintxt
+//                    self.pop = pop
+//                    //let txt_d = data["daily_forecast"][0]["cond"]["txt_d"].stringValue
+//                    //let code_d = data["daily_forecast"][0]["cond"]["code_d"].stringValue
+//                    //let txt_n = data["daily_forecast"][0]["cond"]["txt_n"].stringValue
+//                    //let code_n = data["daily_forecast"][0]["cond"]["code_n"].stringValue
+//                    
+//                    if let ServiceState = data["status"].string{
+//                        self.weatherResult.ServiceStatus = ServiceState
+//                    }
+//                    
+//                    if let jsonCity = data["basic"]["city"].string{
+//                        self.weatherResult.city = jsonCity
+//                    }
+//                    if let state = data["now"]["cond"]["txt"].string{
+//                        self.weatherResult.state = state
+//                    }
+//                    if let stateCode = data["now"]["cond"]["code"].string{
+//                        self.weatherResult.stateCode = Int(stateCode)!
+//                    }
+//                    
+//                    let dailyArrays = data["daily_forecast"]
+//                    let dailyDayTmp = dailyArrays[0]["tmp"]
+//                    if let pop = dailyArrays[0]["pop"].string{
+//                        self.weatherResult.dayRain = pop
+//                    }
+//                    if let dayTemMax = dailyDayTmp["max"].string{
+//                        self.weatherResult.dayTemMax = dayTemMax + "˚"
+//                    }
+//                    if let dayTmpMin = dailyDayTmp["min"].string{
+//                        self.weatherResult.dayTmpMin = dayTmpMin + "˚"
+//                    }
+//                    
+//                    for (_,subJson):(String, JSON) in data["daily_forecast"]{
+//                        let dailyResult = DailyResult()
+//                        
+//                        if let dates = subJson["date"].string{
+//                            dailyResult.dailyDate = dates
+//                        }
+//                        if let pop = subJson["pop"].string{
+//                            dailyResult.dailyPop = Int(pop)!
+//                        }
+//                        if let tmpsMax = subJson["tmp"]["max"].string{
+//                            dailyResult.dailyTmpMax = tmpsMax + "˚"
+//                        }
+//                        if let tmpsMin = subJson["tmp"]["min"].string{
+//                            dailyResult.dailyTmpMin = tmpsMin + "˚"
+//                        }
+//                        if let conds = subJson["cond"]["txt_d"].string{
+//                            dailyResult.dailyState = conds
+//                        }
+//                        if let stateCode = subJson["cond"]["code_d"].string{
+//                            dailyResult.dailyStateCode = Int(stateCode)!
+//                        }
+//                        self.weatherResult.dailyResults.append(dailyResult)
+//                        self.collectionView .reloadData()
+//                    }
+//                    
+//                    let weatherIcon = WeatherIcon(condition: nowCode, iconString: "day").iconText
+//                    self.TmpMax.text = tmpsMax + "˚"
+//                    self.TmpMin.text = tmpsMin + "˚"
+//                    self.TmpNow.text = tmpsNow + "˚"
+//                    self.labelOfState.text = nowTxt
+//                    self.labelOfIcon.text = weatherIcon
+//                                        
+//                    if let FloatRain = Float(pop){
+//                        let value = FloatRain / 100
+//                        self.progress.setProgress(value, animated: true)
+//                    }
+//                    self.rainPercentLabel.text = pop + "%"
+//                    self.mainView.reloadInputViews()
+//                    
+//                    self.dataModel.dailyResults = self.weatherResult.dailyResults
+//                    self.dataModel.saveData()
+//                    
+//                    hudView.hide(true)
+//                    iToast.makeText("更新成功").show()
+//                } else {
+//                    hudView.hide(true)
+//                    iToast.makeText("获取失败").show()
+//                }
+//                
+//            case .Failure(let error):
+//                hudView.hide(true)
+//                iToast.makeText("获取失败").show()
+//                print("*** network error is \(error)")
+//            }
+//        }
+//    }
     
     
     //MARK: - make city name 规范 '上海市' to '上海'
@@ -623,7 +751,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                 geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
                     placemarks, error in
                     
-                    print("*** Found placemarks: \(placemarks), error: \(error)")
+                    //print("*** Found placemarks: \(placemarks), error: \(error)")
                     
                     self.lastGeocodingError = error
                     if error == nil, let p = placemarks where !p.isEmpty {
