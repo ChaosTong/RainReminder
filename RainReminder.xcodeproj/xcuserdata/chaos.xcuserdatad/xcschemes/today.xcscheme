@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C44BA0841CD871A6009FA914"
-               BuildableName = "RRToday.appex"
-               BlueprintName = "RRToday"
+               BlueprintIdentifier = "C4DA1FD81CD9A2150040F802"
+               BuildableName = "today.appex"
+               BlueprintName = "today"
                ReferencedContainer = "container:RainReminder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C44BA0841CD871A6009FA914"
-            BuildableName = "RRToday.appex"
-            BlueprintName = "RRToday"
+            BlueprintIdentifier = "C4DA1FD81CD9A2150040F802"
+            BuildableName = "today.appex"
+            BlueprintName = "today"
             ReferencedContainer = "container:RainReminder.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

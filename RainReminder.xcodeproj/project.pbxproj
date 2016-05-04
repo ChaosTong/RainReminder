@@ -47,6 +47,11 @@
 		C49790441CB748B400EDF314 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790421CB748B400EDF314 /* City.swift */; };
 		C49790451CB748B400EDF314 /* Citys.xml in Resources */ = {isa = PBXBuildFile; fileRef = C49790431CB748B400EDF314 /* Citys.xml */; };
 		C49790471CB7509900EDF314 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790461CB7509900EDF314 /* DataModel.swift */; };
+		C4DA1FDA1CD9A2150040F802 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44BA0861CD871A6009FA914 /* NotificationCenter.framework */; };
+		C4DA1FDD1CD9A2150040F802 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */; };
+		C4DA1FE01CD9A2150040F802 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4DA1FDE1CD9A2150040F802 /* MainInterface.storyboard */; };
+		C4DA1FE41CD9A2150040F802 /* today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4DA1FD91CD9A2150040F802 /* today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4E5DB171CD9E65C00D3A397 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4E5DB161CD9E65C00D3A397 /* weathericons-regular-webfont.ttf */; };
 		C4F991941CC9D99300C8CD32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F991931CC9D99300C8CD32 /* CoreGraphics.framework */; };
 		C4F991961CC9D99F00C8CD32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F991951CC9D99F00C8CD32 /* Foundation.framework */; };
 		C4F991981CC9D9A700C8CD32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F991971CC9D9A700C8CD32 /* UIKit.framework */; };
@@ -60,6 +65,16 @@
 		C4F991A81CC9DA6300C8CD32 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F991A71CC9DA6300C8CD32 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C4DA1FE21CD9A2150040F802 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C49579541CB507CB0051D7C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4DA1FD81CD9A2150040F802;
+			remoteInfo = today;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		C44BA0951CD871A6009FA914 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -67,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				C4DA1FE41CD9A2150040F802 /* today.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +150,13 @@
 		C49790421CB748B400EDF314 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		C49790431CB748B400EDF314 /* Citys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Citys.xml; sourceTree = "<group>"; };
 		C49790461CB7509900EDF314 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		C4DA1FD91CD9A2150040F802 /* today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		C4DA1FDF1CD9A2150040F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C4DA1FE11CD9A2150040F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4DA1FE81CD9A8350040F802 /* RainReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RainReminder.entitlements; sourceTree = "<group>"; };
+		C4DA1FE91CD9B8260040F802 /* today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = today.entitlements; sourceTree = "<group>"; };
+		C4E5DB161CD9E65C00D3A397 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		C4F991931CC9D99300C8CD32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C4F991951CC9D99F00C8CD32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4F991971CC9D9A700C8CD32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -165,6 +188,14 @@
 				C4F991961CC9D99F00C8CD32 /* Foundation.framework in Frameworks */,
 				C4F991941CC9D99300C8CD32 /* CoreGraphics.framework in Frameworks */,
 				AB15652A0B5FF123038AF9BE /* Pods_RainReminder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4DA1FD61CD9A2150040F802 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4DA1FDA1CD9A2150040F802 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				C495795E1CB507CB0051D7C8 /* RainReminder */,
+				C4DA1FDB1CD9A2150040F802 /* today */,
 				C495795D1CB507CB0051D7C8 /* Products */,
 				0A89A2FCE75742ED8A17B15C /* Pods */,
 				12FC7F4AC66240BA58825461 /* Frameworks */,
@@ -294,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				C495795C1CB507CB0051D7C8 /* RainReminder.app */,
+				C4DA1FD91CD9A2150040F802 /* today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -301,6 +334,7 @@
 		C495795E1CB507CB0051D7C8 /* RainReminder */ = {
 			isa = PBXGroup;
 			children = (
+				C4DA1FE81CD9A8350040F802 /* RainReminder.entitlements */,
 				C46DC2F11CBB3BC8007B39A8 /* View */,
 				C49790331CB6A60D00EDF314 /* Services */,
 				C497902F1CB6475000EDF314 /* Model */,
@@ -360,6 +394,18 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		C4DA1FDB1CD9A2150040F802 /* today */ = {
+			isa = PBXGroup;
+			children = (
+				C4E5DB161CD9E65C00D3A397 /* weathericons-regular-webfont.ttf */,
+				C4DA1FE91CD9B8260040F802 /* today.entitlements */,
+				C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */,
+				C4DA1FDE1CD9A2150040F802 /* MainInterface.storyboard */,
+				C4DA1FE11CD9A2150040F802 /* Info.plist */,
+			);
+			path = today;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,11 +424,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				C4DA1FE31CD9A2150040F802 /* PBXTargetDependency */,
 			);
 			name = RainReminder;
 			productName = RainReminder;
 			productReference = C495795C1CB507CB0051D7C8 /* RainReminder.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C4DA1FD81CD9A2150040F802 /* today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4DA1FE71CD9A2150040F802 /* Build configuration list for PBXNativeTarget "today" */;
+			buildPhases = (
+				C4DA1FD51CD9A2150040F802 /* Sources */,
+				C4DA1FD61CD9A2150040F802 /* Frameworks */,
+				C4DA1FD71CD9A2150040F802 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = today;
+			productName = today;
+			productReference = C4DA1FD91CD9A2150040F802 /* today.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -399,9 +463,18 @@
 						DevelopmentTeam = 9Y74876TPS;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					C4DA1FD81CD9A2150040F802 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9Y74876TPS;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
@@ -423,6 +496,7 @@
 			projectRoot = "";
 			targets = (
 				C495795B1CB507CB0051D7C8 /* RainReminder */,
+				C4DA1FD81CD9A2150040F802 /* today */,
 			);
 		};
 /* End PBXProject section */
@@ -443,6 +517,15 @@
 				C41565A81CCF2FC100CBE6B9 /* WeiboSDK.bundle in Resources */,
 				C49579651CB507CC0051D7C8 /* Main.storyboard in Resources */,
 				C46101381CCDE9E5003E549F /* WeiboAlert.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4DA1FD71CD9A2150040F802 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4E5DB171CD9E65C00D3A397 /* weathericons-regular-webfont.ttf in Resources */,
+				C4DA1FE01CD9A2150040F802 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +614,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4DA1FD51CD9A2150040F802 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4DA1FDD1CD9A2150040F802 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4DA1FE31CD9A2150040F802 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4DA1FD81CD9A2150040F802 /* today */;
+			targetProxy = C4DA1FE21CD9A2150040F802 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C49579631CB507CC0051D7C8 /* Main.storyboard */ = {
@@ -548,6 +647,14 @@
 				C49579691CB507CC0051D7C8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C4DA1FDE1CD9A2150040F802 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4DA1FDF1CD9A2150040F802 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -570,7 +677,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -640,8 +747,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RainReminder/RainReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CHAO TONG (34R6G95PN5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -660,7 +769,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9f729963-2bbd-4ba0-b7e6-b04937f659a7";
+				PROVISIONING_PROFILE = "6d0b4495-2417-48a2-9af4-2abc8e0fad31";
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
@@ -673,8 +782,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RainReminder/RainReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -698,6 +809,40 @@
 			};
 			name = Release;
 		};
+		C4DA1FE51CD9A2150040F802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: CHAO TONG (34R6G95PN5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
+				INFOPLIST_FILE = today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fd4e0825-964c-4929-a031-048076996e8b";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C4DA1FE61CD9A2150040F802 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				INFOPLIST_FILE = today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fd4e0825-964c-4929-a031-048076996e8b";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -715,6 +860,15 @@
 			buildConfigurations = (
 				C495796F1CB507CC0051D7C8 /* Debug */,
 				C49579701CB507CC0051D7C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4DA1FE71CD9A2150040F802 /* Build configuration list for PBXNativeTarget "today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4DA1FE51CD9A2150040F802 /* Debug */,
+				C4DA1FE61CD9A2150040F802 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

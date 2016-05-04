@@ -106,7 +106,43 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-
+        
+        // for the today widget
+        NSNotificationCenter.defaultCenter()
+            .addObserver(self, selector: #selector(HomeController.applicationWillResignActive),name: UIApplicationWillResignActiveNotification, object: nil)
+    }
+    
+    @objc private func applicationWillResignActive() { 
+        saveDefaults()
+    }
+    
+    private func saveDefaults() {
+        var message = ""
+        let userDefault = NSUserDefaults(suiteName: "group.rainreminderShareDefault")
+        if dataModel.dailyResults.count > 0 {
+            let state  = dataModel.dailyResults[0].dailyState
+            let max = dataModel.dailyResults[0].dailyTmpMax
+            let min = dataModel.dailyResults[0].dailyTmpMin
+            let tmp = "\(max)/\(min)"
+            let location = dataModel.currentCity
+            let time = "4分钟前"
+            let now = dataModel.currentTmp
+            let icon = WeatherIcon(condition: Int(dataModel.currentCode)!, iconString: "day").iconText
+            userDefault?.setObject(icon, forKey: "com.easyulife.rainreminder.icon")
+            userDefault?.setObject(location, forKey: "com.easyulife.rainreminder.location")
+            userDefault?.setObject(time, forKey: "com.easyulife.rainreminder.time")
+            userDefault?.setObject(state, forKey: "com.easyulife.rainreminder.state")
+            userDefault?.setObject(now, forKey: "com.easyulife.rainreminder.now")
+            userDefault?.setObject(tmp, forKey: "com.easyulife.rainreminder.tmp")
+            
+            message = "have data"
+        } else {
+            message = "您现在还没有添加城市,请点击进入RainReminder进行定位或搜索."
+        }
+        
+        userDefault?.setObject(message, forKey: "com.easyulife.rainreminder.message")
+        
+        userDefault!.synchronize()
     }
     
     override func didReceiveMemoryWarning() {
@@ -220,7 +256,9 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             
             if status == "ok" {
                 let tmpsNow = data["now"]["tmp"].stringValue
+                self.dataModel.currentTmp = tmpsNow + "˚"
                 let nowCode = data["now"]["cond"]["code"].intValue
+                self.dataModel.currentCode = "\(nowCode)"
                 let nowTxt = data["now"]["cond"]["txt"].stringValue
                 let tmpsMax = data["daily_forecast"][0]["tmp"]["max"].stringValue
                 let tmpsMin = data["daily_forecast"][0]["tmp"]["min"].stringValue
@@ -298,6 +336,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                     self.mainView.reloadInputViews()
                     
                     self.dataModel.dailyResults = self.weatherResult.dailyResults
+                    self.dataModel.currentCity = self.cityName
                     self.dataModel.saveData()
                     
                     hudView.hide(true)
@@ -809,6 +848,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             //print("*** return from citylist view")
             buttonOfCity.setTitle(cityName, forState: .Normal)
         }
+        
         dataModel.appendCity(city)
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         dismissViewControllerAnimated(true, completion: nil)

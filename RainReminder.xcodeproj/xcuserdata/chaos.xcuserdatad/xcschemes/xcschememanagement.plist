@@ -4,15 +4,19 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>RRToday.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
 		<key>RainReminder.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>6</integer>
+		</dict>
+		<key>today.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -23,6 +27,11 @@
 			<true/>
 		</dict>
 		<key>C495795B1CB507CB0051D7C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4DA1FD81CD9A2150040F802</key>
 		<dict>
 			<key>primary</key>
 			<true/>

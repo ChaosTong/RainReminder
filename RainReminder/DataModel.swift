@@ -10,6 +10,8 @@ import UIKit
 
 class DataModel{
     var currentCity = ""
+    var currentCode = ""
+    var currentTmp = ""
     var dueString = "__ : __"
     var shouldRemind = false
     var cities = [City]()
@@ -116,6 +118,8 @@ class DataModel{
     func saveData(){
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(currentTmp, forKey: "CurrentTmp")
+        archiver.encodeObject(currentCode, forKey: "CurrentCode")
         archiver.encodeObject(currentCity, forKey: "CurrentCity")
         archiver.encodeObject(dueString, forKey: "DueString")
         archiver.encodeBool(shouldRemind, forKey: "ShouldRemind")
@@ -131,6 +135,8 @@ class DataModel{
         if NSFileManager.defaultManager().fileExistsAtPath(path){
             if let data = NSData(contentsOfFile: path){
                 let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+                currentTmp = unarchiver.decodeObjectForKey("CurrentTmp") as! String
+                currentCode = unarchiver.decodeObjectForKey("CurrentCode") as! String
                 currentCity = unarchiver.decodeObjectForKey("CurrentCity") as! String
                 dueString = unarchiver.decodeObjectForKey("DueString") as! String
                 shouldRemind = unarchiver.decodeBoolForKey("ShouldRemind")

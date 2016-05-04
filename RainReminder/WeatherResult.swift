@@ -17,6 +17,7 @@ class WeatherResult {
     var stateCode = 0
     var dailyResults = [DailyResult]()
     var ServiceStatus = ""
+    var tempNow = ""
     
     private func documentsDirectory() -> String{
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
