@@ -33,6 +33,10 @@ class DataModel{
                 
                 let dateString = dailyResult.dailyDate
                 let pop = dailyResult.dailyPop
+                var max = dailyResult.dailyTmpMax
+                max = max.substringToIndex(max.endIndex.predecessor())
+                var min = dailyResult.dailyTmpMin
+                min = min.substringToIndex(min.endIndex.predecessor())
                 
                 let stringFormTime = dateString + dueString
                 
@@ -48,6 +52,27 @@ class DataModel{
                     localNotification.alertBody = alertBody
                     UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
                 }
+                if Int(max) >= 30 && notificationTime.compare(NSDate()) != .OrderedAscending{
+                    
+                    let localNotification = UILocalNotification()
+                    localNotification.timeZone = NSTimeZone.defaultTimeZone()
+                    //localNotification.soundName = "WaterSound.wav"
+                    let alertBody = "\(dateString) \(dailyResult.dailyState) 今天最高气温为 \(max)˚ 记得防晒"
+                    localNotification.fireDate = notificationTime
+                    localNotification.alertBody = alertBody
+                    UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+                }
+                if Int(min) <= 10 && notificationTime.compare(NSDate()) != .OrderedAscending{
+                    
+                    let localNotification = UILocalNotification()
+                    localNotification.timeZone = NSTimeZone.defaultTimeZone()
+                    //localNotification.soundName = "WaterSound.wav"
+                    let alertBody = "\(dateString) \(dailyResult.dailyState) 今天最低气温为 \(min)˚ 记得防寒"
+                    localNotification.fireDate = notificationTime
+                    localNotification.alertBody = alertBody
+                    UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+                }
+                
             }
             guard let dataString = dailyResults.last?.dailyDate else{
                 return
