@@ -289,21 +289,53 @@
 			name = animate;
 			sourceTree = "<group>";
 		};
+		C466B7311CDA384B00F1717E /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				C45FF88F1CBBA89000D43701 /* FirstView.xib */,
+				C45FF88D1CBBA85F00D43701 /* FirstView.swift */,
+			);
+			name = FirstView;
+			sourceTree = "<group>";
+		};
+		C466B7321CDA386200F1717E /* WeiboShare */ = {
+			isa = PBXGroup;
+			children = (
+				C46101351CCDE994003E549F /* WeiboAlert.swift */,
+				C46101371CCDE9E5003E549F /* WeiboAlert.xib */,
+			);
+			name = WeiboShare;
+			sourceTree = "<group>";
+		};
+		C466B7331CDA386A00F1717E /* CitySearsh */ = {
+			isa = PBXGroup;
+			children = (
+				C46DC2F61CBB3D39007B39A8 /* CityListViewController.swift */,
+				C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */,
+				C46DC2F31CBB3C38007B39A8 /* CityListCell.xib */,
+			);
+			name = CitySearsh;
+			sourceTree = "<group>";
+		};
+		C466B7341CDA389500F1717E /* WeekView */ = {
+			isa = PBXGroup;
+			children = (
+				C46DC2FC1CBB856F007B39A8 /* WeekWeatherCell.swift */,
+				C46DC2FD1CBB856F007B39A8 /* WeekWeatherCell.xib */,
+				C46DC3001CBB87E9007B39A8 /* WeekWeatherCollectionView.swift */,
+			);
+			name = WeekView;
+			sourceTree = "<group>";
+		};
 		C46DC2F11CBB3BC8007B39A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C49579611CB507CC0051D7C8 /* HomeController.swift */,
 				C49579631CB507CC0051D7C8 /* Main.storyboard */,
-				C45FF88D1CBBA85F00D43701 /* FirstView.swift */,
-				C45FF88F1CBBA89000D43701 /* FirstView.xib */,
-				C46101351CCDE994003E549F /* WeiboAlert.swift */,
-				C46101371CCDE9E5003E549F /* WeiboAlert.xib */,
-				C46DC2F21CBB3C38007B39A8 /* CityListCell.swift */,
-				C46DC2F31CBB3C38007B39A8 /* CityListCell.xib */,
-				C46DC2F61CBB3D39007B39A8 /* CityListViewController.swift */,
-				C46DC2FC1CBB856F007B39A8 /* WeekWeatherCell.swift */,
-				C46DC2FD1CBB856F007B39A8 /* WeekWeatherCell.xib */,
-				C46DC3001CBB87E9007B39A8 /* WeekWeatherCollectionView.swift */,
+				C466B7311CDA384B00F1717E /* FirstView */,
+				C466B7321CDA386200F1717E /* WeiboShare */,
+				C466B7331CDA386A00F1717E /* CitySearsh */,
+				C466B7341CDA389500F1717E /* WeekView */,
 				C46DC3021CBB9D58007B39A8 /* LaunchViewController.swift */,
 				C45FF8971CBCD80900D43701 /* TimePickerViewController.swift */,
 				C45FF8931CBCCB3000D43701 /* SupportTableTableViewController.swift */,

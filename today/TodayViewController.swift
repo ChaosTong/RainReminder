@@ -33,7 +33,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.preferredContentSize.height = 65
         
         reciveData()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
