@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
         let controller = self.window?.rootViewController as! HomeController
         controller.dataModel = dataModel
         
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 12))
+        //设置最小Fetch时间 3h
+        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 12))
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 3))
         
         var isLaunchedFromQuickAction = false
         
@@ -73,6 +75,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
         
         completionHandler(handleQuickAction(shortcutItem))
         
+    }
+    
+    //MARK: - Fetch Background
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        if let fetchViewController = window?.rootViewController as? HomeController {
+            fetchViewController.fetch {
+                fetchViewController.performNetWork()
+                completionHandler(.NewData)
+                print("*** fetch")
+            }
+        }
+    
     }
     
     //MARK: - Weibo

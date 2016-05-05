@@ -76,7 +76,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     var suggestion = ""
     var raintxt = ""
     var pop = ""
-    var update = ""
+    var update = NSDate().description
     
     //MARK: - key sth.
     let BaseURL = "https://api.heweather.com/x3/weather"
@@ -111,29 +111,35 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         // for the today widget
         NSNotificationCenter.defaultCenter()
             .addObserver(self, selector: #selector(HomeController.applicationWillResignActive),name: UIApplicationWillResignActiveNotification, object: nil)
+        
+        fetch { self.saveDefaults() }
     }
+    
+    //MARK: - Fetch Background
+    func fetch(completion: () -> Void) {
+        completion()
+    }
+    
     
     @objc private func applicationWillResignActive() { 
         saveDefaults()
     }
     
-    private func saveDefaults() {
+    func saveDefaults() {
         var message = ""
         let userDefault = NSUserDefaults(suiteName: "group.rainreminderShareDefault")
         if dataModel.dailyResults.count > 0 {
-            
-            let timestamp = NSDate.dateFromeWeiboDateStr(update).weiboDescriptionDate()
+        
             
             let state  = dataModel.dailyResults[0].dailyState
             let max = dataModel.dailyResults[0].dailyTmpMax
             let min = dataModel.dailyResults[0].dailyTmpMin
             let tmp = "\(max)/\(min)"
             let location = dataModel.currentCity
-            let time = timestamp
+            let time = update
             let now = dataModel.currentTmp
             let icon = WeatherIcon(condition: Int(dataModel.currentCode)!, iconString: "day").iconText
             
-            print(update)
             userDefault?.setObject(icon, forKey: "com.easyulife.rainreminder.icon")
             userDefault?.setObject(location, forKey: "com.easyulife.rainreminder.location")
             userDefault?.setObject(time, forKey: "com.easyulife.rainreminder.time")
@@ -258,7 +264,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             let json = JSON(dat)
             let data = json["HeWeather data service 3.0"][0]
             let status = data["status"].stringValue
-            
+            print(json)
             if status == "ok" {
                 let tmpsNow = data["now"]["tmp"].stringValue
                 self.dataModel.currentTmp = tmpsNow + "˚"
@@ -348,6 +354,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                 
                     iToast.makeText("更新成功").show()
                     self.update = NSDate().description
+                    self.saveDefaults()
                 } else {
                     hudView.hide(true)
                     iToast.makeText("获取失败").show()
