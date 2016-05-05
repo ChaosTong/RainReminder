@@ -76,6 +76,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     var suggestion = ""
     var raintxt = ""
     var pop = ""
+    var update = ""
     
     //MARK: - key sth.
     let BaseURL = "https://api.heweather.com/x3/weather"
@@ -120,21 +121,25 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         var message = ""
         let userDefault = NSUserDefaults(suiteName: "group.rainreminderShareDefault")
         if dataModel.dailyResults.count > 0 {
+            
+            let timestamp = NSDate.dateFromeWeiboDateStr(update).weiboDescriptionDate()
+            
             let state  = dataModel.dailyResults[0].dailyState
             let max = dataModel.dailyResults[0].dailyTmpMax
             let min = dataModel.dailyResults[0].dailyTmpMin
             let tmp = "\(max)/\(min)"
             let location = dataModel.currentCity
-            let time = "4分钟前"
+            let time = timestamp
             let now = dataModel.currentTmp
             let icon = WeatherIcon(condition: Int(dataModel.currentCode)!, iconString: "day").iconText
+            
+            print(update)
             userDefault?.setObject(icon, forKey: "com.easyulife.rainreminder.icon")
             userDefault?.setObject(location, forKey: "com.easyulife.rainreminder.location")
             userDefault?.setObject(time, forKey: "com.easyulife.rainreminder.time")
             userDefault?.setObject(state, forKey: "com.easyulife.rainreminder.state")
             userDefault?.setObject(now, forKey: "com.easyulife.rainreminder.now")
             userDefault?.setObject(tmp, forKey: "com.easyulife.rainreminder.tmp")
-            
             message = "have data"
         } else {
             message = "您现在还没有添加城市,请点击进入RainReminder进行定位或搜索."
@@ -228,14 +233,14 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
 //        return true
 //    }
     
-    //MARK: - return the sandbox url
+    //MARK: - Return the sandbox url
     func returnDir() {
         //Print the directory
         let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
         print(DocumentsDirectory)
     }
     
-    //MARK: - request network data
+    //MARK: - Request network data
     func performNetWork() {
         
         let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
@@ -340,7 +345,9 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                     self.dataModel.saveData()
                     
                     hudView.hide(true)
+                
                     iToast.makeText("更新成功").show()
+                    self.update = NSDate().description
                 } else {
                     hudView.hide(true)
                     iToast.makeText("获取失败").show()

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB15652A0B5FF123038AF9BE /* Pods_RainReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */; };
+		C40907321CDADCB200F6032C /* NSDate+WeatherDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40907311CDADCB200F6032C /* NSDate+WeatherDate.swift */; };
 		C41565A71CCF2FC100CBE6B9 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C415659A1CCF2FC100CBE6B9 /* libWeiboSDK.a */; };
 		C41565A81CCF2FC100CBE6B9 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C41565A41CCF2FC100CBE6B9 /* WeiboSDK.bundle */; };
 		C44BA0801CD8508B009FA914 /* RRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BA07F1CD8508B009FA914 /* RRouter.swift */; };
@@ -93,6 +94,7 @@
 		1852D5D2D5323C289BC4FCBC /* Pods-RainReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-RainReminder/Pods-RainReminder.release.xcconfig"; sourceTree = "<group>"; };
 		83C76F579E19FC009CB48505 /* Pods_RainReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RainReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDD3B849D8133BE06080AC4 /* Pods-RainReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RainReminder/Pods-RainReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		C40907311CDADCB200F6032C /* NSDate+WeatherDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+WeatherDate.swift"; sourceTree = "<group>"; };
 		C415659A1CCF2FC100CBE6B9 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		C415659B1CCF2FC100CBE6B9 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		C415659C1CCF2FC100CBE6B9 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				C49579751CB50BC00051D7C8 /* Functions.swift */,
 				C49790401CB7487700EDF314 /* ParserXML.swift */,
 				C44BF21C1CBA3D980064376E /* RainReminder-Bridging-Header.h */,
+				C40907311CDADCB200F6032C /* NSDate+WeatherDate.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				C46DC2F41CBB3C38007B39A8 /* CityListCell.swift in Sources */,
 				C49579601CB507CB0051D7C8 /* AppDelegate.swift in Sources */,
 				C49790471CB7509900EDF314 /* DataModel.swift in Sources */,
+				C40907321CDADCB200F6032C /* NSDate+WeatherDate.swift in Sources */,
 				C49579781CB51B020051D7C8 /* SwiftyJSON.swift in Sources */,
 				C49790391CB6A93B00EDF314 /* WeatherResult.swift in Sources */,
 				C44BF21F1CBA3D990064376E /* MBProgressHUD.m in Sources */,
