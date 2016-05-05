@@ -51,7 +51,7 @@
 		C4DA1FDA1CD9A2150040F802 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44BA0861CD871A6009FA914 /* NotificationCenter.framework */; };
 		C4DA1FDD1CD9A2150040F802 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */; };
 		C4DA1FE01CD9A2150040F802 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4DA1FDE1CD9A2150040F802 /* MainInterface.storyboard */; };
-		C4DA1FE41CD9A2150040F802 /* today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4DA1FD91CD9A2150040F802 /* today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4DA1FE41CD9A2150040F802 /* RainReminderTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4DA1FD91CD9A2150040F802 /* RainReminderTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C4E5DB171CD9E65C00D3A397 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4E5DB161CD9E65C00D3A397 /* weathericons-regular-webfont.ttf */; };
 		C4F991941CC9D99300C8CD32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F991931CC9D99300C8CD32 /* CoreGraphics.framework */; };
 		C4F991961CC9D99F00C8CD32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F991951CC9D99F00C8CD32 /* Foundation.framework */; };
@@ -83,7 +83,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C4DA1FE41CD9A2150040F802 /* today.appex in Embed App Extensions */,
+				C4DA1FE41CD9A2150040F802 /* RainReminderTodayWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +152,7 @@
 		C49790421CB748B400EDF314 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		C49790431CB748B400EDF314 /* Citys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Citys.xml; sourceTree = "<group>"; };
 		C49790461CB7509900EDF314 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		C4DA1FD91CD9A2150040F802 /* today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4DA1FD91CD9A2150040F802 /* RainReminderTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RainReminderTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C4DA1FDF1CD9A2150040F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C4DA1FE11CD9A2150040F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				C495795C1CB507CB0051D7C8 /* RainReminder.app */,
-				C4DA1FD91CD9A2150040F802 /* today.appex */,
+				C4DA1FD91CD9A2150040F802 /* RainReminderTodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -466,9 +466,9 @@
 			productReference = C495795C1CB507CB0051D7C8 /* RainReminder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C4DA1FD81CD9A2150040F802 /* today */ = {
+		C4DA1FD81CD9A2150040F802 /* RainReminderTodayWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4DA1FE71CD9A2150040F802 /* Build configuration list for PBXNativeTarget "today" */;
+			buildConfigurationList = C4DA1FE71CD9A2150040F802 /* Build configuration list for PBXNativeTarget "RainReminderTodayWidget" */;
 			buildPhases = (
 				C4DA1FD51CD9A2150040F802 /* Sources */,
 				C4DA1FD61CD9A2150040F802 /* Frameworks */,
@@ -478,9 +478,9 @@
 			);
 			dependencies = (
 			);
-			name = today;
+			name = RainReminderTodayWidget;
 			productName = today;
-			productReference = C4DA1FD91CD9A2150040F802 /* today.appex */;
+			productReference = C4DA1FD91CD9A2150040F802 /* RainReminderTodayWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -531,7 +531,7 @@
 			projectRoot = "";
 			targets = (
 				C495795B1CB507CB0051D7C8 /* RainReminder */,
-				C4DA1FD81CD9A2150040F802 /* today */,
+				C4DA1FD81CD9A2150040F802 /* RainReminderTodayWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -663,7 +663,7 @@
 /* Begin PBXTargetDependency section */
 		C4DA1FE31CD9A2150040F802 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C4DA1FD81CD9A2150040F802 /* today */;
+			target = C4DA1FD81CD9A2150040F802 /* RainReminderTodayWidget */;
 			targetProxy = C4DA1FE21CD9A2150040F802 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -840,7 +840,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02448e4b-78a6-4fc9-bedd-07a5a0887c2b";
+				PROVISIONING_PROFILE = "cd12f0ef-cefc-405d-b76c-e3b709f1309d";
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 			};
 			name = Release;
@@ -853,7 +853,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: CHAO TONG (34R6G95PN5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
 				INFOPLIST_FILE = today/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -870,11 +870,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				INFOPLIST_FILE = today/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd4e0825-964c-4929-a031-048076996e8b";
+				PROVISIONING_PROFILE = "960f4e05-6919-4be2-8e2b-431a91542af8";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -900,7 +900,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4DA1FE71CD9A2150040F802 /* Build configuration list for PBXNativeTarget "today" */ = {
+		C4DA1FE71CD9A2150040F802 /* Build configuration list for PBXNativeTarget "RainReminderTodayWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4DA1FE51CD9A2150040F802 /* Debug */,

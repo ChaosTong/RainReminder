@@ -74,6 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GVt-F7-uMP" firstAttribute="leading" secondItem="eeO-Hw-VuK" secondAttribute="trailing" constant="65" id="2cM-CU-0IW"/>
                             <constraint firstItem="zZC-bh-IKk" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="4BR-yV-PH6"/>
@@ -89,6 +90,9 @@
                             <constraint firstItem="rJa-4G-FT5" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="oUf-fr-JGw"/>
                             <constraint firstItem="Aiq-22-bfg" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="yPp-Zd-O4P"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tcH-B7-BRx" appends="YES" id="eE4-5e-dMZ"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -107,6 +111,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tcH-B7-BRx">
+                    <connections>
+                        <action selector="GotoMain:" destination="M4Y-Lb-cyx" id="Ahh-So-lWm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="236" y="-57"/>
         </scene>

@@ -44,6 +44,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         print("view did appear")
     }
     
+    @IBAction func GotoMain(sender: UITapGestureRecognizer) {
+        let url = NSURL(string: "RainReminder://")!
+        self.extensionContext!.openURL(url , completionHandler: nil)
+    }
+    
+    
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 

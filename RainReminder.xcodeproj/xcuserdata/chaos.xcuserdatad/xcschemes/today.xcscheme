@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C4DA1FD81CD9A2150040F802"
-               BuildableName = "today.appex"
-               BlueprintName = "today"
+               BuildableName = "RainReminderTodayWidget.appex"
+               BlueprintName = "RainReminderTodayWidget"
                ReferencedContainer = "container:RainReminder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C4DA1FD81CD9A2150040F802"
-            BuildableName = "today.appex"
-            BlueprintName = "today"
+            BuildableName = "RainReminderTodayWidget.appex"
+            BlueprintName = "RainReminderTodayWidget"
             ReferencedContainer = "container:RainReminder.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
