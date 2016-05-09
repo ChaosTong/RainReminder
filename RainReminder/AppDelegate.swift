@@ -30,8 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
         
         //设置最小Fetch时间 3h
         //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 12))
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(3600 * 3))
-        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         var isLaunchedFromQuickAction = false
         
         //add WeiboSDK info
@@ -79,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
     
     //MARK: - Fetch Background
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        
+        print("*** fetch start")
         if let fetchViewController = window?.rootViewController as? HomeController {
             fetchViewController.fetch {
                 fetchViewController.performNetWork()
