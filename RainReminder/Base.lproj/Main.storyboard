@@ -428,33 +428,33 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2016 ChaosTong  保留所有权利" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTY-3V-kVr">
-                                    <rect key="frame" x="8" y="146" width="150" height="9"/>
+                                    <rect key="frame" x="8" y="106" width="150" height="9"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="alj-hW-Hea">
-                                    <rect key="frame" x="255" y="25" width="90" height="90"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="90" id="cmL-nI-QfY"/>
-                                        <constraint firstAttribute="width" constant="90" id="v7D-Mw-0AF"/>
-                                    </constraints>
-                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:  easyulife@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb4-vb-G42">
-                                    <rect key="frame" x="492" y="146" width="100" height="9"/>
+                                    <rect key="frame" x="492" y="106" width="100" height="9"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nowWeather" translatesAutoresizingMaskIntoConstraints="NO" id="alj-hW-Hea">
+                                    <rect key="frame" x="268" y="26" width="64" height="64"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="64" id="cmL-nI-QfY"/>
+                                        <constraint firstAttribute="width" constant="64" id="v7D-Mw-0AF"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="HTY-3V-kVr" firstAttribute="leading" secondItem="PgK-7b-ARc" secondAttribute="leading" constant="8" id="55v-eM-YIB"/>
-                                <constraint firstItem="alj-hW-Hea" firstAttribute="centerY" secondItem="PgK-7b-ARc" secondAttribute="centerY" constant="-20" id="70Q-UM-gQn"/>
+                                <constraint firstItem="alj-hW-Hea" firstAttribute="centerY" secondItem="PgK-7b-ARc" secondAttribute="centerY" constant="-32" id="70Q-UM-gQn"/>
                                 <constraint firstItem="alj-hW-Hea" firstAttribute="leading" secondItem="PgK-7b-ARc" secondAttribute="leading" id="RzK-BV-t9y"/>
-                                <constraint firstAttribute="bottom" secondItem="HTY-3V-kVr" secondAttribute="bottom" constant="25" id="SuJ-Of-Ptg"/>
+                                <constraint firstAttribute="bottom" secondItem="HTY-3V-kVr" secondAttribute="bottom" constant="65" id="SuJ-Of-Ptg"/>
                                 <constraint firstItem="alj-hW-Hea" firstAttribute="centerX" secondItem="PgK-7b-ARc" secondAttribute="centerX" id="XU0-1f-W5y"/>
                                 <constraint firstAttribute="bottom" secondItem="alj-hW-Hea" secondAttribute="bottom" id="Y6w-j7-MYg"/>
-                                <constraint firstAttribute="bottom" secondItem="fb4-vb-G42" secondAttribute="bottom" constant="25" id="fqy-b7-E9g"/>
+                                <constraint firstAttribute="bottom" secondItem="fb4-vb-G42" secondAttribute="bottom" constant="65" id="fqy-b7-E9g"/>
                                 <constraint firstAttribute="trailing" secondItem="fb4-vb-G42" secondAttribute="trailing" constant="8" id="o0O-SJ-xnr"/>
                                 <constraint firstAttribute="trailing" secondItem="alj-hW-Hea" secondAttribute="trailing" id="r3B-PI-Ubp"/>
                                 <constraint firstItem="alj-hW-Hea" firstAttribute="top" secondItem="PgK-7b-ARc" secondAttribute="top" id="tLy-rb-6U2"/>
@@ -478,7 +478,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        因为是个人开发作品 ,使用的免费服务器,每天的访问有限制,如果给你造成了不便,还请见谅!   如果你喜欢这款产品,可以支持我,更加优化这款产品,谢谢 ! " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIJ-Qs-OR1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        因为是个人开发作品 ,使用的免费服务器,每天的访问有限制,如果给你造成了不便,还请见谅!   如果你喜欢这款产品,可以支持我,更加优化这款产品,谢谢 ! 欢迎加Q群讨论:188255611" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIJ-Qs-OR1">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="93"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -992,7 +992,7 @@
         <image name="Loading" width="30" height="30"/>
         <image name="Location" width="30" height="30"/>
         <image name="ShareSheetSinaWeibo" width="26" height="26"/>
-        <image name="icon" width="120" height="120"/>
+        <image name="nowWeather" width="60" height="60"/>
         <image name="shareBtn_topic_blank" width="20" height="19"/>
     </resources>
 </document>

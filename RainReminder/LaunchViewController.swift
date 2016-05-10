@@ -26,7 +26,8 @@ class LaunchViewController: UIViewController {
         }
         
         //下载下一次所需的启动页数据
-            Alamofire.request(.GET, "http://news-at.zhihu.com/api/4/start-image/1080*1776").responseJSON { response in
+        //http://news-at.zhihu.com/api/4/start-image/1080*1776
+            Alamofire.request(.GET, "http://www.easyulife.com/json/launchpic.json").responseJSON { response in
                 switch response.result {
                 case .Success(let data):
                     let json = JSON(data)
@@ -35,9 +36,9 @@ class LaunchViewController: UIViewController {
                     self.launchTextLabel.text = text
                     NSUserDefaults.standardUserDefaults().setObject(text, forKey: self.launchTextKey)
                     
-                    let imagestring = "https://pic2.zhimg.com/102781f8a7a5a997db57b0e426953e74.jpg"
-                    //let launchImageURL = json["img"].stringValue
-                    let launchImageURL = imagestring
+                    //let imagestring = "https://pic1.zhimg.com/d81d32da9ca5bff70171ed2c1893ad6c.jpg"
+                    let launchImageURL = json["img"].stringValue
+                    //let launchImageURL = imagestring
                     Alamofire.request(.GET, launchImageURL).responseData { response in
                         if let data = response.data {
                             NSUserDefaults.standardUserDefaults().setObject(data, forKey: self.launchImgKey)
