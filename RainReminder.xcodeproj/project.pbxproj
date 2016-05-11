@@ -48,6 +48,7 @@
 		C49790441CB748B400EDF314 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790421CB748B400EDF314 /* City.swift */; };
 		C49790451CB748B400EDF314 /* Citys.xml in Resources */ = {isa = PBXBuildFile; fileRef = C49790431CB748B400EDF314 /* Citys.xml */; };
 		C49790471CB7509900EDF314 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790461CB7509900EDF314 /* DataModel.swift */; };
+		C4D577511CE2C58E00A6FD73 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D577501CE2C58E00A6FD73 /* Reachability.swift */; };
 		C4DA1FDA1CD9A2150040F802 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44BA0861CD871A6009FA914 /* NotificationCenter.framework */; };
 		C4DA1FDD1CD9A2150040F802 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */; };
 		C4DA1FE01CD9A2150040F802 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4DA1FDE1CD9A2150040F802 /* MainInterface.storyboard */; };
@@ -152,6 +153,7 @@
 		C49790421CB748B400EDF314 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		C49790431CB748B400EDF314 /* Citys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Citys.xml; sourceTree = "<group>"; };
 		C49790461CB7509900EDF314 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		C4D577501CE2C58E00A6FD73 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C4DA1FD91CD9A2150040F802 /* RainReminderTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RainReminderTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C4DA1FDF1CD9A2150040F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				C49790401CB7487700EDF314 /* ParserXML.swift */,
 				C44BF21C1CBA3D980064376E /* RainReminder-Bridging-Header.h */,
 				C40907311CDADCB200F6032C /* NSDate+WeatherDate.swift */,
+				C4D577501CE2C58E00A6FD73 /* Reachability.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				C46DC2F01CBA96C9007B39A8 /* WeatherIcon.swift in Sources */,
 				C45FF8981CBCD80900D43701 /* TimePickerViewController.swift in Sources */,
 				C49579621CB507CC0051D7C8 /* HomeController.swift in Sources */,
+				C4D577511CE2C58E00A6FD73 /* Reachability.swift in Sources */,
 				C45FF8941CBCCB3000D43701 /* SupportTableTableViewController.swift in Sources */,
 				C497903B1CB6A94700EDF314 /* DailyResult.swift in Sources */,
 				C46DC2FE1CBB856F007B39A8 /* WeekWeatherCell.swift in Sources */,

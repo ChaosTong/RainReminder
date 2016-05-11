@@ -43,6 +43,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     let geocoder = CLGeocoder()
     var placemark: CLPlacemark?
     var lastGeocodingError: NSError?
+    var NONetWork = false
     
     var dateString: String!
     var parserXML:ParserXML!
@@ -113,6 +114,35 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             .addObserver(self, selector: #selector(HomeController.applicationWillResignActive),name: UIApplicationWillResignActiveNotification, object: nil)
         
         fetch { self.saveDefaults() }
+    }
+    
+    // MARK: - 判断当前网络情况
+    
+    func whatNetwork() {
+        let reachability: Reachability
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("网络连接：不可用")
+            return
+        }
+        
+        //判断连接状态
+        if reachability.isReachable(){
+           print("网络连接：可用")
+        }else{
+            print("网络连接：不可用")
+        }
+        
+        //判断连接类型
+        if reachability.isReachableViaWiFi() {
+            print("连接类型：WiFi")
+        }else if reachability.isReachableViaWWAN() {
+            print("连接类型：移动网络")
+        }else {
+            print("连接类型：没有网络连接")
+            NONetWork = true
+        }
     }
     
     //MARK: - Fetch Background
@@ -248,6 +278,11 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     
     //MARK: - Request network data
     func performNetWork() {
+        whatNetwork()
+        
+        if NONetWork {
+            iToast.makeText("网络不可用，请稍后再试").show()
+        }
         
         let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hudView.mode = MBProgressHUDModeIndeterminate
@@ -256,7 +291,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         Alamofire.request(RRouter.FetchWeather(city: cityName, key: RRouter.key)).responseJSON { response in
             guard response.result.error == nil, let dat = response.result.value else {
                 print(response.result)
-                
+                hudView.hide(true)
                 return
             }
             self.weatherResult = WeatherResult()
@@ -264,7 +299,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             let json = JSON(dat)
             let data = json["HeWeather data service 3.0"][0]
             let status = data["status"].stringValue
-            print(json)
+            //print(json)
             if status == "ok" {
                 let tmpsNow = data["now"]["tmp"].stringValue
                 self.dataModel.currentTmp = tmpsNow + "˚"
