@@ -2,6 +2,8 @@
 
 # RainReminder
 
+|**Version 1.2.1**         |[![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/badge/icon)](https://ci.swift.org/job/oss-swift-incremental-RA-osx)|
+
 > 简洁的Swift天气预报软件.(ps:简洁是因为复杂的我还不会orz)
    
 明天要下雨,你记得要带伞了吗？  
@@ -16,6 +18,7 @@
 支持微博分享当天天气内容.  
 
 联系邮箱: easyulife@gmail.com 
+讨论Q群: 188255611
 
 ####WebSite: [RainReminder-Swift天气应用](http://www.tongchao.xyz/2016/05/04/rainreminder-swifttian-qi-ying-yong/)  
 ####AppStore: [已上架AppStore](https://itunes.apple.com/us/app/rainreminder/id1102738128?l=zh&ls=1&mt=8)   
