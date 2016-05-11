@@ -2,7 +2,7 @@
 
 # RainReminder
 
-|**Version 1.2.1**         |[![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/badge/icon)](https://ci.swift.org/job/oss-swift-incremental-RA-osx)|
+**Version 1.2.1** | [![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/badge/icon)](https://ci.swift.org/job/oss-swift-incremental-RA-osx)
 
 > 简洁的Swift天气预报软件.(ps:简洁是因为复杂的我还不会orz)
    
