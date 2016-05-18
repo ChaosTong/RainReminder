@@ -4,6 +4,7 @@
 
 **Version 1.2.1** ![](https://travis-ci.org/ChaosTong/RainReminder.svg?branch=develop)
 
+**此项目更新到此为止**
 
 > 简洁的Swift天气预报软件.(ps:简洁是因为复杂的我还不会orz)
    
