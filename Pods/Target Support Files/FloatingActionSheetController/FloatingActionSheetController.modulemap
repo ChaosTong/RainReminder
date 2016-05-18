@@ -1,0 +1,6 @@
+framework module FloatingActionSheetController {
+  umbrella header "FloatingActionSheetController-umbrella.h"
+
+  export *
+  module * { export * }
+}

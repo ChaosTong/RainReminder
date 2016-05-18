@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D3E29CF9595CAC2B5DEF3641E22107D7EDA0F260",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D6D7E8BF6D471A28DF4F59BB0B462FDE5B4509FC" : 0,
+    "D3E29CF9595CAC2B5DEF3641E22107D7EDA0F260" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "40126F07-204C-46ED-B710-A77BE3590AD4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D6D7E8BF6D471A28DF4F59BB0B462FDE5B4509FC" : "RainReminder\/RainReminder\/UmbrellaWeather\/",
+    "D3E29CF9595CAC2B5DEF3641E22107D7EDA0F260" : "RainReminder\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RainReminder",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RainReminder.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ChaosTong\/RainReminder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3E29CF9595CAC2B5DEF3641E22107D7EDA0F260"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ZeroJian\/UmbrellaWeather.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D6D7E8BF6D471A28DF4F59BB0B462FDE5B4509FC"
+    }
+  ]
+}
