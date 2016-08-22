@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -148,23 +148,6 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="La3-S5-Tr8">
-                                                <rect key="frame" x="30" y="407" width="150" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="L88-nb-7kh"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Rfz-se-Q1O"/>
-                                                    <constraint firstAttribute="width" constant="150" id="dLg-fL-zfu"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="gDO-kl-8vb"/>
-                                                    <constraint firstAttribute="height" constant="20" id="qcr-yg-NIi"/>
-                                                </constraints>
-                                                <color key="progressTintColor" red="0.50521293736473005" green="0.88719951919743589" blue="0.87934713660073993" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="qcr-yg-NIi"/>
-                                                    </mask>
-                                                </variation>
-                                            </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S2-bM-KKQ">
                                                 <rect key="frame" x="200" y="131" width="200" height="52"/>
                                                 <constraints>
@@ -173,16 +156,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="chinese" family="chinese" pointSize="36"/>
                                                 <color key="textColor" red="0.36862745099999999" green="0.35686274509999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-zG-zyX">
-                                                <rect key="frame" x="505" y="402" width="87" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="87" id="mF4-sd-KvM"/>
-                                                    <constraint firstAttribute="height" constant="30" id="tiX-Xq-C2S"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="30"/>
-                                                <color key="textColor" red="0.38431372549999998" green="0.79607843140000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyx-yY-nFi" userLabel="WeekView">
@@ -249,6 +222,31 @@
                                                     </mask>
                                                 </variation>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-zG-zyX">
+                                                <rect key="frame" x="505" y="402" width="87" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="elp-aI-hFo"/>
+                                                    <constraint firstAttribute="width" constant="87" id="mYd-bh-CBR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="30"/>
+                                                <color key="textColor" red="0.38431372549999998" green="0.79607843140000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="La3-S5-Tr8">
+                                                <rect key="frame" x="14" y="402" width="150" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="BlC-WP-Q3N"/>
+                                                    <constraint firstAttribute="width" constant="150" id="XME-wm-thC"/>
+                                                    <constraint firstAttribute="height" constant="20" id="qcr-yg-NIi"/>
+                                                </constraints>
+                                                <color key="progressTintColor" red="0.50521293736473005" green="0.88719951919743589" blue="0.87934713660073993" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="qcr-yg-NIi"/>
+                                                    </mask>
+                                                </variation>
+                                            </progressView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.36470588240000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -258,16 +256,16 @@
                                             <constraint firstAttribute="bottom" secondItem="eoa-zG-zyX" secondAttribute="bottom" constant="35" id="3SW-5m-rta"/>
                                             <constraint firstItem="La3-S5-Tr8" firstAttribute="top" relation="lessThanOrEqual" secondItem="UqK-h8-VMe" secondAttribute="bottom" constant="100" id="4oB-Lx-3ij"/>
                                             <constraint firstItem="QsJ-Jx-uEJ" firstAttribute="top" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="123.5" id="7C5-6k-Vri"/>
+                                            <constraint firstItem="La3-S5-Tr8" firstAttribute="top" secondItem="0qO-nL-tMT" secondAttribute="top" constant="402" id="8Pd-WU-l1r"/>
                                             <constraint firstItem="UqK-h8-VMe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="20" id="EY9-UH-wSE"/>
+                                            <constraint firstAttribute="trailing" secondItem="eoa-zG-zyX" secondAttribute="trailing" constant="8" id="Feg-ve-y18"/>
                                             <constraint firstAttribute="trailing" secondItem="qyx-yY-nFi" secondAttribute="trailing" id="GYc-9n-l9x"/>
                                             <constraint firstItem="7S2-bM-KKQ" firstAttribute="centerX" secondItem="0qO-nL-tMT" secondAttribute="centerX" id="KHw-fp-0gE"/>
                                             <constraint firstAttribute="trailing" secondItem="5c9-dA-zua" secondAttribute="trailing" constant="8" id="OOC-0T-APd"/>
-                                            <constraint firstItem="eoa-zG-zyX" firstAttribute="top" secondItem="0qO-nL-tMT" secondAttribute="top" constant="402" id="SiD-g1-f48"/>
-                                            <constraint firstAttribute="trailing" secondItem="eoa-zG-zyX" secondAttribute="trailing" constant="8" id="YFF-Yx-Krx"/>
-                                            <constraint firstItem="La3-S5-Tr8" firstAttribute="top" secondItem="0qO-nL-tMT" secondAttribute="top" constant="407" id="Yyd-Gb-vyL"/>
+                                            <constraint firstItem="La3-S5-Tr8" firstAttribute="leading" secondItem="0qO-nL-tMT" secondAttribute="leading" constant="14" id="ZUv-qn-O3D"/>
                                             <constraint firstItem="UqK-h8-VMe" firstAttribute="top" secondItem="QsJ-Jx-uEJ" secondAttribute="bottom" id="akB-uu-61h"/>
-                                            <constraint firstItem="La3-S5-Tr8" firstAttribute="leading" secondItem="0qO-nL-tMT" secondAttribute="leading" constant="30" id="c77-gD-hn1"/>
                                             <constraint firstItem="QsJ-Jx-uEJ" firstAttribute="top" secondItem="7S2-bM-KKQ" secondAttribute="bottom" constant="82" id="cTa-Lb-EYw"/>
+                                            <constraint firstItem="5c9-dA-zua" firstAttribute="top" secondItem="eoa-zG-zyX" secondAttribute="bottom" constant="65" id="eS4-fh-OYK"/>
                                             <constraint firstItem="eA9-DQ-Ukw" firstAttribute="centerX" secondItem="0qO-nL-tMT" secondAttribute="centerX" id="igS-eL-JWO"/>
                                             <constraint firstItem="qyx-yY-nFi" firstAttribute="top" secondItem="5c9-dA-zua" secondAttribute="bottom" constant="8" id="mTz-dD-b6u"/>
                                             <constraint firstAttribute="height" constant="720" id="neL-c9-N2V"/>
@@ -322,7 +320,9 @@
                                     <constraint firstItem="0qO-nL-tMT" firstAttribute="leading" secondItem="deU-SM-AxY" secondAttribute="leading" id="AeG-kl-QHW"/>
                                     <constraint firstAttribute="bottom" secondItem="0qO-nL-tMT" secondAttribute="bottom" id="HpS-fY-ykH"/>
                                     <constraint firstItem="7S2-bM-KKQ" firstAttribute="top" secondItem="Uh7-pT-yrG" secondAttribute="bottom" constant="28" id="dHu-Fi-ada"/>
+                                    <constraint firstItem="0qO-nL-tMT" firstAttribute="centerX" secondItem="deU-SM-AxY" secondAttribute="centerX" id="deS-ci-pjx"/>
                                     <constraint firstItem="0qO-nL-tMT" firstAttribute="top" secondItem="deU-SM-AxY" secondAttribute="top" id="ecK-xR-loL"/>
+                                    <constraint firstItem="0qO-nL-tMT" firstAttribute="centerX" secondItem="deU-SM-AxY" secondAttribute="centerX" id="law-pV-E5i"/>
                                     <constraint firstItem="0qO-nL-tMT" firstAttribute="top" secondItem="Uh7-pT-yrG" secondAttribute="bottom" constant="-103" id="o6y-b2-XKh"/>
                                     <constraint firstItem="0qO-nL-tMT" firstAttribute="centerX" secondItem="deU-SM-AxY" secondAttribute="centerX" id="pTk-pr-8nh"/>
                                     <constraint firstAttribute="trailing" secondItem="0qO-nL-tMT" secondAttribute="trailing" id="wPC-MR-5XR"/>
