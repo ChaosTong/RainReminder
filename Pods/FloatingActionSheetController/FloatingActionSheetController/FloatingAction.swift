@@ -13,11 +13,11 @@ public final class FloatingAction {
     // MARK: Public
     
     public private(set) var title: String?
-    public var customTintColor: UIColor?
-    public var customTextColor: UIColor?
-    public var customFont: UIFont?
+    public var tintColor: UIColor?
+    public var textColor: UIColor?
+    public var font: UIFont?
     
-    public init(title: String, handleImmediately: Bool = false, handler: ((action :FloatingAction) -> Void)?) {
+    public init(title: String, handleImmediately: Bool = false, handler: ((FloatingAction) -> Void)?) {
         self.title = title
         self.handleImmediately = handleImmediately
         self.handler = handler
@@ -25,6 +25,6 @@ public final class FloatingAction {
     
     // MARK: Internal
     
-    private(set) var handler: ((action: FloatingAction) -> Void)?
+    private(set) var handler: ((FloatingAction) -> Void)?
     private(set) var handleImmediately = false
 }

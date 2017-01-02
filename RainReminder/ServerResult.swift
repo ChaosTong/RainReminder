@@ -20,14 +20,19 @@ class ServerResult {
         parseWeatherData()
     }
     
-    private func parseWeatherData() -> WeatherResult {
+    fileprivate func parseWeatherData() -> WeatherResult {
  
-        let params:[String: AnyObject] = ["cityid": "CN101020100","key": key]
+        let params:[String: AnyObject] = ["cityid": "CN101020100" as AnyObject,"key": key as AnyObject]
         
-        Alamofire.request(.GET, BaseURL, parameters: params).responseJSON {
+//        Alamofire.request(.GET, BaseURL, parameters: params).responseJSON {
+        Alamofire.request(BaseURL, method: .get, parameters: params, encoding: JSONEncoding.default).responseJSON {
             response in
-            switch response.result {
-            case .Success(let dat):
+
+            guard response.result.error == nil, let dat = response.result.value else {
+                print(response.result)
+                return
+            }
+
                 let json = JSON(dat)
                 let data = json["HeWeather data service 3.0"][0]
                 let status = data["status"].stringValue
@@ -88,9 +93,7 @@ class ServerResult {
                     dataModel.currentCity = city
                     dataModel.saveData()
                 }
-            case .Failure(let error):
-                print(error)
-            }
+            
         }
         return self.weatherResult
     }

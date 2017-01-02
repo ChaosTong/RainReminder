@@ -8,49 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>FloatingActionSheetController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-RainReminder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>24F1A207D88A59E877C9759487479CDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9962B533D7ED16957E77596DAEEF0DBA</key>
+		<key>53C154809BC3D8C615A38B55646E96BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7E3A7BBAAFFEE08E0AC1FAADCF835E7</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F31746EA23AB4FF151EAF4FB542088EA</key>
+		<key>F9CD46030E323F2B559E90B4756DB869</key>
 		<dict>
 			<key>primary</key>
 			<true/>

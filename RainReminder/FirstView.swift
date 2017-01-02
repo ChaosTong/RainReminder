@@ -22,9 +22,9 @@ class FirstView: UIView {
     }
     
     func loadViewFormNib(){
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "FirstView", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
         self.addSubview(view)
     }

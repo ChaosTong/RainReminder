@@ -30,13 +30,13 @@ struct GeoinfoModel {
         self.name = name
     }
     
-    static func encode(geoinfo: GeoinfoModel) {
+    static func encode(_ geoinfo: GeoinfoModel) {
         let geoinfomodelClassObject = HelperClass(geoinfo: geoinfo)
         NSKeyedArchiver.archiveRootObject(geoinfomodelClassObject, toFile: HelperClass.path())
     }
     
     static func decode() -> GeoinfoModel? {
-        let geoinfomodelClassObject = NSKeyedUnarchiver.unarchiveObjectWithFile(HelperClass.path()) as? HelperClass
+        let geoinfomodelClassObject = NSKeyedUnarchiver.unarchiveObject(withFile: HelperClass.path()) as? HelperClass
         return geoinfomodelClassObject?.geoinfo
     }
     
@@ -53,35 +53,35 @@ extension GeoinfoModel {
         }
         
         class func path() -> String {
-            let documentsPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
-            let path = documentsPath?.stringByAppendingString("/GeoInfo.plist")
-            return path!
+            let documentsPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
+            let path = (documentsPath)! + "/GeoInfo.plist"
+            return path
         }
         
         required init?(coder aDecoder: NSCoder) {
-            guard let country = aDecoder.decodeObjectForKey("country") as? String else { geoinfo = nil; super.init(); return nil }
-            guard let country_code = aDecoder.decodeObjectForKey("country_code") as? String else { geoinfo = nil; super.init(); return nil }
-            guard let province = aDecoder.decodeObjectForKey("province") as? String else { geoinfo = nil; super.init(); return nil }
-            guard let city = aDecoder.decodeObjectForKey("city") as? String else { geoinfo = nil; super.init(); return nil }
-            guard let district = aDecoder.decodeObjectForKey("district") as? String else { geoinfo = nil; super.init(); return nil }
-            guard let street = aDecoder.decodeObjectForKey("street") as? String else { geoinfo = nil; super.init(); return nil }
+            guard let country = aDecoder.decodeObject(forKey: "country") as? String else { geoinfo = nil; super.init(); return nil }
+            guard let country_code = aDecoder.decodeObject(forKey: "country_code") as? String else { geoinfo = nil; super.init(); return nil }
+            guard let province = aDecoder.decodeObject(forKey: "province") as? String else { geoinfo = nil; super.init(); return nil }
+            guard let city = aDecoder.decodeObject(forKey: "city") as? String else { geoinfo = nil; super.init(); return nil }
+            guard let district = aDecoder.decodeObject(forKey: "district") as? String else { geoinfo = nil; super.init(); return nil }
+            guard let street = aDecoder.decodeObject(forKey: "street") as? String else { geoinfo = nil; super.init(); return nil }
             //guard let postalCode = aDecoder.decodeObjectForKey("postalCode") as? String else { geoinfo = nil; super.init(); return nil }
-            guard let name = aDecoder.decodeObjectForKey("name") as? String else { geoinfo = nil; super.init(); return nil }
+            guard let name = aDecoder.decodeObject(forKey: "name") as? String else { geoinfo = nil; super.init(); return nil }
             
             geoinfo = GeoinfoModel(country: country, country_code: country_code, province: province, city: city, district: district, street: street, name: name)
             
             super.init()
         }
         
-        func encodeWithCoder(aCoder: NSCoder) {
-            aCoder.encodeObject(geoinfo!.country, forKey: "country")
-            aCoder.encodeObject(geoinfo!.country_code, forKey: "country_code")
-            aCoder.encodeObject(geoinfo!.province, forKey: "province")
-            aCoder.encodeObject(geoinfo!.city, forKey: "city")
-            aCoder.encodeObject(geoinfo!.district, forKey: "district")
-            aCoder.encodeObject(geoinfo!.street, forKey: "street")
+        func encode(with aCoder: NSCoder) {
+            aCoder.encode(geoinfo!.country, forKey: "country")
+            aCoder.encode(geoinfo!.country_code, forKey: "country_code")
+            aCoder.encode(geoinfo!.province, forKey: "province")
+            aCoder.encode(geoinfo!.city, forKey: "city")
+            aCoder.encode(geoinfo!.district, forKey: "district")
+            aCoder.encode(geoinfo!.street, forKey: "street")
             //aCoder.encodeObject(geoinfo!.postalCode, forKey: "postalCode")
-            aCoder.encodeObject(geoinfo!.name, forKey: "name")
+            aCoder.encode(geoinfo!.name, forKey: "name")
         }
     }
 }

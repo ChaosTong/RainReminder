@@ -23,7 +23,7 @@ class WeekWeatherCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func configureForDailyResult(dailyResult: DailyResult){
+    func configureForDailyResult(_ dailyResult: DailyResult){
         
         labelOfdate.text = dailyResult.dailyDate
         labelOfScheme.text = dailyResult.dailyState

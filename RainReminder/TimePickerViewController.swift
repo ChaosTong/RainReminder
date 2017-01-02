@@ -9,8 +9,8 @@
 import UIKit
 
 protocol TimePickerViewControllerDelegate: class{
-    func timePickerViewControllerDidSelect(controller: TimePickerViewController, didSelectTime time: String)
-    func timePickerViewControllerDidCancel(controller: TimePickerViewController)
+    func timePickerViewControllerDidSelect(_ controller: TimePickerViewController, didSelectTime time: String)
+    func timePickerViewControllerDidCancel(_ controller: TimePickerViewController)
 }
 
 class TimePickerViewController: UIViewController {
@@ -19,32 +19,32 @@ class TimePickerViewController: UIViewController {
     weak var delegate: TimePickerViewControllerDelegate?
     
     
-    @IBAction func cancel(sender: AnyObject) {
+    @IBAction func cancel(_ sender: AnyObject) {
         delegate?.timePickerViewControllerDidCancel(self)
     }
     
-    @IBAction func done(sender: AnyObject) {
-        let formatter = NSDateFormatter()
+    @IBAction func done(_ sender: AnyObject) {
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        let dateString = formatter.stringFromDate(datePicker.date)
+        let dateString = formatter.string(from: datePicker.date)
         
         delegate?.timePickerViewControllerDidSelect(self, didSelectTime: dateString)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        modalPresentationStyle = .Custom
+        modalPresentationStyle = .custom
         transitioningDelegate = self
     }
 }
 
 extension TimePickerViewController: UIViewControllerTransitioningDelegate{
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return DimmingPresentationController(presentedViewController: presented, presentingViewController: presenting)
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

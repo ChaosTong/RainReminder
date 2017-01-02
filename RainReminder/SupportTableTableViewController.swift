@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 
 protocol SupportTableViewControllerDelegate: class{
-    func supportTableViewController(controller: SupportTableViewController)
+    func supportTableViewController(_ controller: SupportTableViewController)
 }
 
 
@@ -34,25 +34,25 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         dataModel = appCloud().dataModel
-        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        SKPaymentQueue.default().add(self)
         
         //let userDefaults = NSUserDefaults.standardUserDefaults()
         labelOfremind.text = dataModel.dueString
-        notifySwitch.on = dataModel.shouldRemind
+        notifySwitch.isOn = dataModel.shouldRemind
     }
     
     deinit{
         if requestPay{
             request.delegate = nil
         }
-        SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
+        SKPaymentQueue.default().remove(self)
     }
     
-    func shoudldNotification(should: Bool){
+    func shoudldNotification(_ should: Bool){
         if should{
             dataModel.shouldRemind = true
-            let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
-            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+            let notificationSettings = UIUserNotificationSettings(types: [.alert], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(notificationSettings)
             labelOfremind.text = dataModel.dueString
         }else{
             self.dataModel.dueString = "08:00"
@@ -64,7 +64,7 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
     
     //MARK: - 内购
     
-    func requestProducts(pid: String){
+    func requestProducts(_ pid: String){
         let set: Set<String> = [pid]
         request = SKProductsRequest(productIdentifiers: set)
         request.delegate = self
@@ -72,7 +72,7 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
         requestPay = true
     }
     
-    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if response.products.count != 0 {
             buyProduct(response.products[0])
         } else {
@@ -87,20 +87,20 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
         }
     }
     
-    func buyProduct(product: SKProduct){
+    func buyProduct(_ product: SKProduct){
         let payment = SKPayment(product: product)
-        SKPaymentQueue.defaultQueue().addPayment(payment)
+        SKPaymentQueue.default().add(payment)
         print("请求线程购买")
     }
     
-    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
         for transaction in transactions {
             print("队列状态变化 \(transaction.payment.productIdentifier)==\(transaction.transactionState.rawValue))")
             switch transaction.transactionState {
-            case .Purchasing:
+            case .purchasing:
                 print("商品添加进列表 \(transaction.payment.productIdentifier)")
-            case .Purchased:
+            case .purchased:
                 switch transaction.payment.productIdentifier{
                 case "rainreminder1":
                     row1WidthCon.constant = 0
@@ -115,8 +115,8 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
                     break
                 }
                 self.finishTransaction(transaction)
-            case .Failed:
-                if transaction.error?.code == 0{
+            case .failed:
+                if transaction.error?._code == 0{
                     showAlert("感谢你的支持,无法连接到 iTunes Store,请稍后重试")
                 }
                 switch transaction.payment.productIdentifier{
@@ -134,10 +134,10 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
                 }
                 print("交易失败error==\(transaction.error)")
                 self.finishTransaction(transaction)
-            case .Restored:
+            case .restored:
                 print("已经购买过商品")
                 self.finishTransaction(transaction)
-            case .Deferred:
+            case .deferred:
                 print("Allow the user to continue using your app.")
                 break
             }
@@ -145,9 +145,9 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
     }
     
     
-    func finishTransaction(transaction:SKPaymentTransaction) {
+    func finishTransaction(_ transaction:SKPaymentTransaction) {
         // 将交易从交易队列中删除
-        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+        SKPaymentQueue.default().finishTransaction(transaction)
     }
     
     override func didReceiveMemoryWarning() {
@@ -157,13 +157,13 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
     
     //MARK: - tableview
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch (indexPath.section,indexPath.row){
             
         case(0,1):
-            let timepickerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("timePickerViewController") as! TimePickerViewController
-            self.presentViewController(timepickerViewController, animated: true) { () -> Void in
+            let timepickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "timePickerViewController") as! TimePickerViewController
+            self.present(timepickerViewController, animated: true) { () -> Void in
                 timepickerViewController.delegate = self
             }
         case (1,0):
@@ -174,9 +174,9 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
             
             let storeViewController = SKStoreProductViewController()
             storeViewController.delegate = self
-            storeViewController.loadProductWithParameters([SKStoreProductParameterITunesItemIdentifier : 1102738128], completionBlock: { (result, error) -> Void in
+            storeViewController.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : 1102738128], completionBlock: { (result, error) -> Void in
                 if result{
-                    self.presentViewController(storeViewController, animated: true, completion: { () -> Void in
+                    self.present(storeViewController, animated: true, completion: { () -> Void in
                         self.hiddenLoadingImageView(self.loadingImageView)
                         
                     })
@@ -200,14 +200,14 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
             row3WidthCon.constant = row3ImageView.bounds.height
             loadingAnimation(row3ImageView)
         case (2,3):
-            let userDefaults = NSUserDefaults.standardUserDefaults()
-            let firstTime = userDefaults.boolForKey("FirstTime")
+            let userDefaults = UserDefaults.standard
+            let firstTime = userDefaults.bool(forKey: "FirstTime")
             if !firstTime{
-                userDefaults.setBool(true, forKey: "FirstTime")
+                userDefaults.set(true, forKey: "FirstTime")
                 userDefaults.synchronize()
                 
-                let loginedViewController = self.storyboard?.instantiateViewControllerWithIdentifier("viewController") as! HomeController
-                self.presentViewController(loginedViewController, animated: true) { () -> Void in
+                let loginedViewController = self.storyboard?.instantiateViewController(withIdentifier: "viewController") as! HomeController
+                self.present(loginedViewController, animated: true) { () -> Void in
                     
                 }
             }
@@ -218,65 +218,65 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
             request.userInfo = [
                 "SSO_From": "ViewController"
             ]
-            WeiboSDK.sendRequest(request)
+            WeiboSDK.send(request)
         default:
             return
         }
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func hiddenLoadingImageView(imageView: UIImageView){
+    func hiddenLoadingImageView(_ imageView: UIImageView){
         imageView.layer.removeAllAnimations()
-        imageView.hidden = true
+        imageView.isHidden = true
     }
     
-    func showAlert(message: String){
+    func showAlert(_ message: String){
         
-        let alert = UIAlertController(title: "加载错误", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.Cancel, handler: nil)
+        let alert = UIAlertController(title: "加载错误", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.cancel, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         
     }
     
     
-    func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        dismiss(animated: true, completion: nil)
     }
     
     
     //MARK: - Time picker
-    func timePickerViewControllerDidSelect(controller: TimePickerViewController, didSelectTime time: String) {
+    func timePickerViewControllerDidSelect(_ controller: TimePickerViewController, didSelectTime time: String) {
         dataModel.dueString = time
         shoudldNotification(true)
-        notifySwitch.on = dataModel.shouldRemind
+        notifySwitch.isOn = dataModel.shouldRemind
         dataModel.saveData()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func timePickerViewControllerDidCancel(controller: TimePickerViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func timePickerViewControllerDidCancel(_ controller: TimePickerViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func notifyOn(sender: UISwitch) {
+    @IBAction func notifyOn(_ sender: UISwitch) {
         
-        shoudldNotification(sender.on)
+        shoudldNotification(sender.isOn)
         
     }
     
     //MARK: - dissmiss view to main
     
-    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSety = scrollView.contentOffset.y
         
         if offSety < -50 && decelerate{
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
     //MARK: - 获取总代理
     func appCloud() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
+        return UIApplication.shared.delegate as! AppDelegate
     }
     
 }
