@@ -2,11 +2,10 @@
 
 # RainReminder
 
-**Version 1.2.1** ![](https://travis-ci.org/ChaosTong/RainReminder.svg?branch=develop)
+**Version 1.3.0** ![](https://travis-ci.org/ChaosTong/RainReminder.svg?branch=develop)
 
-**此项目更新到此为止**
-
-> 简洁的Swift天气预报软件.(ps:简洁是因为复杂的我还不会orz)
+**Update to Swift3** date 2017.01.02
+> 简洁的Swift天气预报软件
    
 明天要下雨,你记得要带伞了吗？  
 明天要降温,你记得要多穿衣服了吗？  
