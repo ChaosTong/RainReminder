@@ -9,10 +9,10 @@
 import UIKit
 
 protocol CityListViewControllerDelegate: class{
-    func cityListViewControolerDidSelectCity(controller: CityListViewController, didSelectCity city: City)
-    func cityListViewControllerCancel(controller: CityListViewController)
+    func cityListViewControolerDidSelectCity(_ controller: CityListViewController, didSelectCity city: City)
+    func cityListViewControllerCancel(_ controller: CityListViewController)
     
-    func cityListViewControllerDeleteCity(controller: CityListViewController, currentCities cities: [City])
+    func cityListViewControllerDeleteCity(_ controller: CityListViewController, currentCities cities: [City])
     
 }
 
@@ -36,23 +36,23 @@ class CityListViewController: UIViewController {
         headerYConstraion.constant -= view.bounds.height - 60
         
         let cellNib = UINib(nibName: "CityListCell", bundle: nil)
-        tableView.registerNib(cellNib, forCellReuseIdentifier: "CityListCell")
+        tableView.register(cellNib, forCellReuseIdentifier: "CityListCell")
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        headerView.hidden = false
+        headerView.isHidden = false
         headerYConstraion.constant = 0
         
-        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
             self.view.layoutIfNeeded()
             }, completion: nil)
         
     }
     
-    func filterControllerForSearchText(searchText: String, scope: String = "ALL"){
+    func filterControllerForSearchText(_ searchText: String, scope: String = "ALL"){
         filteredCities = parserCities.filter({ (city) -> Bool in
-            return city.cityCN.lowercaseString.containsString(searchText.lowercaseString)
+            return city.cityCN.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()
     }
@@ -71,17 +71,17 @@ class CityListViewController: UIViewController {
 
 //MARK: - 获取总代理
 func appCloud() -> AppDelegate {
-    return UIApplication.sharedApplication().delegate as! AppDelegate
+    return UIApplication.shared.delegate as! AppDelegate
 }
 
 extension CityListViewController: UISearchBarDelegate{
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         filterControllerForSearchText(searchBar.text!)
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if parserCities.isEmpty{
             parserXML = ParserXML()
             parserCities = parserXML.cities
@@ -93,7 +93,7 @@ extension CityListViewController: UISearchBarDelegate{
 
 extension CityListViewController : UITableViewDelegate{
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let delegate = delegate{
             let city: City
             
@@ -105,11 +105,11 @@ extension CityListViewController : UITableViewDelegate{
             delegate.cityListViewControolerDidSelectCity(self, didSelectCity: city)
         }
         searchBar.resignFirstResponder()
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if searchBar.text != ""{
             return false
         }else{
@@ -117,13 +117,13 @@ extension CityListViewController : UITableViewDelegate{
         }
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        cities.removeAtIndex(indexPath.row)
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        cities.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
         delegate?.cityListViewControllerDeleteCity(self, currentCities: cities)
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
         searchBar.resignFirstResponder()
         
@@ -135,15 +135,15 @@ extension CityListViewController : UITableViewDelegate{
         
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         let offSetY = scrollView.contentOffset.y
         
         if decelerate && offSetY < -110{
             
-            headerView.hidden = true
+            headerView.isHidden = true
             delegate?.cityListViewControllerCancel(self)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -151,24 +151,24 @@ extension CityListViewController : UITableViewDelegate{
 
 extension CityListViewController: UITableViewDataSource{
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let city: City
         if searchBar.text != ""{
-            let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath)
-            cell.textLabel?.textColor = UIColor.whiteColor()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
+            cell.textLabel?.textColor = UIColor.white
             city = filteredCities[indexPath.row]
             cell.textLabel?.text = city.cityCN
             return cell
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("CityListCell", forIndexPath: indexPath) as! CityListCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CityListCell", for: indexPath) as! CityListCell
             city = cities[indexPath.row]
             cell.addCityName(city)
             return cell
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if  !filteredCities.isEmpty || searchBar.text != ""{
             return filteredCities.count
         }

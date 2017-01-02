@@ -36,7 +36,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     //MARK: - Properties
     let locationManager = CLLocationManager()
     var updatingLocation = false
-    var timer: NSTimer?
+    var timer: Timer?
     var location: CLLocation?
     var lastLocationError: NSError?
     var performingReversseGeoCoding = false
@@ -77,10 +77,10 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     var suggestion = ""
     var raintxt = ""
     var pop = "0"
-    var update = NSDate().description
+    var update = Date().description
     
     //MARK: - key sth.
-    let BaseURL = "https://api.heweather.com/x3/weather"
+    let BaseURL = "https://api.heweather.com/x3/weather/"
     let key = "04f6c6c770d94aee8f738758a829d826"
     
     //MARK: - life cycle
@@ -98,59 +98,59 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         self.handleFirstTime()
         
-        headerView.backgroundColor = UIColor.clearColor()
-        mainView.backgroundColor = UIColor.clearColor()
-        self.view.backgroundColor = UIColor.clearColor()
-        dateView.backgroundColor = UIColor.clearColor()
+        headerView.backgroundColor = UIColor.clear
+        mainView.backgroundColor = UIColor.clear
+        self.view.backgroundColor = UIColor.clear
+        dateView.backgroundColor = UIColor.clear
         
         // for the today widget
-        NSNotificationCenter.defaultCenter()
-            .addObserver(self, selector: #selector(HomeController.applicationWillResignActive),name: UIApplicationWillResignActiveNotification, object: nil)
+        NotificationCenter.default
+            .addObserver(self, selector: #selector(HomeController.applicationWillResignActive),name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         
         fetch { self.saveDefaults() }
     }
 
     // MARK: - 判断当前网络情况
     
-    func whatNetwork() {
-        let reachability: Reachability
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("网络连接：不可用")
-            return
-        }
+//    func whatNetwork() {
+//        let reachability: Reachability
+//        do {
+//            reachability = try Reachability.NetworkReachable
+//        } catch {
+//            print("网络连接：不可用")
+//            return
+//        }
         
         //判断连接状态
-        if reachability.isReachable(){
-           print("网络连接：可用")
-        }else{
-            print("网络连接：不可用")
-        }
+//        if reachability.isReachable{
+//           print("网络连接：可用")
+//        }else{
+//            print("网络连接：不可用")
+//        }
         
         //判断连接类型
-        if reachability.isReachableViaWiFi() {
-            print("连接类型：WiFi")
-        }else if reachability.isReachableViaWWAN() {
-            print("连接类型：移动网络")
-        }else {
-            print("连接类型：没有网络连接")
-            NONetWork = true
-        }
-    }
+//        if reachability.isReachableViaWiFi {
+//            print("连接类型：WiFi")
+//        }else if reachability.isReachableViaWWAN {
+//            print("连接类型：移动网络")
+//        }else {
+//            print("连接类型：没有网络连接")
+//            NONetWork = true
+//        }
+//    }
     
     //MARK: - Fetch Background
-    func fetch(completion: () -> Void) {
+    func fetch(_ completion: () -> Void) {
         completion()
     }
     
-    @objc private func applicationWillResignActive() { 
+    @objc fileprivate func applicationWillResignActive() { 
         saveDefaults()
     }
     
     func saveDefaults() {
         var message = ""
-        let userDefault = NSUserDefaults(suiteName: "group.rainreminderShareDefault")
+        let userDefault = UserDefaults(suiteName: "group.rainreminderShareDefault")
         if dataModel.dailyResults.count > 0 {
         
             
@@ -163,18 +163,18 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             let now = dataModel.currentTmp
             let icon = WeatherIcon(condition: Int(dataModel.currentCode)!, iconString: "day").iconText
             
-            userDefault?.setObject(icon, forKey: "com.easyulife.rainreminder.icon")
-            userDefault?.setObject(location, forKey: "com.easyulife.rainreminder.location")
-            userDefault?.setObject(time, forKey: "com.easyulife.rainreminder.time")
-            userDefault?.setObject(state, forKey: "com.easyulife.rainreminder.state")
-            userDefault?.setObject(now, forKey: "com.easyulife.rainreminder.now")
-            userDefault?.setObject(tmp, forKey: "com.easyulife.rainreminder.tmp")
+            userDefault?.set(icon, forKey: "com.easyulife.rainreminder.icon")
+            userDefault?.set(location, forKey: "com.easyulife.rainreminder.location")
+            userDefault?.set(time, forKey: "com.easyulife.rainreminder.time")
+            userDefault?.set(state, forKey: "com.easyulife.rainreminder.state")
+            userDefault?.set(now, forKey: "com.easyulife.rainreminder.now")
+            userDefault?.set(tmp, forKey: "com.easyulife.rainreminder.tmp")
             message = "have data"
         } else {
             message = "您现在还没有添加城市,请点击进入RainReminder进行定位或搜索."
         }
         
-        userDefault?.setObject(message, forKey: "com.easyulife.rainreminder.message")
+        userDefault?.set(message, forKey: "com.easyulife.rainreminder.message")
         
         userDefault!.synchronize()
     }
@@ -187,11 +187,11 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     
     func launchView() {
         //生成第二启动页背景
-        let launchView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        let launchView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         launchView.alpha = 0.99
         
         //得到第二启动页控制器并设置为子控制器
-        let launchViewController = storyboard?.instantiateViewControllerWithIdentifier("launchViewController")
+        let launchViewController = storyboard?.instantiateViewController(withIdentifier: "launchViewController")
         self.addChildViewController(launchViewController!)
         
         //将第二启动页放到背景上
@@ -201,33 +201,33 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         self.view.addSubview(launchView)
         //        self.navigationController?.
         //        self.tabBarController?.tabBar.
-        self.navigationController?.navigationBarHidden = true
-        self.tabBarController?.tabBar.hidden = true
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
         UINavigationBar.appearance().barTintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
         UINavigationBar.appearance().tintColor = UIColor(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 0.6)
         
         
-        UIView.animateWithDuration(2.5, animations: { () -> Void in
+        UIView.animate(withDuration: 2.5, animations: { () -> Void in
             launchView.alpha = 1
-            }) { (finished) -> Void in
-                UIView.animateWithDuration(0.2, animations: { () -> Void in
+            }, completion: { (finished) -> Void in
+                UIView.animate(withDuration: 0.2, animations: { () -> Void in
                     launchView.alpha = 0
-                    self.navigationController?.navigationBarHidden = false
-                    self.tabBarController?.tabBar.hidden = false
+                    self.navigationController?.isNavigationBarHidden = false
+                    self.tabBarController?.tabBar.isHidden = false
                 })
-        }
+        }) 
     }
     
     //MARK: - firstView
     
     //设置第一次启动引导
     func handleFirstTime(){
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let firstTime = userDefaults.boolForKey("FirstTime")
+        let userDefaults = UserDefaults.standard
+        let firstTime = userDefaults.bool(forKey: "FirstTime")
         if firstTime{
             showViewWithFirstTime()
-            userDefaults.setBool(false, forKey: "FirstTime")
+            userDefaults.set(false, forKey: "FirstTime")
             userDefaults.synchronize()
         }else{
             initLocation()
@@ -240,15 +240,15 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         let button = UIButton()
         button.bounds.size = CGSize(width: 100, height: 50)
         button.center = view.center
-        button.setTitle("开始吧!", forState: .Normal)
+        button.setTitle("开始吧!", for: UIControlState())
         button.backgroundColor = view.tintColor
         firstView.addSubview(button)
-        button.addTarget(self, action: #selector(HomeController.touchBegin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(HomeController.touchBegin(_:)), for: UIControlEvents.touchUpInside)
         
         view.addSubview(firstView)
     }
     
-    func touchBegin(sender: UIButton){
+    func touchBegin(_ sender: UIButton){
         firstView.removeFromSuperview()
         handleFirstTime()
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
@@ -257,31 +257,22 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     //MARK: - Return the sandbox url
     func returnDir() {
         //Print the directory
-        let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         print(DocumentsDirectory)
     }
     
     //MARK: - Request network data
     func performNetWork() {
-        whatNetwork()
-        if NONetWork {
-            iToast.makeText("网络不可用，请稍后再试").show()
-            return
-        }
         
-        let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        hudView.mode = MBProgressHUDModeIndeterminate
-        hudView.labelText = "Loading"
+        let hudView = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hudView?.mode = MBProgressHUDModeIndeterminate
+        hudView?.labelText = "Loading"
+        let param = ["city": cityName, "key": key]
         
-        Alamofire.request(RRouter.FetchWeather(city: cityName, key: RRouter.key)).responseJSON { response in
-            guard response.result.error == nil, let dat = response.result.value else {
-                print(response.result)
-                hudView.hide(true)
-                return
-            }
+        NetworkTools.requestData(.get, URLString: BaseURL,
+                                 parameters: param) { (result) in
+            let json = JSON(result)
             self.weatherResult = WeatherResult()
-            
-            let json = JSON(dat)
             let data = json["HeWeather data service 3.0"][0]
             let status = data["status"].stringValue
             //print(json)
@@ -300,96 +291,96 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                 self.suggestion = suggest_brf + ",\n" + suggest_txt
                 self.raintxt = raintxt
                 self.pop = pop
-                    
-                    if let ServiceState = data["status"].string{
-                        self.weatherResult.ServiceStatus = ServiceState
-                    }
-                    
-                    if let jsonCity = data["basic"]["city"].string{
-                        self.weatherResult.city = jsonCity
-                    }
-                    if let state = data["now"]["cond"]["txt"].string{
-                        self.weatherResult.state = state
-                    }
-                    if let stateCode = data["now"]["cond"]["code"].string{
-                        self.weatherResult.stateCode = Int(stateCode)!
-                    }
-                    
-                    let dailyArrays = data["daily_forecast"]
-                    let dailyDayTmp = dailyArrays[0]["tmp"]
-                    if let pop = dailyArrays[0]["pop"].string{
-                        self.weatherResult.dayRain = pop
-                    }
-                    if let dayTemMax = dailyDayTmp["max"].string{
-                        self.weatherResult.dayTemMax = dayTemMax + "˚"
-                    }
-                    if let dayTmpMin = dailyDayTmp["min"].string{
-                        self.weatherResult.dayTmpMin = dayTmpMin + "˚"
-                    }
-                    
-                    for (_,subJson):(String, JSON) in data["daily_forecast"]{
-                        let dailyResult = DailyResult()
-                        
-                        if let dates = subJson["date"].string{
-                            dailyResult.dailyDate = dates
-                        }
-                        if let pop = subJson["pop"].string{
-                            dailyResult.dailyPop = Int(pop)!
-                        }
-                        if let tmpsMax = subJson["tmp"]["max"].string{
-                            dailyResult.dailyTmpMax = tmpsMax + "˚"
-                        }
-                        if let tmpsMin = subJson["tmp"]["min"].string{
-                            dailyResult.dailyTmpMin = tmpsMin + "˚"
-                        }
-                        if let conds = subJson["cond"]["txt_d"].string{
-                            dailyResult.dailyState = conds
-                        }
-                        if let stateCode = subJson["cond"]["code_d"].string{
-                            dailyResult.dailyStateCode = Int(stateCode)!
-                        }
-                        self.weatherResult.dailyResults.append(dailyResult)
-                        self.collectionView .reloadData()
-                    }
-                    
-                    let weatherIcon = WeatherIcon(condition: nowCode, iconString: "day").iconText
-                    self.TmpMax.text = tmpsMax + "˚"
-                    self.TmpMin.text = tmpsMin + "˚"
-                    self.TmpNow.text = tmpsNow + "˚"
-                    self.labelOfState.text = nowTxt
-                    self.labelOfIcon.text = weatherIcon
-                                        
-                    if let FloatRain = Float(pop){
-                        let value = FloatRain / 100
-                        self.progress.setProgress(value, animated: true)
-                    }
-                
-                    self.rainPercentLabel.text = pop + "%"
-                    self.mainView.reloadInputViews()
-                    
-                    self.dataModel.dailyResults = self.weatherResult.dailyResults
-                    self.dataModel.currentCity = self.cityName
-                    self.dataModel.saveData()
-                    
-                    hudView.hide(true)
-                
-                    iToast.makeText("更新成功").show()
-                    self.update = NSDate().description
-                    self.saveDefaults()
-                } else {
-                    hudView.hide(true)
-                    iToast.makeText("获取失败").show()
+
+                if let ServiceState = data["status"].string{
+                    self.weatherResult.ServiceStatus = ServiceState
                 }
+
+                if let jsonCity = data["basic"]["city"].string{
+                    self.weatherResult.city = jsonCity
+                }
+                if let state = data["now"]["cond"]["txt"].string{
+                    self.weatherResult.state = state
+                }
+                if let stateCode = data["now"]["cond"]["code"].string{
+                    self.weatherResult.stateCode = Int(stateCode)!
+                }
+
+                let dailyArrays = data["daily_forecast"]
+                let dailyDayTmp = dailyArrays[0]["tmp"]
+                if let pop = dailyArrays[0]["pop"].string{
+                    self.weatherResult.dayRain = pop
+                }
+                if let dayTemMax = dailyDayTmp["max"].string{
+                    self.weatherResult.dayTemMax = dayTemMax + "˚"
+                }
+                if let dayTmpMin = dailyDayTmp["min"].string{
+                    self.weatherResult.dayTmpMin = dayTmpMin + "˚"
+                }
+
+                for (_,subJson):(String, JSON) in data["daily_forecast"]{
+                    let dailyResult = DailyResult()
+
+                    if let dates = subJson["date"].string{
+                        dailyResult.dailyDate = dates
+                    }
+                    if let pop = subJson["pop"].string{
+                        dailyResult.dailyPop = Int(pop)!
+                    }
+                    if let tmpsMax = subJson["tmp"]["max"].string{
+                        dailyResult.dailyTmpMax = tmpsMax + "˚"
+                    }
+                    if let tmpsMin = subJson["tmp"]["min"].string{
+                        dailyResult.dailyTmpMin = tmpsMin + "˚"
+                    }
+                    if let conds = subJson["cond"]["txt_d"].string{
+                        dailyResult.dailyState = conds
+                    }
+                    if let stateCode = subJson["cond"]["code_d"].string{
+                        dailyResult.dailyStateCode = Int(stateCode)!
+                    }
+                    self.weatherResult.dailyResults.append(dailyResult)
+                    self.collectionView .reloadData()
+                }
+                
+                let weatherIcon = WeatherIcon(condition: nowCode, iconString: "day").iconText
+                self.TmpMax.text = tmpsMax + "˚"
+                self.TmpMin.text = tmpsMin + "˚"
+                self.TmpNow.text = tmpsNow + "˚"
+                self.labelOfState.text = nowTxt
+                self.labelOfIcon.text = weatherIcon
+                
+                if let FloatRain = Float(pop){
+                    let value = FloatRain / 100
+                    self.progress.setProgress(value, animated: true)
+                }
+                
+                self.rainPercentLabel.text = pop + "%"
+                self.mainView.reloadInputViews()
+                
+                self.dataModel.dailyResults = self.weatherResult.dailyResults
+                self.dataModel.currentCity = self.cityName
+                self.dataModel.saveData()
+                
+                hudView?.hide(true)
+                
+                iToast.makeText("更新成功").show()
+                self.update = NSDate().description
+                self.saveDefaults()
+            } else {
+                hudView?.hide(true)
+                iToast.makeText("获取失败").show()
+            }
         }
     }
     
     //MARK: - make city name 规范 '上海市' to '上海'
-    func rangeOfCities(placemark: String) -> String{
+    func rangeOfCities(_ placemark: String) -> String{
         if !placemark.isEmpty {
             parserXML = ParserXML()
             let cities = parserXML.cities
-            for (_ , value) in cities.enumerate(){
-                if placemark.rangeOfString(value.cityCN) != nil{
+            for (_ , value) in cities.enumerated(){
+                if placemark.range(of: value.cityCN) != nil{
                     return  value.cityCN
                 }
             }
@@ -401,12 +392,12 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     func initLocation() {
         let authStatus = CLLocationManager.authorizationStatus()
         
-        if authStatus == .NotDetermined {
+        if authStatus == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
             
         }
         
-        if authStatus == .Denied || authStatus == .Restricted {
+        if authStatus == .denied || authStatus == .restricted {
             showLocationServicesDeniedAlert()
             
         }
@@ -427,25 +418,25 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         cityName = appCloud().cityName
         dateUpdate()
         if !cityName.isEmpty {
-            buttonOfCity.setTitle(cityName, forState: .Normal)
+            buttonOfCity.setTitle(cityName, for: UIControlState())
         } else {
             initLocation()
-            buttonOfCity.setTitle(cityName, forState: .Normal)
+            buttonOfCity.setTitle(cityName, for: UIControlState())
         }
     }
     
     //MARK: - update the week day
     func dateUpdate() {
-        let currentdate = NSDate()
-        let dateFormatter = NSDateFormatter()
+        let currentdate = Date()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
-        let  convertedDate = dateFormatter.stringFromDate(currentdate)
+        let  convertedDate = dateFormatter.string(from: currentdate)
         labelOfDate.text = convertedDate
         dateString = convertedDate
     }
     
     //MARK: - location button func
-    @IBAction func locationButton(sender: UIButton) {
+    @IBAction func locationButton(_ sender: UIButton) {
         initLocation()
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
 //        if !cityName.isEmpty {
@@ -453,8 +444,8 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
 //        }
     }
     //MARK: - share to Weibo
-    @IBAction func shareToWeibo(sender: UIButton) {
-        let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+    @IBAction func shareToWeibo(_ sender: UIButton) {
+        let window: UIWindow! = UIApplication.shared.keyWindow
         windowImage = window.capture()
         
         let action1 = FloatingAction(title: "分享到新浪微博") { action in
@@ -467,35 +458,35 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
                 let pretext = "\(self.cityName),\(self.weatherResult.dailyResults[0].dailyDate) \(self.weatherResult.dailyResults[0].dailyState) \n"
                 var lasttext = ""
-                if self.raintxt.rangeOfString("雨") != nil {
+                if self.raintxt.range(of: "雨") != nil {
                     lasttext = "\n今天下雨几率为 \(self.pop)% 记得带伞☂"
                 }
         
                 if !self.suggestion.isEmpty {
-                    vc.setInitialText(pretext + self.suggestion + lasttext)
+                    vc?.setInitialText(pretext + self.suggestion + lasttext)
                 } else {
-                    vc.setInitialText("快来使用Rain Reminder吧#RainReminder#")
+                    vc?.setInitialText("快来使用Rain Reminder吧#RainReminder#")
                 }
-                let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+                let window: UIWindow! = UIApplication.shared.keyWindow
                 self.windowImage = window.capture()
-                vc.addImage(self.windowImage)
-                vc.addURL(NSURL(string: "https://www.easyulife.com"))
-                self.presentViewController(vc, animated: true, completion: nil)
+                vc?.add(self.windowImage)
+                vc?.add(NSURL(string: "https://www.easyulife.com") as URL!)
+                self.present(vc!, animated: true, completion: nil)
                 } else {
-                    let alert = UIAlertController(title: "暂时无法分享", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-                    let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.Cancel, handler: nil)
+                    let alert = UIAlertController(title: "暂时无法分享", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                    let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.cancel, handler: nil)
                     alert.addAction(action)
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
         // share action sheet
         let action2 = FloatingAction(title: "取消", handleImmediately: true) { action in
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         
         let group1 = FloatingActionGroup(action: action1, action2)
-        FloatingActionSheetController(actionGroup: group1).present(self)
+        FloatingActionSheetController(actionGroup: group1).present(in: self)
         
     }
     
@@ -507,14 +498,14 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         let label = UILabel()
         
-        button.frame = CGRectMake(232, 385, 87, 29)
-        button.setBackgroundImage(UIImage(named: "ButtonShareSubmit"), forState: .Normal)
+        button.frame = CGRect(x: 232, y: 385, width: 87, height: 29)
+        button.setBackgroundImage(UIImage(named: "ButtonShareSubmit"), for: UIControlState())
         weiboAlertView.addSubview(button)
-        button.addTarget(self, action: #selector(HomeController.submit(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(HomeController.submit(_:)), for: UIControlEvents.touchUpInside)
         
-        textView.frame = CGRectMake(54,281,265,94)
-        textView.backgroundColor = UIColor.blackColor()
-        textView.textColor = UIColor.whiteColor()
+        textView.frame = CGRect(x: 54,y: 281,width: 265,height: 94)
+        textView.backgroundColor = UIColor.black
+        textView.textColor = UIColor.white
         textView.text = "\(cityName) @ \(weatherResult.dailyResults[0].dailyDate) - "
         weiboAlertView.addSubview(textView)
         textView.becomeFirstResponder()
@@ -523,10 +514,10 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         let count = textView.text.characters.count
         
-        label.frame = CGRectMake(297, 345, 50, 50)
-        label.textColor = UIColor.blackColor()
+        label.frame = CGRect(x: 297, y: 345, width: 50, height: 50)
+        label.textColor = UIColor.black
         label.text = "\(150 - count)"
-        label.font = label.font.fontWithSize(12)
+        label.font = label.font.withSize(12)
         weiboAlertView.addSubview(label)
         
         weiboAlertView.addGestureRecognizer(tap)
@@ -535,21 +526,21 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         view.addSubview(weiboAlertView)
     }
     
-    func submit(sender: UIButton){
+    func submit(_ sender: UIButton){
         
         shareSinaWeibo(textView.text)
         weiboAlertView.removeFromSuperview()
     }
     
-    func WeibotouchBegin(sender: UIButton){
+    func WeibotouchBegin(_ sender: UIButton){
         weiboAlertView.removeFromSuperview()
     }
     
     // 发送分享请求
-    func shareSinaWeibo(text: String) {
+    func shareSinaWeibo(_ text: String) {
         let pretext = "\(text)\(weatherResult.dailyResults[0].dailyState) \n"
         var lasttext = ""
-        if raintxt.rangeOfString("雨") != nil {
+        if raintxt.range(of: "雨") != nil {
             lasttext = "\n今天下雨几率为 \(pop)% 记得带伞☂"
         }
 
@@ -559,11 +550,11 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         let request = WBSendMessageToWeiboRequest()
         request.message = messageToShare(lasttext, image: windowImage)
-        WeiboSDK.sendRequest(request)
+        WeiboSDK.send(request)
     }
     
     // 分享内容
-    func messageToShare(text: String, image: UIImage) -> WBMessageObject {
+    func messageToShare(_ text: String, image: UIImage) -> WBMessageObject {
         
         // 文字内容
         let message = WBMessageObject.message() as! WBMessageObject
@@ -578,21 +569,21 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     
     //MARK: - show Alert
     func showLocationServicesDeniedAlert() {
-        let alert = UIAlertController(title: "定位服务被禁用", message: "请在设置中打开", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.Default,handler: nil))
+        let alert = UIAlertController(title: "定位服务被禁用", message: "请在设置中打开", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.default,handler: nil))
         //let  okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(UIAlertAction(title: "前往设置", style: .Default, handler: { (action: UIAlertAction!) in
-            if let url = NSURL(string: "prefs:root") {
-                UIApplication.sharedApplication().openURL(url)
+        alert.addAction(UIAlertAction(title: "前往设置", style: .default, handler: { (action: UIAlertAction!) in
+            if let url = URL(string: "prefs:root") {
+                UIApplication.shared.openURL(url)
             }
         }))
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func showNoGeoInfoAlert() {
-        let alert = UIAlertController(title: "无法定位", message: "请稍后再使用本服务", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.Default,handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "无法定位", message: "请稍后再使用本服务", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default,handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     //MARK: CLLocationManager Method
@@ -602,7 +593,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
-            timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(HomeController.didTimeOut), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(HomeController.didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
@@ -632,7 +623,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let newLocation = locations.last!
         print("didUpdateLocations\(newLocation)")
@@ -647,7 +638,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
         
         var distance = CLLocationDistance(DBL_MAX)
         if let location = location {
-            distance = newLocation.distanceFromLocation(location)
+            distance = newLocation.distance(from: location)
         }
         
         
@@ -674,12 +665,12 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                     
                     //print("*** Found placemarks: \(placemarks), error: \(error)")
                     
-                    self.lastGeocodingError = error
-                    if error == nil, let p = placemarks where !p.isEmpty {
+                    self.lastGeocodingError = error as NSError?
+                    if error == nil, let p = placemarks, !p.isEmpty {
                         self.placemark = p.last!
                         
                         if self.placemark?.country != nil {self.country = (self.placemark?.country)!}
-                        if self.placemark?.ISOcountryCode != nil {self.country_code = (self.placemark?.ISOcountryCode)!}
+                        if self.placemark?.isoCountryCode != nil {self.country_code = (self.placemark?.isoCountryCode)!}
                         if self.placemark?.administrativeArea != nil {self.province = (self.placemark?.administrativeArea)!}
                         if self.placemark?.locality != nil {
                             self.city = self.rangeOfCities(self.placemark!.locality!)
@@ -703,7 +694,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                             //print("*** in gps")
                         }
                         
-                        self.buttonOfCity.setTitle(self.cityName, forState: .Normal)
+                        self.buttonOfCity.setTitle(self.cityName, for: UIControlState())
                         
                         //print("*** the only thing i need is \(geoInfo?.city)")
                         //print("my country is \(self.country),the province maybe is \(self.province),the district is \(self.district), the street is \(self.street),the name is \(self.name)")
@@ -717,7 +708,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                 })
             }
         } else if distance < 100.0 {
-            let timeInterval = newLocation.timestamp.timeIntervalSinceDate(location!.timestamp)
+            let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
             if timeInterval > 6 {
                 print("*** Force done!")
                 stopLocationManager()
@@ -727,26 +718,26 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     
     //MARK: - 获取总代理
     func appCloud() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
+        return UIApplication.shared.delegate as! AppDelegate
     }
     
     //MARK: -
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CityList"{
-            let controller = segue.destinationViewController as! CityListViewController
+            let controller = segue.destination as! CityListViewController
             controller.delegate = self
             controller.cities = dataModel.cities
         }
     }
     
-    func cityListViewControolerDidSelectCity(controller: CityListViewController, didSelectCity city: City) {
+    func cityListViewControolerDidSelectCity(_ controller: CityListViewController, didSelectCity city: City) {
         
         //减少网络请求次数,相同城市只有动画效果不重新加载网络请求
         if cityName == city.cityCN{
             
             cityName = city.cityCN
             performNetWork()
-            buttonOfCity.setTitle(cityName, forState: .Normal)
+            buttonOfCity.setTitle(cityName, for: UIControlState())
             
 //            let hudView = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 //            hudView.mode = MBProgressHUDModeIndeterminate
@@ -760,45 +751,45 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
             cityName = city.cityCN
             performNetWork()
             //print("*** return from citylist view")
-            buttonOfCity.setTitle(cityName, forState: .Normal)
+            buttonOfCity.setTitle(cityName, for: UIControlState())
         }
         
         dataModel.appendCity(city)
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    func cityListViewControllerDeleteCity(controller: CityListViewController, currentCities cities: [City]){
+    func cityListViewControllerDeleteCity(_ controller: CityListViewController, currentCities cities: [City]){
         dataModel.cities = cities
     }
     
-    func cityListViewControllerCancel(controller: CityListViewController) {
+    func cityListViewControllerCancel(_ controller: CityListViewController) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         //self.performSelector("performNetWork", withObject: nil, afterDelay: 0.3)
         //print("*** in cityListViewController")
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
 extension HomeController: UIScrollViewDelegate{
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSety = scrollView.contentOffset.y
         if decelerate{
             if offSety <= -100{
-                performSegueWithIdentifier("CityList", sender: scrollView)
+                performSegue(withIdentifier: "CityList", sender: scrollView)
             }
         }
     }
 }
 
 extension HomeController: UICollectionViewDataSource{
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherResult.dailyResults.count
     
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WeekWeatherCell", forIndexPath: indexPath) as! WeekWeatherCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekWeatherCell", for: indexPath) as! WeekWeatherCell
         
         let dailyResult = weatherResult.dailyResults[indexPath.item]
         
@@ -812,12 +803,12 @@ public extension UIWindow {
     
     func capture() -> UIImage {
         
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, UIScreen.mainScreen().scale)
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.isOpaque, UIScreen.main.scale)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
     
 }

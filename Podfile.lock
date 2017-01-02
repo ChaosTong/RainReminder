@@ -1,20 +1,36 @@
 PODS:
-  - Alamofire (3.2.1)
-  - FloatingActionSheetController (1.1.0)
+  - Alamofire (4.0.1)
+  - FloatingActionSheetController (2.0.0)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.2.0)
-  - FloatingActionSheetController
+  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, tag `4.0.1`)
+  - FloatingActionSheetController (from `https://github.com/ra1028/FloatingActionSheetController.git`, tag `2.0.0`)
   - SDWebImage
 
+EXTERNAL SOURCES:
+  Alamofire:
+    :git: https://github.com/Alamofire/Alamofire.git
+    :tag: 4.0.1
+  FloatingActionSheetController:
+    :git: https://github.com/ra1028/FloatingActionSheetController.git
+    :tag: 2.0.0
+
+CHECKOUT OPTIONS:
+  Alamofire:
+    :git: https://github.com/Alamofire/Alamofire.git
+    :tag: 4.0.1
+  FloatingActionSheetController:
+    :git: https://github.com/ra1028/FloatingActionSheetController.git
+    :tag: 2.0.0
+
 SPEC CHECKSUMS:
-  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
-  FloatingActionSheetController: 229e0cfe96d691b97c91900f9b6d54ece6bf93bd
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  FloatingActionSheetController: d2cebff313e56709438abae1aff4eb8f1726ba98
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-PODFILE CHECKSUM: 14d09605b6e1217ed605641583efbe995c9e3ea7
+PODFILE CHECKSUM: c29ed4a5bd9ccb71ac590fc2e2dee9641f4aebc8
 
-COCOAPODS: 1.0.0.beta.3
+COCOAPODS: 1.0.1

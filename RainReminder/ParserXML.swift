@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ParserXML: NSObject,NSXMLParserDelegate{
+class ParserXML: NSObject,XMLParserDelegate{
     
     var elementName = ""
     var cities = [City]()
@@ -19,19 +19,19 @@ class ParserXML: NSObject,NSXMLParserDelegate{
     }
     
     func parseXMLResource(){
-        let parser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Citys", ofType: "xml")!))
+        let parser = XMLParser(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "Citys", ofType: "xml")!))
         if let parser = parser{
             parser.delegate = self
             parser.parse()
         }
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         self.elementName = elementName
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
-        let str = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        let str = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if elementName == "city"{
             let city = City()
             city.cityCN = str

@@ -19,39 +19,39 @@ class WeatherResult {
     var ServiceStatus = ""
     var tempNow = ""
     
-    private func documentsDirectory() -> String{
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    fileprivate func documentsDirectory() -> String{
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         return paths[0]
     }
     
-    private func dataFilePath() -> String{
-        return (documentsDirectory() as NSString).stringByAppendingPathComponent("WeatherModel.plist")
+    fileprivate func dataFilePath() -> String{
+        return (documentsDirectory() as NSString).appendingPathComponent("WeatherModel.plist")
     }
     
     func saveData(){
         let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-        archiver.encodeObject(city, forKey: "city")
-        archiver.encodeObject(state, forKey: "state")
-        archiver.encodeObject(dayRain, forKey: "dayRain")
-        archiver.encodeObject(dayTemMax, forKey: "dayTemMax")
-        archiver.encodeObject(dayTmpMin, forKey: "dayTmpMin")
-        archiver.encodeObject(dailyResults, forKey: "DailyResults")
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(city, forKey: "city")
+        archiver.encode(state, forKey: "state")
+        archiver.encode(dayRain, forKey: "dayRain")
+        archiver.encode(dayTemMax, forKey: "dayTemMax")
+        archiver.encode(dayTmpMin, forKey: "dayTmpMin")
+        archiver.encode(dailyResults, forKey: "DailyResults")
         archiver.finishEncoding()
-        data.writeToFile(dataFilePath(), atomically: true)
+        data.write(toFile: dataFilePath(), atomically: true)
     }
     
     func loadData(){
         let path = dataFilePath()
-        if NSFileManager.defaultManager().fileExistsAtPath(path){
-            if let data = NSData(contentsOfFile: path){
-                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-                city = unarchiver.decodeObjectForKey("city") as! String
-                state = unarchiver.decodeObjectForKey("state") as! String
-                dayRain = unarchiver.decodeObjectForKey("dayRain") as! String
-                dayTemMax = unarchiver.decodeObjectForKey("dayTemMax") as! String
-                dayTmpMin = unarchiver.decodeObjectForKey("dayTmpMin") as! String
-                dailyResults = unarchiver.decodeObjectForKey("DailyResults") as! [DailyResult]
+        if FileManager.default.fileExists(atPath: path){
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)){
+                let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+                city = unarchiver.decodeObject(forKey: "city") as! String
+                state = unarchiver.decodeObject(forKey: "state") as! String
+                dayRain = unarchiver.decodeObject(forKey: "dayRain") as! String
+                dayTemMax = unarchiver.decodeObject(forKey: "dayTemMax") as! String
+                dayTmpMin = unarchiver.decodeObject(forKey: "dayTmpMin") as! String
+                dailyResults = unarchiver.decodeObject(forKey: "DailyResults") as! [DailyResult]
                 unarchiver.finishDecoding()
             }
         }

@@ -35,29 +35,25 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         reciveData()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         reciveData()
         print("view will appear")
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         print("view did appear")
     }
     
-    @IBAction func GotoMain(sender: UITapGestureRecognizer) {
-        let url = NSURL(string: "RainReminder://")!
-        self.extensionContext!.openURL(url , completionHandler: nil)
+    @IBAction func GotoMain(_ sender: UITapGestureRecognizer) {
+        let url = URL(string: "RainReminder://")!
+        self.extensionContext!.open(url , completionHandler: nil)
     }
     
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-
-        completionHandler(NCUpdateResult.NewData)
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        completionHandler(NCUpdateResult.newData)
     }
     func setUI() {
         location.text = labelOflocation
@@ -69,18 +65,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func reciveData() {
-        let userDefaults = NSUserDefaults(suiteName: "group.rainreminderShareDefault")
-        let shortcut = userDefaults?.objectForKey("com.easyulife.rainreminder.message") as! String
+        let userDefaults = UserDefaults(suiteName: "group.rainreminderShareDefault")
+        let shortcut = userDefaults?.object(forKey: "com.easyulife.rainreminder.message") as! String
         
         if !(shortcut.characters.count > 15) {
             
-            let timestamp = userDefaults?.objectForKey("com.easyulife.rainreminder.time") as! String
-            labelOficon = userDefaults?.objectForKey("com.easyulife.rainreminder.icon") as! String
-            labelOflocation = userDefaults?.objectForKey("com.easyulife.rainreminder.location") as! String
-            labelOftime = NSDate.dateFromeWeiboDateStr(timestamp).weiboDescriptionDate()
-            labelOfstate = userDefaults?.objectForKey("com.easyulife.rainreminder.state") as! String
-            labelOfnow = userDefaults?.objectForKey("com.easyulife.rainreminder.now") as! String
-            labelOftmp = userDefaults?.objectForKey("com.easyulife.rainreminder.tmp") as! String
+            let timestamp = userDefaults?.object(forKey: "com.easyulife.rainreminder.time") as! String
+            labelOficon = userDefaults?.object(forKey: "com.easyulife.rainreminder.icon") as! String
+            labelOflocation = userDefaults?.object(forKey: "com.easyulife.rainreminder.location") as! String
+            labelOftime = Date.dateFromeWeiboDateStr(timestamp).weiboDescriptionDate()
+            labelOfstate = userDefaults?.object(forKey: "com.easyulife.rainreminder.state") as! String
+            labelOfnow = userDefaults?.object(forKey: "com.easyulife.rainreminder.now") as! String
+            labelOftmp = userDefaults?.object(forKey: "com.easyulife.rainreminder.tmp") as! String
             
             setUI()
             message.text = ""
@@ -91,21 +87,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 }
 
-extension NSDate {
+extension Date {
     /// 从微博服务端字符串获取日期
-    class func dateFromeWeiboDateStr(dateString: String) -> NSDate {
-        let dateFormatter = NSDateFormatter()
+    static func dateFromeWeiboDateStr(_ dateString: String) -> Date {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        dateFormatter.locale = NSLocale(localeIdentifier: "en")
-        return dateFormatter.dateFromString(dateString)!
+        dateFormatter.locale = Locale(identifier: "en")
+        return dateFormatter.date(from: dateString)!
     }
     /// 返回日期的描述文字，1分钟内：刚刚，1小时内：xx分钟前，1天内：HH:mm，昨天：昨天 HH:mm，1年内：MM-dd HH:mm，更早时间：yyyy-MM-dd HH:mm
     func weiboDescriptionDate() -> String {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = Calendar.current
         var dateFormat = "HH:mm"
         // 如果是一天之内
         if calendar.isDateInToday(self) {
-            let since = NSDate().timeIntervalSinceDate(self)
+            let since = Date().timeIntervalSince(self)
             //一分钟内
             if since < 60.0 {
                 return "刚刚"
@@ -120,14 +116,14 @@ extension NSDate {
             dateFormat = "昨天 " + dateFormat
         } else {
             dateFormat = "MM-dd " + dateFormat
-            let component = calendar.components([NSCalendarUnit.Year], fromDate: self, toDate: NSDate(), options: [])
-            if component.year > 1 {
+            let component = (calendar as NSCalendar).components([NSCalendar.Unit.year], from: self, to: Date(), options: [])
+            if component.year! > 1 {
                 dateFormat = "yyyy-" + dateFormat
             }
         }
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        dateFormatter.locale = NSLocale(localeIdentifier: "en")
-        return dateFormatter.stringFromDate(self)
+        dateFormatter.locale = Locale(identifier: "en")
+        return dateFormatter.string(from: self)
     }
 }

@@ -17,12 +17,12 @@ class City: NSObject,NSCoding{
 
   
   required init?(coder aDecoder: NSCoder) {
-    cityCN = aDecoder.decodeObjectForKey("CityCN") as! String
+    cityCN = aDecoder.decodeObject(forKey: "CityCN") as! String
     super.init()
   }
   
-  func encodeWithCoder(aCoder: NSCoder) {
-    aCoder.encodeObject(cityCN, forKey: "CityCN")
+  func encode(with aCoder: NSCoder) {
+    aCoder.encode(cityCN, forKey: "CityCN")
   }
   
 }

@@ -13,11 +13,11 @@ class GradientView: UIView{
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.clearColor()
+    backgroundColor = UIColor.clear
   }
 
   required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
-    backgroundColor = UIColor.clearColor()
+    backgroundColor = UIColor.clear
   }
 }

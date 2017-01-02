@@ -38,7 +38,6 @@
 		C49579671CB507CC0051D7C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49579661CB507CC0051D7C8 /* Assets.xcassets */; };
 		C495796A1CB507CC0051D7C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49579681CB507CC0051D7C8 /* LaunchScreen.storyboard */; };
 		C49579761CB50BC00051D7C8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579751CB50BC00051D7C8 /* Functions.swift */; };
-		C49579781CB51B020051D7C8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49579771CB51B010051D7C8 /* SwiftyJSON.swift */; };
 		C497902E1CB6474C00EDF314 /* GeoInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497902D1CB6474C00EDF314 /* GeoInfoModel.swift */; };
 		C49790311CB65A8D00EDF314 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */; };
 		C49790371CB6A91700EDF314 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790361CB6A91700EDF314 /* ServerResult.swift */; };
@@ -48,6 +47,8 @@
 		C49790441CB748B400EDF314 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790421CB748B400EDF314 /* City.swift */; };
 		C49790451CB748B400EDF314 /* Citys.xml in Resources */ = {isa = PBXBuildFile; fileRef = C49790431CB748B400EDF314 /* Citys.xml */; };
 		C49790471CB7509900EDF314 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49790461CB7509900EDF314 /* DataModel.swift */; };
+		C4BD71271E1A64CF00912DBC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD71261E1A64CF00912DBC /* SwiftyJSON.swift */; };
+		C4BD712D1E1A7D6A00912DBC /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD712C1E1A7D6A00912DBC /* NetWorkTools.swift */; };
 		C4D577511CE2C58E00A6FD73 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D577501CE2C58E00A6FD73 /* Reachability.swift */; };
 		C4DA1FDA1CD9A2150040F802 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44BA0861CD871A6009FA914 /* NotificationCenter.framework */; };
 		C4DA1FDD1CD9A2150040F802 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */; };
@@ -143,7 +144,6 @@
 		C49579691CB507CC0051D7C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C495796B1CB507CC0051D7C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49579751CB50BC00051D7C8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		C49579771CB51B010051D7C8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C497902D1CB6474C00EDF314 /* GeoInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoInfoModel.swift; sourceTree = "<group>"; };
 		C49790301CB65A8D00EDF314 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		C49790361CB6A91700EDF314 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
@@ -153,6 +153,8 @@
 		C49790421CB748B400EDF314 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		C49790431CB748B400EDF314 /* Citys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Citys.xml; sourceTree = "<group>"; };
 		C49790461CB7509900EDF314 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		C4BD71261E1A64CF00912DBC /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		C4BD712C1E1A7D6A00912DBC /* NetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
 		C4D577501CE2C58E00A6FD73 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C4DA1FD91CD9A2150040F802 /* RainReminderTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RainReminderTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4DA1FDC1CD9A2150040F802 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -383,16 +385,17 @@
 		C49579711CB50B3A0051D7C8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD71261E1A64CF00912DBC /* SwiftyJSON.swift */,
 				C41565991CCF2FC100CBE6B9 /* libWeiboSDK */,
 				C44BA07E1CD85045009FA914 /* animate */,
 				C44BA07B1CD8500D009FA914 /* iToast */,
 				C44BA07C1CD85018009FA914 /* MBProgressHUD */,
-				C49579771CB51B010051D7C8 /* SwiftyJSON.swift */,
 				C49579751CB50BC00051D7C8 /* Functions.swift */,
 				C49790401CB7487700EDF314 /* ParserXML.swift */,
 				C44BF21C1CBA3D980064376E /* RainReminder-Bridging-Header.h */,
 				C40907311CDADCB200F6032C /* NSDate+WeatherDate.swift */,
 				C4D577501CE2C58E00A6FD73 /* Reachability.swift */,
+				C4BD712C1E1A7D6A00912DBC /* NetWorkTools.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -451,12 +454,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C495796E1CB507CC0051D7C8 /* Build configuration list for PBXNativeTarget "RainReminder" */;
 			buildPhases = (
-				446C27A556E0402E781EF271 /* Check Pods Manifest.lock */,
+				446C27A556E0402E781EF271 /* [CP] Check Pods Manifest.lock */,
 				C49579581CB507CB0051D7C8 /* Sources */,
 				C49579591CB507CB0051D7C8 /* Frameworks */,
 				C495795A1CB507CB0051D7C8 /* Resources */,
-				FDE1C0E0B4F8FFEC38982169 /* Embed Pods Frameworks */,
-				09DD3141BB8320B0079E5A74 /* Copy Pods Resources */,
+				FDE1C0E0B4F8FFEC38982169 /* [CP] Embed Pods Frameworks */,
+				09DD3141BB8320B0079E5A74 /* [CP] Copy Pods Resources */,
 				C44BA0951CD871A6009FA914 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -493,12 +496,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ChaosTong;
 				TargetAttributes = {
 					C495795B1CB507CB0051D7C8 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9Y74876TPS;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -511,6 +515,7 @@
 					C4DA1FD81CD9A2150040F802 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 9Y74876TPS;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -570,14 +575,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09DD3141BB8320B0079E5A74 /* Copy Pods Resources */ = {
+		09DD3141BB8320B0079E5A74 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,14 +590,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RainReminder/Pods-RainReminder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		446C27A556E0402E781EF271 /* Check Pods Manifest.lock */ = {
+		446C27A556E0402E781EF271 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,14 +605,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FDE1C0E0B4F8FFEC38982169 /* Embed Pods Frameworks */ = {
+		FDE1C0E0B4F8FFEC38982169 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,16 +644,17 @@
 				C49579601CB507CB0051D7C8 /* AppDelegate.swift in Sources */,
 				C49790471CB7509900EDF314 /* DataModel.swift in Sources */,
 				C40907321CDADCB200F6032C /* NSDate+WeatherDate.swift in Sources */,
-				C49579781CB51B020051D7C8 /* SwiftyJSON.swift in Sources */,
 				C49790391CB6A93B00EDF314 /* WeatherResult.swift in Sources */,
 				C44BF21F1CBA3D990064376E /* MBProgressHUD.m in Sources */,
 				C46DC3031CBB9D58007B39A8 /* LaunchViewController.swift in Sources */,
+				C4BD712D1E1A7D6A00912DBC /* NetWorkTools.swift in Sources */,
 				C46DC2F71CBB3D39007B39A8 /* CityListViewController.swift in Sources */,
 				C49790441CB748B400EDF314 /* City.swift in Sources */,
 				C49790371CB6A91700EDF314 /* ServerResult.swift in Sources */,
 				C44BA0801CD8508B009FA914 /* RRouter.swift in Sources */,
 				C45FF89C1CBCD8DB00D43701 /* GradientView.swift in Sources */,
 				C49790411CB7487700EDF314 /* ParserXML.swift in Sources */,
+				C4BD71271E1A64CF00912DBC /* SwiftyJSON.swift in Sources */,
 				C49579761CB50BC00051D7C8 /* Functions.swift in Sources */,
 				C46101361CCDE994003E549F /* WeiboAlert.swift in Sources */,
 			);
@@ -704,6 +710,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -713,8 +720,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
@@ -748,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -757,8 +767,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
@@ -777,6 +789,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -785,12 +798,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EDD3B849D8133BE06080AC4 /* Pods-RainReminder.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RainReminder/RainReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CHAO TONG (34R6G95PN5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 9Y74876TPS;
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -809,9 +823,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6d0b4495-2417-48a2-9af4-2abc8e0fad31";
+				PROVISIONING_PROFILE = "b3069019-0b36-43c2-a51c-d7a309d0a54e";
+				PROVISIONING_PROFILE_SPECIFIER = RainReminder_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
@@ -820,12 +836,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1852D5D2D5323C289BC4FCBC /* Pods-RainReminder.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RainReminder/RainReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 9Y74876TPS;
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -844,8 +861,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cd12f0ef-cefc-405d-b76c-e3b709f1309d";
+				PROVISIONING_PROFILE = "a23065f4-36d5-4753-b931-1ea9be480df1";
+				PROVISIONING_PROFILE_SPECIFIER = com.easyulife.RainReminder;
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -858,13 +877,16 @@
 				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CHAO TONG (34R6G95PN5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
+				DEVELOPMENT_TEAM = 9Y74876TPS;
 				INFOPLIST_FILE = today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd4e0825-964c-4929-a031-048076996e8b";
+				PROVISIONING_PROFILE = "fa0e0ea5-7580-4a3b-9db6-5b0452079e72";
+				PROVISIONING_PROFILE_SPECIFIER = RainReminder_today_dev;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -877,13 +899,16 @@
 				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				DEVELOPMENT_TEAM = 9Y74876TPS;
 				INFOPLIST_FILE = today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "960f4e05-6919-4be2-8e2b-431a91542af8";
+				PROVISIONING_PROFILE = "530db401-a098-4716-a34f-75b8f79475e3";
+				PROVISIONING_PROFILE_SPECIFIER = rrty_distribution;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

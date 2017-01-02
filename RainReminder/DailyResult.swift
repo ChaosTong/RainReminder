@@ -21,21 +21,21 @@ class DailyResult: NSObject,NSCoding{
     }    
     
     required init?(coder aDecoder: NSCoder) {
-        dailyTmpMax = aDecoder.decodeObjectForKey("DailyTmpMax") as! String
-        dailyTmpMin = aDecoder.decodeObjectForKey("DailyTmpMin") as! String
-        dailyState = aDecoder.decodeObjectForKey("DailyState") as! String
-        dailyDate = aDecoder.decodeObjectForKey("DailyDate") as! String
-        dailyPop = aDecoder.decodeIntegerForKey("DailyPop")
-        dailyStateCode = aDecoder.decodeIntegerForKey("DailyStateCode")
+        dailyTmpMax = aDecoder.decodeObject(forKey: "DailyTmpMax") as! String
+        dailyTmpMin = aDecoder.decodeObject(forKey: "DailyTmpMin") as! String
+        dailyState = aDecoder.decodeObject(forKey: "DailyState") as! String
+        dailyDate = aDecoder.decodeObject(forKey: "DailyDate") as! String
+        dailyPop = aDecoder.decodeInteger(forKey: "DailyPop")
+        dailyStateCode = aDecoder.decodeInteger(forKey: "DailyStateCode")
         super.init()
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(dailyTmpMax, forKey: "DailyTmpMax")
-        aCoder.encodeObject(dailyTmpMin, forKey: "DailyTmpMin")
-        aCoder.encodeObject(dailyState, forKey: "DailyState")
-        aCoder.encodeObject(dailyDate, forKey: "DailyDate")
-        aCoder.encodeInteger(dailyPop, forKey: "DailyPop")
-        aCoder.encodeInteger(dailyStateCode, forKey: "DailyStateCode")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(dailyTmpMax, forKey: "DailyTmpMax")
+        aCoder.encode(dailyTmpMin, forKey: "DailyTmpMin")
+        aCoder.encode(dailyState, forKey: "DailyState")
+        aCoder.encode(dailyDate, forKey: "DailyDate")
+        aCoder.encode(dailyPop, forKey: "DailyPop")
+        aCoder.encode(dailyStateCode, forKey: "DailyStateCode")
     }
 }
