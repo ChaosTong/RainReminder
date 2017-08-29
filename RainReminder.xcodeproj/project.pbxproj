@@ -503,6 +503,7 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9Y74876TPS;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -516,6 +517,7 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 9Y74876TPS;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -803,7 +805,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RainReminder/RainReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CHAO TONG (34R6G95PN5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9Y74876TPS;
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -823,7 +825,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b3069019-0b36-43c2-a51c-d7a309d0a54e";
+				PROVISIONING_PROFILE = "6a24c910-3241-4654-8ca8-b40bb67793a2";
 				PROVISIONING_PROFILE_SPECIFIER = RainReminder_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -841,7 +843,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RainReminder/RainReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 9Y74876TPS;
 				INFOPLIST_FILE = RainReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -861,7 +863,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a23065f4-36d5-4753-b931-1ea9be480df1";
+				PROVISIONING_PROFILE = "4b0dca62-089e-4be2-bc54-51a7c073370d";
 				PROVISIONING_PROFILE_SPECIFIER = com.easyulife.RainReminder;
 				SWIFT_OBJC_BRIDGING_HEADER = "RainReminder/RainReminder-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -876,15 +878,15 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CHAO TONG (34R6G95PN5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHAO TONG (34R6G95PN5)";
-				DEVELOPMENT_TEAM = 9Y74876TPS;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fa0e0ea5-7580-4a3b-9db6-5b0452079e72";
-				PROVISIONING_PROFILE_SPECIFIER = RainReminder_today_dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -898,15 +900,15 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHAO TONG (9Y74876TPS)";
-				DEVELOPMENT_TEAM = 9Y74876TPS;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.easyulife.RainReminder.RRToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "530db401-a098-4716-a34f-75b8f79475e3";
-				PROVISIONING_PROFILE_SPECIFIER = rrty_distribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};

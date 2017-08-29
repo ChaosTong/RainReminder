@@ -80,7 +80,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
     var update = Date().description
     
     //MARK: - key sth.
-    let BaseURL = "https://api.heweather.com/x3/weather/"
+    let BaseURL = "https://free-api.heweather.com/v5/weather"
     let key = "04f6c6c770d94aee8f738758a829d826"
     
     //MARK: - life cycle
@@ -273,7 +273,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate,UICollectionVi
                                  parameters: param) { (result) in
             let json = JSON(result)
             self.weatherResult = WeatherResult()
-            let data = json["HeWeather data service 3.0"][0]
+            let data = json["HeWeather5"][0]
             let status = data["status"].stringValue
             //print(json)
             if status == "ok" {

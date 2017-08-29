@@ -62,6 +62,21 @@ class LaunchViewController: UIViewController {
                 debugPrint(response)
                 guard response.result.error == nil, let data = response.result.value else {
                     print(response.result)
+                    let launchImageURL = "https://pic1.zhimg.com/d81d32da9ca5bff70171ed2c1893ad6c.jpg"
+                    Alamofire.request(launchImageURL, method: .get, parameters: nil, encoding: JSONEncoding.default)
+                        .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+                            print("Progress: \(progress.fractionCompleted)")
+                        }
+                        .validate { request, response, data in
+                            // Custom evaluation closure now includes data (allows you to parse data to dig out error messages if necessary)
+                            return .success
+                        }
+                        .responseJSON { response in
+                            if let data = response.data {
+                                UserDefaults.standard.set(data, forKey: self.launchImgKey)
+                                self.launchImageView.sd_setImage(with: NSURL(string: launchImageURL) as URL!)
+                            }
+                    }
                     return
                 }
                 let json = JSON(data)
