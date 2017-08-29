@@ -2,9 +2,9 @@
 
 # RainReminder
 
-**Version 1.2.1** ![](https://travis-ci.org/ChaosTong/RainReminder.svg?branch=develop)
+**Version 1.4.0** ![](https://travis-ci.org/ChaosTong/RainReminder.svg?branch=develop)
 
-**Update to Swift3** date 2017.01.02
+**Update to Swift3** date 2017.08.29
 
 > 简洁的Swift天气预报软件.(ps:简洁是因为复杂的我还不会orz)
    
@@ -113,3 +113,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
